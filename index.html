@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="antialiased">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-900 shadow-xl fixed w-full z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Profile Name/Logo on Left -->
+            <a href="#hero"
+                class="text-2xl font-bold text-indigo-400 hover:text-indigo-300 rounded-md p-2 transition duration-300 ease-in-out">Your
+                Name</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about"
+                    class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">About</a>
+                <a href="#skills"
+                    class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Skills</a>
+                <a href="#experience"
+                    class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Experience</a>
+                <a href="#projects"
+                    class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Projects</a>
+                <a href="#testimonials"
+                    class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Testimonials</a>
+                <a href="#contact"
+                    class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-indigo-400 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 py-2 shadow-inner">
+            <a href="#about"
+                class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-indigo-400 font-medium transition duration-300 ease-in-out">About</a>
+            <a href="#skills"
+                class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-indigo-400 font-medium transition duration-300 ease-in-out">Skills</a>
+            <a href="#experience"
+                class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-indigo-400 font-medium transition duration-300 ease-in-out">Experience</a>
+            <a href="#projects"
+                class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-indigo-400 font-medium transition duration-300 ease-in-out">Projects</a>
+            <a href="#testimonials"
+                class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-indigo-400 font-medium transition duration-300 ease-in-out">Testimonials</a>
+            <a href="#contact"
+                class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-indigo-400 font-medium transition duration-300 ease-in-out">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative h-screen flex items-center bg-gray-950 text-white overflow-hidden">
+        <!-- Abstract background pattern using SVG -->
+        <div class="absolute inset-0 z-0 opacity-10">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <pattern id="pattern-circles" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse"
+                        patternContentUnits="userSpaceOnUse">
+                        <circle cx="2" cy="2" r="1" fill="#374151"></circle>
+                    </pattern>
+                    <pattern id="pattern-lines" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"
+                        patternContentUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                        <line x1="0" y1="0" x2="0" y2="20" stroke="#374151" stroke-width="0.5"></line>
+                    </pattern>
+                </defs>
+                <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
+                <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-lines)" opacity="0.5"></rect>
+            </svg>
+        </div>
+
+        <div
+            class="relative z-10 p-6 bg-gray-900 bg-opacity-50 rounded-xl shadow-2xl backdrop-blur-sm max-w-2xl mx-auto md:mx-0 md:ml-20 animate-fade-in text-left">
+            <img src="https://placehold.co/150x150/4a5568/a0aec0?text=Your+Photo" alt="Your Photo"
+                class="w-36 h-36 rounded-full mb-6 border-4 border-indigo-400 shadow-lg object-cover animate-rotate-in mx-auto md:mx-0">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight">Hi, I'm <span
+                    class="text-yellow-300">Your Name</span></h1>
+            <p class="text-xl md:text-2xl font-light mb-8">A passionate <span
+                    class="font-semibold text-indigo-200">[Your Profession/Role]</span> building amazing things.</p>
+            <a href="#projects"
+                class="inline-block bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-yellow-300 transform hover:scale-105 transition duration-300 ease-in-out">View
+                My Work <i class="fas fa-arrow-right ml-2"></i></a>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="section-title text-center mx-auto animate-fade-in">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center md:space-x-12 mt-10">
+                <div class="md:w-1/2 mb-8 md:mb-0 animate-slide-left">
+                    <img src="https://placehold.co/400x300/4a5568/a0aec0?text=About+Image" alt="About Me"
+                        class="rounded-xl shadow-lg transform hover:scale-105 transition duration-300 ease-in-out object-cover w-full h-auto">
+                </div>
+                <div class="md:w-1/2 text-lg text-gray-300 leading-relaxed animate-slide-right">
+                    <p class="mb-4">Hello! I'm <span class="font-semibold text-indigo-400">Your Name</span>, a [Your
+                        Profession/Role] with a strong passion for [Your Passion/Area of Expertise]. I thrive on solving
+                        complex problems and creating intuitive, efficient, and beautiful solutions.</p>
+                    <p class="mb-4">My journey in [Your Field] began [X years ago] when I discovered [how you got into
+                        it, e.g., the power of code, the intricacies of design, the impact of data]. Since then, I've
+                        been dedicated to continuous learning and honing my skills.</p>
+                    <p>When I'm not [working/coding/designing], you can find me [Your Hobby, e.g., exploring new
+                        technologies, hiking, reading sci-fi novels]. I believe in a balanced approach to life and work,
+                        which fuels my creativity and problem-solving abilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="section-title text-center mx-auto animate-fade-in">My Skills</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+                <!-- Skill Card 1 -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in">
+                    <div class="text-4xl text-indigo-400 mb-4 text-center"><i class="fab fa-html5"></i></div>
+                    <h3 class="text-xl font-semibold text-gray-100 mb-2 text-center">Web Development</h3>
+                    <p class="text-gray-300 text-center">HTML5, CSS3, JavaScript (ES6+), React, Vue.js, Angular,
+                        Node.js, Express.js, MongoDB, PostgreSQL.</p>
+                </div>
+                <!-- Skill Card 2 -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in" data-delay="100">
+                    <div class="text-4xl text-green-400 mb-4 text-center"><i class="fas fa-palette"></i></div>
+                    <h3 class="text-xl font-semibold text-gray-100 mb-2 text-center">UI/UX Design</h3>
+                    <p class="text-gray-300 text-center">Figma, Sketch, Adobe XD, User Research, Wireframing,
+                        Prototyping, Usability Testing, Responsive Design.</p>
+                </div>
+                <!-- Skill Card 3 -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in" data-delay="200">
+                    <div class="text-4xl text-red-400 mb-4 text-center"><i class="fas fa-database"></i></div>
+                    <h3 class="text-xl font-semibold text-gray-100 mb-2 text-center">Database Management</h3>
+                    <p class="text-gray-300 text-center">SQL (MySQL, PostgreSQL), NoSQL (MongoDB, Firebase), Database
+                        Design, Query Optimization, Data Migration.</p>
+                </div>
+                <!-- Skill Card 4 -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in" data-delay="300">
+                    <div class="text-4xl text-yellow-400 mb-4 text-center"><i class="fas fa-cloud"></i></div>
+                    <h3 class="text-xl font-semibold text-gray-100 mb-2 text-center">Cloud Platforms</h3>
+                    <p class="text-gray-300 text-center">AWS (EC2, S3, Lambda), Google Cloud Platform (GCP), Azure,
+                        Serverless Architectures, CI/CD.</p>
+                </div>
+                <!-- Skill Card 5 -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in" data-delay="400">
+                    <div class="text-4xl text-purple-400 mb-4 text-center"><i class="fas fa-code-branch"></i></div>
+                    <h3 class="text-xl font-semibold text-gray-100 mb-2 text-center">Version Control</h3>
+                    <p class="text-gray-300 text-center">Git, GitHub, GitLab, Bitbucket, Branching Strategies, Pull
+                        Requests, Code Reviews.</p>
+                </div>
+                <!-- Skill Card 6 -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in" data-delay="500">
+                    <div class="text-4xl text-teal-400 mb-4 text-center"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="text-xl font-semibold text-gray-100 mb-2 text-center">Data Analysis</h3>
+                    <p class="text-gray-300 text-center">Python (Pandas, NumPy), R, SQL, Data Visualization (Matplotlib,
+                        Seaborn), Statistical Analysis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="section-title text-center mx-auto animate-fade-in">Experience</h2>
+            <div class="relative mt-10">
+                <!-- Vertical Line -->
+                <div
+                    class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-indigo-600 h-full hidden md:block rounded-full">
+                </div>
+
+                <!-- Experience Item 1 -->
+                <div class="mb-12 flex flex-col md:flex-row items-center justify-between w-full animate-on-scroll"
+                    data-animation="slide-in-left">
+                    <div
+                        class="md:w-5/12 text-right p-4 md:order-1 order-2 bg-gray-700 rounded-lg shadow-md border border-gray-600">
+                        <h3 class="text-xl font-semibold text-gray-100">Senior Software Engineer</h3>
+                        <p class="text-indigo-400">Tech Solutions Inc.</p>
+                        <p class="text-gray-400 text-sm">Jan 2022 - Present</p>
+                        <ul class="list-disc list-inside text-gray-300 mt-2 text-left md:text-right">
+                            <li>Led development of scalable web applications using React and Node.js.</li>
+                            <li>Mentored junior developers and conducted code reviews.</li>
+                            <li>Optimized database queries, reducing load times by 30%.</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/12 flex justify-center md:order-2 order-1 mb-4 md:mb-0">
+                        <div
+                            class="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center text-white shadow-md">
+                            <i class="fas fa-briefcase text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-5/12 p-4 md:order-3 order-3 hidden md:block"></div>
+                </div>
+
+                <!-- Experience Item 2 -->
+                <div class="mb-12 flex flex-col md:flex-row items-center justify-between w-full animate-on-scroll"
+                    data-animation="slide-in-right">
+                    <div
+                        class="md:w-5/12 p-4 md:order-3 order-2 bg-gray-700 rounded-lg shadow-md border border-gray-600">
+                        <h3 class="text-xl font-semibold text-gray-100">Frontend Developer</h3>
+                        <p class="text-indigo-400">Creative Agency Co.</p>
+                        <p class="text-gray-400 text-sm">Jul 2019 - Dec 2021</p>
+                        <ul class="list-disc list-inside text-gray-300 mt-2 text-left">
+                            <li>Developed responsive user interfaces with HTML, CSS, and JavaScript.</li>
+                            <li>Collaborated with design team to implement UI/UX mockups.</li>
+                            <li>Integrated RESTful APIs into client-side applications.</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/12 flex justify-center md:order-2 order-1 mb-4 md:mb-0">
+                        <div
+                            class="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center text-white shadow-md">
+                            <i class="fas fa-code text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-5/12 p-4 md:order-1 order-3 hidden md:block"></div>
+                </div>
+
+                <!-- Experience Item 3 -->
+                <div class="mb-12 flex flex-col md:flex-row items-center justify-between w-full animate-on-scroll"
+                    data-animation="slide-in-left">
+                    <div
+                        class="md:w-5/12 text-right p-4 md:order-1 order-2 bg-gray-700 rounded-lg shadow-md border border-gray-600">
+                        <h3 class="text-xl font-semibold text-gray-100">Junior Web Developer</h3>
+                        <p class="text-indigo-400">Startup Innovators</p>
+                        <p class="text-gray-400 text-sm">Jan 2018 - Jun 2019</p>
+                        <ul class="list-disc list-inside text-gray-300 mt-2 text-left md:text-right">
+                            <li>Assisted in building and maintaining company websites.</li>
+                            <li>Learned best practices in web development and version control.</li>
+                            <li>Contributed to front-end and back-end tasks under supervision.</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/12 flex justify-center md:order-2 order-1 mb-4 md:mb-0">
+                        <div
+                            class="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center text-white shadow-md">
+                            <i class="fas fa-laptop-code text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-5/12 p-4 md:order-3 order-3 hidden md:block"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h2 class="section-title text-center mx-auto animate-fade-in">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+                <!-- Project Card 1 -->
+                <div class="project-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in" data-project-id="project1">
+                    <img src="https://placehold.co/600x400/3b82f6/ffffff?text=E-commerce+Platform"
+                        alt="E-commerce Platform" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-100 mb-2">E-commerce Platform</h3>
+                        <p class="text-gray-300 mb-4">A full-stack e-commerce application built with React, Node.js, and
+                            MongoDB, featuring user authentication, product management, and payment integration.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="bg-indigo-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">React</span>
+                            <span
+                                class="bg-green-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">Node.js</span>
+                            <span
+                                class="bg-red-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">MongoDB</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#"
+                                class="text-indigo-400 hover:text-indigo-300 font-medium flex items-center transition duration-300 ease-in-out"
+                                target="_blank">
+                                Live Demo <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                            </a>
+                            <a href="#"
+                                class="text-gray-400 hover:text-gray-300 flex items-center transition duration-300 ease-in-out"
+                                target="_blank">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in" data-delay="100" data-project-id="project2">
+                    <img src="https://placehold.co/600x400/6366f1/ffffff?text=Task+Manager+App"
+                        alt="Task Management App" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-100 mb-2">Task Management App</h3>
+                        <p class="text-gray-300 mb-4">A responsive task management application with drag-and-drop
+                            functionality, real-time updates, and user collaboration features.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="bg-purple-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">Vue.js</span>
+                            <span
+                                class="bg-yellow-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">Firebase</span>
+                            <span class="bg-blue-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">Drag &
+                                Drop API</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#"
+                                class="text-indigo-400 hover:text-indigo-300 font-medium flex items-center transition duration-300 ease-in-out"
+                                target="_blank">
+                                Live Demo <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                            </a>
+                            <a href="#"
+                                class="text-gray-400 hover:text-gray-300 flex items-center transition duration-300 ease-in-out"
+                                target="_blank">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in" data-delay="200" data-project-id="project3">
+                    <img src="https://placehold.co/600x400/f59e0b/ffffff?text=Data+Dashboard"
+                        alt="Interactive Data Dashboard" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-100 mb-2">Interactive Data Dashboard</h3>
+                        <p class="text-gray-300 mb-4">A dynamic dashboard visualizing complex datasets using D3.js and
+                            React, with interactive charts and filters.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="bg-pink-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">D3.js</span>
+                            <span
+                                class="bg-indigo-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">React</span>
+                            <span class="bg-teal-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">Data
+                                Viz</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#"
+                                class="text-indigo-400 hover:text-indigo-300 font-medium flex items-center transition duration-300 ease-in-out"
+                                target="_blank">
+                                Live Demo <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                            </a>
+                            <a href="#"
+                                class="text-gray-400 hover:text-gray-300 flex items-center transition duration-300 ease-in-out"
+                                target="_blank">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 4 -->
+                <div class="project-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in" data-delay="300" data-project-id="project4">
+                    <img src="https://placehold.co/600x400/475569/ffffff?text=Mobile+App+Concept"
+                        alt="Mobile App Concept" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-100 mb-2">Mobile App Concept</h3>
+                        <p class="text-gray-300 mb-4">UI/UX design and prototype for a fitness tracking mobile
+                            application, focusing on user-centric design principles.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="bg-gray-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">Figma</span>
+                            <span
+                                class="bg-indigo-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">UI/UX</span>
+                            <span
+                                class="bg-green-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">Prototyping</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#"
+                                class="text-indigo-400 hover:text-indigo-300 font-medium flex items-center transition duration-300 ease-in-out"
+                                target="_blank">
+                                View Case Study <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                            </a>
+                            <a href="#"
+                                class="text-gray-400 hover:text-gray-300 flex items-center transition duration-300 ease-in-out"
+                                target="_blank">
+                                <i class="fab fa-behance text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 5 -->
+                <div class="project-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in" data-delay="400" data-project-id="project5">
+                    <img src="https://placehold.co/600x400/6b7280/ffffff?text=Blog+Platform"
+                        alt="Personal Blog Platform" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-100 mb-2">Personal Blog Platform</h3>
+                        <p class="text-gray-300 mb-4">A custom-built blog platform with a content management system
+                            (CMS), markdown support, and SEO optimization.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="bg-red-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">Next.js</span>
+                            <span
+                                class="bg-indigo-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">GraphQL</span>
+                            <span
+                                class="bg-green-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">CMS</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#"
+                                class="text-indigo-400 hover:text-indigo-300 font-medium flex items-center transition duration-300 ease-in-out"
+                                target="_blank">
+                                Live Demo <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                            </a>
+                            <a href="#"
+                                class="text-gray-400 hover:text-gray-300 flex items-center transition duration-300 ease-in-out"
+                                target="_blank">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 6 -->
+                <div class="project-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in" data-delay="500" data-project-id="project6">
+                    <img src="https://placehold.co/600x400/374151/ffffff?text=Game+Dev" alt="Simple Game Development"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-100 mb-2">Simple Game Development</h3>
+                        <p class="text-gray-300 mb-4">A small browser-based game developed using pure JavaScript and
+                            HTML Canvas, demonstrating basic game mechanics.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="bg-yellow-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">JavaScript</span>
+                            <span class="bg-purple-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">HTML
+                                Canvas</span>
+                            <span class="bg-red-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">Game
+                                Dev</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#"
+                                class="text-indigo-400 hover:text-indigo-300 font-medium flex items-center transition duration-300 ease-in-out"
+                                target="_blank">
+                                Play Game <i class="fas fa-gamepad ml-2 text-sm"></i>
+                            </a>
+                            <a href="#"
+                                class="text-gray-400 hover:text-gray-300 flex items-center transition duration-300 ease-in-out"
+                                target="_blank">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="section-title text-center mx-auto animate-fade-in">What People Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+                <!-- Testimonial Card 1 -->
+                <div class="bg-gray-700 p-8 rounded-xl shadow-lg border border-gray-600 flex flex-col items-center text-center animate-on-scroll"
+                    data-animation="fade-in">
+                    <img src="https://placehold.co/80x80/4a5568/a0aec0?text=Client+1" alt="Client 1"
+                        class="w-20 h-20 rounded-full mb-4 border-2 border-indigo-400 object-cover">
+                    <p class="text-gray-300 italic mb-4">"Your Name is an exceptional developer. Their attention to
+                        detail and ability to deliver high-quality code on time is truly impressive. Highly recommend!"
+                    </p>
+                    <p class="font-semibold text-gray-100">- Jane Doe, CEO of Company A</p>
+                </div>
+                <!-- Testimonial Card 2 -->
+                <div class="bg-gray-700 p-8 rounded-xl shadow-lg border border-gray-600 flex flex-col items-center text-center animate-on-scroll"
+                    data-animation="fade-in" data-delay="100">
+                    <img src="https://placehold.co/80x80/2d3748/a0aec0?text=Client+2" alt="Client 2"
+                        class="w-20 h-20 rounded-full mb-4 border-2 border-indigo-400 object-cover">
+                    <p class="text-gray-300 italic mb-4">"Working with Your Name was a fantastic experience. They
+                        understood our vision perfectly and brought it to life with their expertise in design and
+                        development."</p>
+                    <p class="font-semibold text-gray-100">- John Smith, Marketing Director at Company B</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="section-title text-center mx-auto animate-fade-in">Get In Touch</h2>
+            <div class="mt-10 bg-gray-700 p-8 rounded-xl shadow-lg border border-gray-600 animate-fade-in">
+                <p class="text-center text-gray-300 mb-8">Have a question or want to work together? Fill out the form
+                    below or reach out directly!</p>
+                <form class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
+                        <input type="text" id="name" name="name"
+                            class="mt-1 block w-full px-4 py-2 bg-gray-600 border border-gray-500 rounded-md shadow-sm text-gray-100 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            placeholder="Your Name" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                        <input type="email" id="email" name="email"
+                            class="mt-1 block w-full px-4 py-2 bg-gray-600 border border-gray-500 rounded-md shadow-sm text-gray-100 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            placeholder="your.email@example.com" required>
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Subject</label>
+                        <input type="text" id="subject" name="subject"
+                            class="mt-1 block w-full px-4 py-2 bg-gray-600 border border-gray-500 rounded-md shadow-sm text-gray-100 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            placeholder="Project Inquiry, Collaboration, etc." required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
+                        <textarea id="message" name="message" rows="5"
+                            class="mt-1 block w-full px-4 py-2 bg-gray-600 border border-gray-500 rounded-md shadow-sm text-gray-100 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            placeholder="Tell me about your project or message..." required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit"
+                            class="inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-lg font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transform hover:scale-105 transition duration-300 ease-in-out">
+                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="mt-10 text-center">
+                    <p class="text-gray-300 text-lg mb-4">Find me on social media:</p>
+                    <div class="flex justify-center space-x-6">
+                        <a href="#"
+                            class="text-indigo-400 hover:text-indigo-300 text-3xl transition duration-300 ease-in-out transform hover:scale-110"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"
+                            class="text-gray-400 hover:text-gray-300 text-3xl transition duration-300 ease-in-out transform hover:scale-110"
+                            aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#"
+                            class="text-blue-400 hover:text-blue-300 text-3xl transition duration-300 ease-in-out transform hover:scale-110"
+                            aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#"
+                            class="text-red-400 hover:text-red-300 text-3xl transition duration-300 ease-in-out transform hover:scale-110"
+                            aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-4">&copy; 2025 Your Name. All rights reserved.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#about" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">About</a>
+                <a href="#skills" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">Skills</a>
+                <a href="#projects"
+                    class="text-gray-400 hover:text-white transition duration-300 ease-in-out">Projects</a>
+                <a href="#contact"
+                    class="text-gray-400 hover:text-white transition duration-300 ease-in-out">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Detail Modal -->
+    <div id="project-detail-modal" class="modal-overlay hidden">
+        <div class="modal-content w-full md:w-3/4 lg:w-2/3 xl:w-1/2">
+            <button id="close-modal-button"
+                class="absolute top-4 right-4 text-gray-400 hover:text-gray-100 text-3xl focus:outline-none">
+                <i class="fas fa-times-circle"></i>
+            </button>
+            <h3 id="modal-project-title" class="text-3xl font-bold text-indigo-400 mb-4"></h3>
+            <img id="modal-project-image" src="" alt="Project Image" class="w-full h-64 object-cover rounded-lg mb-6">
+            <p id="modal-project-description" class="text-gray-300 text-lg mb-6 leading-relaxed"></p>
+            <div id="modal-project-tech" class="flex flex-wrap gap-2 mb-6"></div>
+            <div class="flex flex-col sm:flex-row justify-center sm:justify-start gap-4">
+                <a id="modal-live-demo" href="#"
+                    class="inline-block bg-indigo-600 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-indigo-700 transform hover:scale-105 transition duration-300 ease-in-out text-center"
+                    target="_blank">
+                    Live Demo <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                </a>
+                <a id="modal-github" href="#"
+                    class="inline-block bg-gray-600 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-gray-700 transform hover:scale-105 transition duration-300 ease-in-out text-center"
+                    target="_blank">
+                    GitHub <i class="fab fa-github ml-2 text-sm"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to your external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+
+</html>
