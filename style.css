@@ -9,6 +9,21 @@ body {
     /* Dark background */
     color: #e2e8f0;
     /* Light text */
+    /* New: Subtle animated background pattern */
+    background-image: radial-gradient(circle at 10% 20%, rgba(30, 64, 175, 0.05) 0%, rgba(30, 64, 175, 0.01) 90%),
+        radial-gradient(circle at 90% 80%, rgba(79, 70, 229, 0.05) 0%, rgba(79, 70, 229, 0.01) 90%);
+    background-size: 150% 150%;
+    animation: backgroundPan 30s linear infinite alternate;
+}
+
+@keyframes backgroundPan {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 100% 100%;
+    }
 }
 
 .section-title {
@@ -117,6 +132,71 @@ body {
     }
 }
 
+@keyframes particleMove {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.8;
+    }
+
+    25% {
+        transform: translate(20vw, 15vh) scale(1.2);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translate(40vw, -10vh) scale(0.8);
+        opacity: 0.4;
+    }
+
+    75% {
+        transform: translate(60vw, 20vh) scale(1.1);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translate(80vw, -5vh) scale(0.9);
+        opacity: 0.5;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(99, 102, 241, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 15px rgba(99, 102, 241, 0.8), 0 0 20px rgba(99, 102, 241, 0.6);
+    }
+
+    100% {
+        box-shadow: 0 0 5px rgba(99, 102, 241, 0.4);
+    }
+}
+
+/* New animation for a subtle pop-in effect */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
 /* Apply animations on scroll (handled by JS below) */
 .animate-on-scroll {
     opacity: 0;
@@ -148,6 +228,11 @@ body {
 .animate-rotate-in.is-visible {
     animation: rotateIn 0.8s ease-out forwards;
 }
+
+.animate-pop-in.is-visible {
+    animation: popIn 0.5s ease-out forwards;
+}
+
 
 /* Modal specific styles */
 .modal-overlay {
@@ -190,4 +275,69 @@ body {
 .modal-overlay.is-visible .modal-content {
     transform: translateY(0);
     opacity: 1;
+}
+
+/* Loading Spinner Styles */
+.spinner {
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid #6366f1;
+    /* Indigo color */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+/* CSS Particles for Hero Section */
+.particles-container {
+    overflow: hidden;
+    /* Ensure particles don't overflow */
+}
+
+/* Base styles for dynamically created particles */
+.particles-container div {
+    position: absolute;
+    border-radius: 50%;
+    animation: particleMove infinite alternate;
+    filter: blur(2px);
+    /* Soften the particles */
+    pointer-events: none;
+    /* Ensure particles don't interfere with clicks */
+}
+
+/* Hover effects for cards */
+.service-card:hover,
+.skill-card:hover,
+.project-card:hover,
+.testimonial-card:hover,
+.certification-card:hover,
+/* New hover for certification cards */
+.article-card:hover {
+    /* New hover for article cards */
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+    /* Subtle glow on hover */
+}
+
+/* New section card styles */
+.certification-card,
+.article-card {
+    background-color: #2d3748;
+    /* Darker background for these cards */
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border: 1px solid #4a5568;
+    /* Border for definition */
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.article-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHINMOY KUMAR BISWAS - Portfolio</title>
+    <title>Your Name - Portfolio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for icons -->
@@ -15,20 +15,34 @@
 
 <body class="antialiased">
 
+    <!-- Loading Spinner -->
+    <div id="loading-spinner"
+        class="fixed inset-0 bg-gray-950 flex items-center justify-center z-[9999] transition-opacity duration-500 opacity-100">
+        <div class="spinner"></div>
+    </div>
+
     <!-- Navigation Bar -->
     <nav class="bg-gray-900 shadow-xl fixed w-full z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Profile Name/Logo on Left -->
             <a href="#hero"
-                class="text-2xl font-bold text-indigo-400 hover:text-indigo-300 rounded-md p-2 transition duration-300 ease-in-out">CHINMOY
-                KUMAR BISWAS</a>
+                class="text-2xl font-bold text-indigo-400 hover:text-indigo-300 rounded-md p-2 transition duration-300 ease-in-out">Your
+                Name</a>
             <div class="hidden md:flex space-x-8">
                 <a href="#about"
                     class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">About</a>
+                <a href="#services"
+                    class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Services</a>
                 <a href="#skills"
                     class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Skills</a>
                 <a href="#experience"
                     class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Experience</a>
+                <a href="#education"
+                    class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Education</a>
+                <a href="#certifications"
+                    class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Certifications</a>
+                <a href="#blog"
+                    class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Blog</a>
                 <a href="#projects"
                     class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Projects</a>
                 <a href="#testimonials"
@@ -45,10 +59,18 @@
         <div id="mobile-menu" class="hidden md:hidden bg-gray-800 py-2 shadow-inner">
             <a href="#about"
                 class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-indigo-400 font-medium transition duration-300 ease-in-out">About</a>
+            <a href="#services"
+                class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-indigo-400 font-medium transition duration-300 ease-in-out">Services</a>
             <a href="#skills"
                 class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-indigo-400 font-medium transition duration-300 ease-in-out">Skills</a>
             <a href="#experience"
                 class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-indigo-400 font-medium transition duration-300 ease-in-out">Experience</a>
+            <a href="#education"
+                class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-indigo-400 font-medium transition duration-300 ease-in-out">Education</a>
+            <a href="#certifications"
+                class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-indigo-400 font-medium transition duration-300 ease-in-out">Certifications</a>
+            <a href="#blog"
+                class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-indigo-400 font-medium transition duration-300 ease-in-out">Blog</a>
             <a href="#projects"
                 class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-indigo-400 font-medium transition duration-300 ease-in-out">Projects</a>
             <a href="#testimonials"
@@ -77,15 +99,17 @@
                 <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-lines)" opacity="0.5"></rect>
             </svg>
         </div>
+        <!-- Animated Particles Overlay (CSS generated) -->
+        <div class="absolute inset-0 z-0 particles-container"></div>
 
         <div
             class="relative z-10 p-6 bg-gray-900 bg-opacity-50 rounded-xl shadow-2xl backdrop-blur-sm max-w-2xl mx-auto md:mx-0 md:ml-20 animate-fade-in text-left">
-            <img src="images\chinmoy.png" alt="Your Photo"
+            <img src="https://placehold.co/150x150/4a5568/a0aec0?text=Your+Photo" alt="Your Photo"
                 class="w-36 h-36 rounded-full mb-6 border-4 border-indigo-400 shadow-lg object-cover animate-rotate-in mx-auto md:mx-0">
             <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight">Hi, I'm <span
-                    class="text-yellow-300">CHINMOY KUMAR BISWAS</span></h1>
+                    class="text-yellow-300">Your Name</span></h1>
             <p class="text-xl md:text-2xl font-light mb-8">A passionate <span
-                    class="font-semibold text-indigo-200">Programmer</span> building amazing things.</p>
+                    class="font-semibold text-indigo-200">[Your Profession/Role]</span> building amazing things.</p>
             <a href="#projects"
                 class="inline-block bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-yellow-300 transform hover:scale-105 transition duration-300 ease-in-out">View
                 My Work <i class="fas fa-arrow-right ml-2"></i></a>
@@ -102,81 +126,122 @@
                         class="rounded-xl shadow-lg transform hover:scale-105 transition duration-300 ease-in-out object-cover w-full h-auto">
                 </div>
                 <div class="md:w-1/2 text-lg text-gray-300 leading-relaxed animate-slide-right">
-                    <p class="mb-4">Hello! I'm <span class="font-semibold text-indigo-400">CHINMOY KUMAR BISWAS </span>,
-                        a Programmer with a strong passion for creating something new. I thrive on solving
+                    <p class="mb-4">Hello! I'm <span class="font-semibold text-indigo-400">Your Name</span>, a [Your
+                        Profession/Role] with a strong passion for [Your Passion/Area of Expertise]. I thrive on solving
                         complex problems and creating intuitive, efficient, and beautiful solutions.</p>
-                    <p class="mb-4">My journey in programming began 2 years ago when I discovered
-                        the power of code, the intricacies of design and the impact of data. Since then, I've
+                    <p class="mb-4">My journey in [Your Field] began [X years ago] when I discovered [how you got into
+                        it, e.g., the power of code, the intricacies of design, the impact of data]. Since then, I've
                         been dedicated to continuous learning and honing my skills.</p>
-                    <p>When I'm not coding, you can find me exploring new
-                        technologies, reading sci-fi novels. I believe in a balanced approach to life and work,
+                    <p>When I'm not [working/coding/designing], you can find me [Your Hobby, e.g., exploring new
+                        technologies, hiking, reading sci-fi novels]. I believe in a balanced approach to life and work,
                         which fuels my creativity and problem-solving abilities.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h2 class="section-title text-center mx-auto animate-fade-in">What I Do</h2>
+            <p class="text-center text-gray-300 text-xl mb-12 animate-fade-in" data-delay="100">I offer a range of
+                services to help bring your digital ideas to life.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+                <!-- Service Card 1 -->
+                <div class="service-card bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in" data-delay="0">
+                    <div class="text-5xl text-indigo-400 mb-6 text-center"><i class="fas fa-laptop-code"></i></div>
+                    <h3 class="text-2xl font-semibold text-gray-100 mb-3 text-center">Web Development</h3>
+                    <p class="text-gray-300 text-center">Building responsive, high-performance web applications and
+                        websites from scratch using modern frameworks and best practices.</p>
+                </div>
+                <!-- Service Card 2 -->
+                <div class="service-card bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in" data-delay="150">
+                    <div class="text-5xl text-green-400 mb-6 text-center"><i class="fas fa-drafting-compass"></i></div>
+                    <h3 class="text-2xl font-semibold text-gray-100 mb-3 text-center">UI/UX Design</h3>
+                    <p class="text-gray-300 text-center">Crafting intuitive and engaging user interfaces with a focus on
+                        user experience, accessibility, and visual appeal.</p>
+                </div>
+                <!-- Service Card 3 -->
+                <div class="service-card bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in" data-delay="300">
+                    <div class="text-5xl text-yellow-400 mb-6 text-center"><i class="fas fa-cogs"></i></div>
+                    <h3 class="text-2xl font-semibold text-gray-100 mb-3 text-center">API Development</h3>
+                    <p class="text-gray-300 text-center">Designing and implementing robust, scalable, and secure RESTful
+                        APIs to power your web and mobile applications.</p>
+                </div>
+                <!-- Service Card 4 -->
+                <div class="service-card bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in" data-delay="450">
+                    <div class="text-5xl text-red-400 mb-6 text-center"><i class="fas fa-database"></i></div>
+                    <h3 class="text-2xl font-semibold text-gray-100 mb-3 text-center">Database Solutions</h3>
+                    <p class="text-gray-300 text-center">Expertise in designing, optimizing, and managing databases
+                        (SQL/NoSQL) for efficient data storage and retrieval.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-800">
+    <section id="skills" class="py-20 bg-gray-900">
         <div class="container mx-auto px-6 max-w-4xl">
             <h2 class="section-title text-center mx-auto animate-fade-in">My Skills</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
                 <!-- Skill Card 1 -->
-                <div class="bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                <div class="skill-card bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
                     data-animation="fade-in">
                     <div class="text-4xl text-indigo-400 mb-4 text-center"><i class="fab fa-html5"></i></div>
                     <h3 class="text-xl font-semibold text-gray-100 mb-2 text-center">Web Development</h3>
-                    <p class="text-gray-300 text-center">HTML5, CSS3, JavaScript (ES6+), React,
-                        Node.js, MongoDB.</p>
+                    <p class="text-gray-300 text-center">HTML5, CSS3, JavaScript (ES6+), React, Vue.js, Angular,
+                        Node.js, Express.js, MongoDB, PostgreSQL.</p>
                 </div>
                 <!-- Skill Card 2 -->
-                <div class="bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                <div class="skill-card bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="100">
                     <div class="text-4xl text-green-400 mb-4 text-center"><i class="fas fa-palette"></i></div>
                     <h3 class="text-xl font-semibold text-gray-100 mb-2 text-center">UI/UX Design</h3>
-                    <p class="text-gray-300 text-center">Figma, Sketch, User Research,
+                    <p class="text-gray-300 text-center">Figma, Sketch, Adobe XD, User Research, Wireframing,
                         Prototyping, Usability Testing, Responsive Design.</p>
                 </div>
                 <!-- Skill Card 3 -->
-                <div class="bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                <div class="skill-card bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="200">
                     <div class="text-4xl text-red-400 mb-4 text-center"><i class="fas fa-database"></i></div>
                     <h3 class="text-xl font-semibold text-gray-100 mb-2 text-center">Database Management</h3>
-                    <p class="text-gray-300 text-center">SQL (MySQL), NoSQL (MongoDB, Firebase), Database
+                    <p class="text-gray-300 text-center">SQL (MySQL, PostgreSQL), NoSQL (MongoDB, Firebase), Database
                         Design, Query Optimization, Data Migration.</p>
                 </div>
                 <!-- Skill Card 4 -->
-                <div class="bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                <div class="skill-card bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="300">
                     <div class="text-4xl text-yellow-400 mb-4 text-center"><i class="fas fa-cloud"></i></div>
                     <h3 class="text-xl font-semibold text-gray-100 mb-2 text-center">Cloud Platforms</h3>
-                    <p class="text-gray-300 text-center">Google Cloud Platform (GCP), Azure,
+                    <p class="text-gray-300 text-center">AWS (EC2, S3, Lambda), Google Cloud Platform (GCP), Azure,
                         Serverless Architectures, CI/CD.</p>
                 </div>
                 <!-- Skill Card 5 -->
-                <div class="bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                <div class="skill-card bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="400">
                     <div class="text-4xl text-purple-400 mb-4 text-center"><i class="fas fa-code-branch"></i></div>
                     <h3 class="text-xl font-semibold text-gray-100 mb-2 text-center">Version Control</h3>
-                    <p class="text-gray-300 text-center">Git, GitHub, GitLab, GitHub Actions, Continuous
-                        Integration/Continuous
-                        Branching Strategies, Pull
+                    <p class="text-gray-300 text-center">Git, GitHub, GitLab, Bitbucket, Branching Strategies, Pull
                         Requests, Code Reviews.</p>
                 </div>
                 <!-- Skill Card 6 -->
-                <div class="bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                <div class="skill-card bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="500">
                     <div class="text-4xl text-teal-400 mb-4 text-center"><i class="fas fa-chart-line"></i></div>
                     <h3 class="text-xl font-semibold text-gray-100 mb-2 text-center">Data Analysis</h3>
-                    <p class="text-gray-300 text-center">Python (Pandas, NumPy), SQL, Data Visualization (Matplotlib),
-                        Statistical Analysis.</p>
+                    <p class="text-gray-300 text-center">Python (Pandas, NumPy), R, SQL, Data Visualization (Matplotlib,
+                        Seaborn), Statistical Analysis.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-gray-900">
+    <section id="experience" class="py-20 bg-gray-800">
         <div class="container mx-auto px-6 max-w-4xl">
             <h2 class="section-title text-center mx-auto animate-fade-in">Experience</h2>
             <div class="relative mt-10">
@@ -190,13 +255,13 @@
                     data-animation="slide-in-left">
                     <div
                         class="md:w-5/12 text-right p-4 md:order-1 order-2 bg-gray-700 rounded-lg shadow-md border border-gray-600">
-                        <h3 class="text-xl font-semibold text-gray-100">Coming Soon</h3>
-                        <p class="text-indigo-400">Coming Soon</p>
-                        <p class="text-gray-400 text-sm">Date</p>
+                        <h3 class="text-xl font-semibold text-gray-100">Senior Software Engineer</h3>
+                        <p class="text-indigo-400">Tech Solutions Inc.</p>
+                        <p class="text-gray-400 text-sm">Jan 2022 - Present</p>
                         <ul class="list-disc list-inside text-gray-300 mt-2 text-left md:text-right">
-                            <li>Experience NO.1</li>
-                            <li>Experience NO.2</li>
-                            <li>Experience NO.3</li>
+                            <li>Led development of scalable web applications using React and Node.js.</li>
+                            <li>Mentored junior developers and conducted code reviews.</li>
+                            <li>Optimized database queries, reducing load times by 30%.</li>
                         </ul>
                     </div>
                     <div class="md:w-1/12 flex justify-center md:order-2 order-1 mb-4 md:mb-0">
@@ -213,13 +278,13 @@
                     data-animation="slide-in-right">
                     <div
                         class="md:w-5/12 p-4 md:order-3 order-2 bg-gray-700 rounded-lg shadow-md border border-gray-600">
-                        <h3 class="text-xl font-semibold text-gray-100">Developer</h3>
-                        <p class="text-indigo-400">Company Name</p>
-                        <p class="text-gray-400 text-sm">Duration</p>
+                        <h3 class="text-xl font-semibold text-gray-100">Frontend Developer</h3>
+                        <p class="text-indigo-400">Creative Agency Co.</p>
+                        <p class="text-gray-400 text-sm">Jul 2019 - Dec 2021</p>
                         <ul class="list-disc list-inside text-gray-300 mt-2 text-left">
-                            <li>Experience NO.1</li>
-                            <li>Experience NO.2</li>
-                            <li>Experience NO.3</li>
+                            <li>Developed responsive user interfaces with HTML, CSS, and JavaScript.</li>
+                            <li>Collaborated with design team to implement UI/UX mockups.</li>
+                            <li>Integrated RESTful APIs into client-side applications.</li>
                         </ul>
                     </div>
                     <div class="md:w-1/12 flex justify-center md:order-2 order-1 mb-4 md:mb-0">
@@ -236,13 +301,13 @@
                     data-animation="slide-in-left">
                     <div
                         class="md:w-5/12 text-right p-4 md:order-1 order-2 bg-gray-700 rounded-lg shadow-md border border-gray-600">
-                        <h3 class="text-xl font-semibold text-gray-100">Comig Soon</h3>
-                        <p class="text-indigo-400">Company Name</p>
-                        <p class="text-gray-400 text-sm">Duration</p>
+                        <h3 class="text-xl font-semibold text-gray-100">Junior Web Developer</h3>
+                        <p class="text-indigo-400">Startup Innovators</p>
+                        <p class="text-gray-400 text-sm">Jan 2018 - Jun 2019</p>
                         <ul class="list-disc list-inside text-gray-300 mt-2 text-left md:text-right">
-                            <li>Experience NO.1</li>
-                            <li>Experience NO.2</li>
-                            <li>Experience NO.3</li>
+                            <li>Assisted in building and maintaining company websites.</li>
+                            <li>Learned best practices in web development and version control.</li>
+                            <li>Contributed to front-end and back-end tasks under supervision.</li>
                         </ul>
                     </div>
                     <div class="md:w-1/12 flex justify-center md:order-2 order-1 mb-4 md:mb-0">
@@ -253,6 +318,178 @@
                     </div>
                     <div class="md:w-5/12 p-4 md:order-3 order-3 hidden md:block"></div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="section-title text-center mx-auto animate-fade-in">Education</h2>
+            <div class="relative mt-10">
+                <!-- Vertical Line -->
+                <div
+                    class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-green-600 h-full hidden md:block rounded-full">
+                </div>
+
+                <!-- Education Item 1 -->
+                <div class="mb-12 flex flex-col md:flex-row items-center justify-between w-full animate-on-scroll"
+                    data-animation="slide-in-left">
+                    <div
+                        class="md:w-5/12 text-right p-4 md:order-1 order-2 bg-gray-700 rounded-lg shadow-md border border-gray-600">
+                        <h3 class="text-xl font-semibold text-gray-100">Master of Science in Computer Science</h3>
+                        <p class="text-green-400">University of Technology</p>
+                        <p class="text-gray-400 text-sm">Sep 2020 - May 2022</p>
+                        <ul class="list-disc list-inside text-gray-300 mt-2 text-left md:text-right">
+                            <li>Specialized in Artificial Intelligence and Machine Learning.</li>
+                            <li>Thesis: "Deep Learning for Natural Language Processing".</li>
+                            <li>GPA: 3.9/4.0</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/12 flex justify-center md:order-2 order-1 mb-4 md:mb-0">
+                        <div
+                            class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white shadow-md">
+                            <i class="fas fa-graduation-cap text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-5/12 p-4 md:order-3 order-3 hidden md:block"></div>
+                </div>
+
+                <!-- Education Item 2 -->
+                <div class="mb-12 flex flex-col md:flex-row items-center justify-between w-full animate-on-scroll"
+                    data-animation="slide-in-right">
+                    <div
+                        class="md:w-5/12 p-4 md:order-3 order-2 bg-gray-700 rounded-lg shadow-md border border-gray-600">
+                        <h3 class="text-xl font-semibold text-gray-100">Bachelor of Engineering in Software Engineering
+                        </h3>
+                        <p class="text-green-400">State University</p>
+                        <p class="text-gray-400 text-sm">Sep 2016 - May 2020</p>
+                        <ul class="list-disc list-inside text-gray-300 mt-2 text-left">
+                            <li>Focused on software development methodologies and data structures.</li>
+                            <li>Capstone Project: "Smart Home Automation System".</li>
+                            <li>Awarded Dean's List for academic excellence.</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/12 flex justify-center md:order-2 order-1 mb-4 md:mb-0">
+                        <div
+                            class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white shadow-md">
+                            <i class="fas fa-university text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-5/12 p-4 md:order-1 order-3 hidden md:block"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="section-title text-center mx-auto animate-fade-in">Certifications</h2>
+            <p class="text-center text-gray-300 text-xl mb-12 animate-fade-in" data-delay="100">My professional
+                certifications and achievements.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+                <!-- Certification Card 1 -->
+                <div class="certification-card bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in">
+                    <div class="text-4xl text-yellow-400 mb-4 text-center"><i class="fas fa-award"></i></div>
+                    <h3 class="text-xl font-semibold text-gray-100 mb-2 text-center">AWS Certified Developer - Associate
+                    </h3>
+                    <p class="text-gray-300 text-center">Issued by Amazon Web Services</p>
+                    <p class="text-gray-400 text-sm text-center">Issued: March 2023</p>
+                </div>
+                <!-- Certification Card 2 -->
+                <div class="certification-card bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in" data-delay="100">
+                    <div class="text-4xl text-blue-400 mb-4 text-center"><i class="fas fa-certificate"></i></div>
+                    <h3 class="text-xl font-semibold text-gray-100 mb-2 text-center">Google Cloud Professional Cloud
+                        Architect</h3>
+                    <p class="text-gray-300 text-center">Issued by Google Cloud</p>
+                    <p class="text-gray-400 text-sm text-center">Issued: November 2022</p>
+                </div>
+                <!-- Certification Card 3 -->
+                <div class="certification-card bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in" data-delay="200">
+                    <div class="text-4xl text-green-400 mb-4 text-center"><i class="fas fa-check-circle"></i></div>
+                    <h3 class="text-xl font-semibold text-gray-100 mb-2 text-center">Certified ScrumMaster (CSM)</h3>
+                    <p class="text-gray-300 text-center">Issued by Scrum Alliance</p>
+                    <p class="text-gray-400 text-sm text-center">Issued: July 2021</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog/Articles Section -->
+    <section id="blog" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h2 class="section-title text-center mx-auto animate-fade-in">Latest Articles & Insights</h2>
+            <p class="text-center text-gray-300 text-xl mb-12 animate-fade-in" data-delay="100">Thoughts, tutorials, and
+                explorations in the world of technology.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+                <!-- Article Card 1 -->
+                <div class="article-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in">
+                    <img src="https://placehold.co/600x400/4a5568/a0aec0?text=Article+1" alt="Article Thumbnail"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-100 mb-2">The Future of Serverless Computing</h3>
+                        <p class="text-gray-300 mb-4 text-sm">Explore the evolving landscape of serverless architectures
+                            and their impact on modern web development.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400 text-xs">May 15, 2025</span>
+                            <a href="#"
+                                class="text-indigo-400 hover:text-indigo-300 font-medium flex items-center transition duration-300 ease-in-out"
+                                target="_blank">
+                                Read More <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Article Card 2 -->
+                <div class="article-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in" data-delay="100">
+                    <img src="https://placehold.co/600x400/2d3748/a0aec0?text=Article+2" alt="Article Thumbnail"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-100 mb-2">Mastering React Hooks: A Deep Dive</h3>
+                        <p class="text-gray-300 mb-4 text-sm">Unlock the full potential of React Hooks to write cleaner,
+                            more efficient components.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400 text-xs">April 28, 2025</span>
+                            <a href="#"
+                                class="text-indigo-400 hover:text-indigo-300 font-medium flex items-center transition duration-300 ease-in-out"
+                                target="_blank">
+                                Read More <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Article Card 3 -->
+                <div class="article-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in" data-delay="200">
+                    <img src="https://placehold.co/600x400/718096/a0aec0?text=Article+3" alt="Article Thumbnail"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-100 mb-2">Effective Strategies for UI/UX Prototyping
+                        </h3>
+                        <p class="text-gray-300 mb-4 text-sm">Learn best practices for rapid prototyping and user
+                            testing in UI/UX design workflows.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400 text-xs">March 10, 2025</span>
+                            <a href="#"
+                                class="text-indigo-400 hover:text-indigo-300 font-medium flex items-center transition duration-300 ease-in-out"
+                                target="_blank">
+                                Read More <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12 animate-on-scroll" data-animation="fade-in" data-delay="300">
+                <a href="#"
+                    class="inline-block bg-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-700 transform hover:scale-105 transition duration-300 ease-in-out text-lg">
+                    View All Articles <i class="fas fa-book-open ml-2"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -454,6 +691,13 @@
                     </div>
                 </div>
             </div>
+            <!-- New LLM Feature Button -->
+            <div class="text-center mt-12 animate-on-scroll" data-animation="fade-in" data-delay="600">
+                <button id="generate-idea-button"
+                    class="inline-flex items-center bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-yellow-300 transform hover:scale-105 transition duration-300 ease-in-out text-lg">
+                    ✨ Generate Project Idea
+                </button>
+            </div>
         </div>
     </section>
 
@@ -463,7 +707,7 @@
             <h2 class="section-title text-center mx-auto animate-fade-in">What People Say</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
                 <!-- Testimonial Card 1 -->
-                <div class="bg-gray-700 p-8 rounded-xl shadow-lg border border-gray-600 flex flex-col items-center text-center animate-on-scroll"
+                <div class="testimonial-card bg-gray-700 p-8 rounded-xl shadow-lg border border-gray-600 flex flex-col items-center text-center animate-on-scroll"
                     data-animation="fade-in">
                     <img src="https://placehold.co/80x80/4a5568/a0aec0?text=Client+1" alt="Client 1"
                         class="w-20 h-20 rounded-full mb-4 border-2 border-indigo-400 object-cover">
@@ -473,7 +717,7 @@
                     <p class="font-semibold text-gray-100">- Jane Doe, CEO of Company A</p>
                 </div>
                 <!-- Testimonial Card 2 -->
-                <div class="bg-gray-700 p-8 rounded-xl shadow-lg border border-gray-600 flex flex-col items-center text-center animate-on-scroll"
+                <div class="testimonial-card bg-gray-700 p-8 rounded-xl shadow-lg border border-gray-600 flex flex-col items-center text-center animate-on-scroll"
                     data-animation="fade-in" data-delay="100">
                     <img src="https://placehold.co/80x80/2d3748/a0aec0?text=Client+2" alt="Client 2"
                         class="w-20 h-20 rounded-full mb-4 border-2 border-indigo-400 object-cover">
@@ -486,6 +730,19 @@
         </div>
     </section>
 
+    <!-- Call to Action Section -->
+    <section id="cta" class="py-20 bg-indigo-700 text-white text-center">
+        <div class="container mx-auto px-6 max-w-4xl animate-fade-in">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">Ready to Start Your Project?</h2>
+            <p class="text-xl md:text-2xl font-light mb-10">Let's build something amazing together. Reach out and tell
+                me about your ideas!</p>
+            <a href="#contact"
+                class="inline-block bg-yellow-400 text-indigo-900 font-bold py-4 px-10 rounded-full shadow-lg hover:bg-yellow-300 transform hover:scale-105 transition duration-300 ease-in-out text-xl">
+                Contact Me Now <i class="fas fa-envelope ml-3"></i>
+            </a>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-gray-800">
         <div class="container mx-auto px-6 max-w-3xl">
@@ -493,7 +750,7 @@
             <div class="mt-10 bg-gray-700 p-8 rounded-xl shadow-lg border border-gray-600 animate-fade-in">
                 <p class="text-center text-gray-300 mb-8">Have a question or want to work together? Fill out the form
                     below or reach out directly!</p>
-                <form class="space-y-6">
+                <form id="contact-form" class="space-y-6">
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
                         <input type="text" id="name" name="name"
@@ -549,10 +806,19 @@
     <!-- Footer -->
     <footer class="bg-gray-950 text-white py-8">
         <div class="container mx-auto px-6 text-center">
-            <p class="mb-4">&copy; 2025 Your Name. All rights reserved.</p>
+            <p class="mb-4">&copy; <span id="current-year"></span> Your Name. All rights reserved.</p>
             <div class="flex justify-center space-x-6">
                 <a href="#about" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">About</a>
+                <a href="#services"
+                    class="text-gray-400 hover:text-white transition duration-300 ease-in-out">Services</a>
                 <a href="#skills" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">Skills</a>
+                <a href="#experience"
+                    class="text-gray-400 hover:text-white transition duration-300 ease-in-out">Experience</a>
+                <a href="#education"
+                    class="text-gray-400 hover:text-white transition duration-300 ease-in-out">Education</a>
+                <a href="#certifications"
+                    class="text-gray-400 hover:text-white transition duration-300 ease-in-out">Certifications</a>
+                <a href="#blog" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">Blog</a>
                 <a href="#projects"
                     class="text-gray-400 hover:text-white transition duration-300 ease-in-out">Projects</a>
                 <a href="#contact"
@@ -560,6 +826,12 @@
             </div>
         </div>
     </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top"
+        class="fixed bottom-8 right-8 bg-indigo-600 text-white p-4 rounded-full shadow-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out transform scale-0 opacity-0 z-40">
+        <i class="fas fa-arrow-up text-xl"></i>
+    </button>
 
     <!-- Project Detail Modal -->
     <div id="project-detail-modal" class="modal-overlay hidden">
@@ -583,6 +855,25 @@
                     target="_blank">
                     GitHub <i class="fab fa-github ml-2 text-sm"></i>
                 </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- LLM Idea Modal -->
+    <div id="llm-idea-modal" class="modal-overlay hidden">
+        <div class="modal-content w-full md:w-1/2 lg:w-1/3">
+            <button id="close-llm-modal-button"
+                class="absolute top-4 right-4 text-gray-400 hover:text-gray-100 text-3xl focus:outline-none">
+                <i class="fas fa-times-circle"></i>
+            </button>
+            <h3 class="text-3xl font-bold text-yellow-400 mb-4 text-center">✨ Your Project Idea ✨</h3>
+            <p id="llm-idea-content" class="text-gray-300 text-lg mb-6 leading-relaxed text-center">Generating idea...
+            </p>
+            <div class="text-center">
+                <button id="copy-idea-button"
+                    class="inline-flex justify-center py-2 px-6 border border-transparent shadow-sm text-md font-medium rounded-full text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transform hover:scale-105 transition duration-300 ease-in-out">
+                    Copy Idea <i class="fas fa-copy ml-2"></i>
+                </button>
             </div>
         </div>
     </div>
