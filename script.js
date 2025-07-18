@@ -733,6 +733,171 @@ filterButtons.forEach(button => {
 });
 
 
+// --- Three.js 3D Showcase Logic ---
+let scene, camera, renderer;
+let mouseX = 0, mouseY = 0;
+let targetX = 0, targetY = 0;
+// const windowHalfX = window.innerWidth / 2; // Not used directly in mouse interaction
+// const windowHalfY = window.innerHeight / 2; // Not used directly in mouse interaction
+let skillsGroup;
+
+function init3DScene() {
+    const canvas = document.getElementById('three-js-canvas');
+    if (!canvas) {
+        console.warn("Three.js canvas not found. Skipping 3D scene initialization.");
+        return;
+    }
+    console.log("Initializing 3D scene...");
+    console.log("Canvas dimensions:", canvas.clientWidth, "x", canvas.clientHeight);
+
+    // Scene
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x1a202c); // Match primary background color
+
+    // Camera
+    camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+    camera.position.z = 5;
+
+    // Renderer
+    renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+
+    // Lights
+    const ambientLight = new THREE.AmbientLight(0x404040, 2); // Soft white light
+    scene.add(ambientLight);
+
+    const pointLight = new THREE.PointLight(0xffffff, 1);
+    pointLight.position.set(5, 5, 5);
+    scene.add(pointLight);
+
+    const pointLight2 = new THREE.PointLight(0xffffff, 0.5);
+    pointLight2.position.set(-5, -5, -5);
+    scene.add(pointLight2);
+
+    // Group for skills to rotate together
+    skillsGroup = new THREE.Group();
+    scene.add(skillsGroup);
+
+    // Define skills and their colors
+    const skills = [
+        { name: "React", color: 0x61DAFB, type: "sphere" },
+        { name: "Node.js", color: 0x68A063, type: "box" },
+        { name: "MongoDB", color: 0x47A248, type: "octahedron" },
+        { name: "Tailwind CSS", color: 0x38B2AC, type: "torus" },
+        { name: "JavaScript", color: 0xF7DF1E, type: "sphere" },
+        { name: "Python", color: 0x3776AB, type: "box" },
+        { name: "UI/UX", color: 0xFF69B4, type: "tetrahedron" },
+        { name: "Git", color: 0xF05032, type: "torusKnot" },
+        { name: "Firebase", color: 0xFFCA28, type: "dodecahedron" },
+        { name: "3D Skills", color: 0x8A2BE2, type: "icosahedron" } // Changed type for distinctiveness
+    ];
+
+    // Create 3D objects for each skill
+    const geometrySphere = new THREE.SphereGeometry(0.5, 32, 32);
+    const geometryBox = new THREE.BoxGeometry(0.8, 0.8, 0.8);
+    const geometryOctahedron = new THREE.OctahedronGeometry(0.7);
+    const geometryTorus = new THREE.TorusGeometry(0.4, 0.2, 16, 100);
+    const geometryTetrahedron = new THREE.TetrahedronGeometry(0.7);
+    const geometryTorusKnot = new THREE.TorusKnotGeometry(0.4, 0.15, 64, 8);
+    const geometryDodecahedron = new THREE.DodecahedronGeometry(0.7);
+    const geometryIcosahedron = new THREE.IcosahedronGeometry(0.6); // New geometry for 3D Skills
+
+    const geometries = {
+        sphere: geometrySphere,
+        box: geometryBox,
+        octahedron: geometryOctahedron,
+        torus: geometryTorus,
+        tetrahedron: geometryTetrahedron,
+        torusKnot: geometryTorusKnot,
+        dodecahedron: geometryDodecahedron,
+        icosahedron: geometryIcosahedron // Added new geometry
+    };
+
+    skills.forEach((skill, index) => {
+        const material = new THREE.MeshPhongMaterial({ color: skill.color, flatShading: true });
+        const mesh = new THREE.Mesh(geometries[skill.type], material);
+
+        // Make "3D Skills" object slightly larger
+        if (skill.name === "3D Skills") {
+            mesh.scale.set(1.2, 1.2, 1.2); // Make it 20% larger
+        }
+
+        // Position objects in a circle/sphere
+        const angle = (index / skills.length) * Math.PI * 2;
+        const radius = 2.5; // Increased radius to spread objects out
+        mesh.position.x = radius * Math.cos(angle);
+        mesh.position.y = radius * Math.sin(angle);
+        mesh.position.z = (Math.random() - 0.5) * 2; // Increased z variation
+
+        // Random rotation for initial variety
+        mesh.rotation.x = Math.random() * Math.PI;
+        mesh.rotation.y = Math.random() * Math.PI;
+        mesh.rotation.z = Math.random() * Math.PI;
+
+        skillsGroup.add(mesh);
+        console.log(`Added skill: ${skill.name} at (${mesh.position.x.toFixed(2)}, ${mesh.position.y.toFixed(2)}, ${mesh.position.z.toFixed(2)})`);
+    });
+
+    // Mouse interaction for rotation
+    let isDragging = false;
+    let previousMousePosition = { x: 0, y: 0 };
+
+    canvas.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        previousMousePosition = { x: e.clientX, y: e.clientY };
+    });
+
+    canvas.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+
+        const deltaX = e.clientX - previousMousePosition.x;
+        const deltaY = e.clientY - previousMousePosition.y;
+
+        // Adjust rotation speed
+        skillsGroup.rotation.y += deltaX * 0.005;
+        skillsGroup.rotation.x += deltaY * 0.005;
+
+        previousMousePosition = { x: e.clientX, y: e.clientY };
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', onWindowResize, false);
+}
+
+function onWindowResize() {
+    const canvas = document.getElementById('three-js-canvas');
+    if (!canvas) return;
+
+    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+}
+
+function animate3DScene() {
+    requestAnimationFrame(animate3DScene);
+
+    if (skillsGroup) {
+        // Continuous subtle rotation if not dragging
+        if (!isDragging) {
+            skillsGroup.rotation.y += 0.002;
+            skillsGroup.rotation.x += 0.0005;
+        }
+
+        // Individual object rotation (optional, for more dynamism)
+        skillsGroup.children.forEach(mesh => {
+            mesh.rotation.x += 0.005 * Math.random();
+            mesh.rotation.y += 0.005 * Math.random();
+        });
+    }
+
+    renderer.render(scene, camera);
+}
+
 // --- Initialize on DOMContentLoaded ---
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize testimonial carousel
@@ -749,4 +914,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Trigger initial filter to show all projects
     document.querySelector('.filter-btn[data-filter="all"]').click();
+
+    // Initialize the 3D scene
+    init3DScene();
+    animate3DScene();
 });

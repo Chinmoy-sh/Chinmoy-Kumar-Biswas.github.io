@@ -556,3 +556,12 @@ a:hover {
 .error-message {
     color: var(--text-red);
 }
+
+/* Three.js Canvas Styling */
+#three-js-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #1a202c;
+    /* Dark background for the 3D scene */
+}
