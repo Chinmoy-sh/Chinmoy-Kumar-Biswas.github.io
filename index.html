@@ -117,7 +117,7 @@
     </section>
 
     <!-- About Me Section -->
-    <section id="about" class="py-20 bg-gray-900">
+    <section id="about" class="py-20 bg-gray-900 section-bg-pattern-1">
         <div class="container mx-auto px-6 max-w-4xl">
             <h2 class="section-title text-center mx-auto animate-fade-in">About Me</h2>
             <div class="flex flex-col md:flex-row items-center md:space-x-12 mt-10">
@@ -133,16 +133,22 @@
                     <p class="mb-4">My journey in Programming began 2 years ago when I discovered the power of code, the
                         intricacies of design and the impact of data. Since then, I've
                         been dedicated to continuous learning and honing my skills.</p>
-                    <p>When I'm not coding or designing, you can find me exploring new
+                    <p class="mb-6">When I'm not coding or designing, you can find me exploring new
                         technologies, reading sci-fi novels. I believe in a balanced approach to life and work,
                         which fuels my creativity and problem-solving abilities.</p>
+                    <div class="text-center md:text-left">
+                        <a href="your-resume.pdf" download="CHINMOY_KUMAR_BISWAS_Resume.pdf"
+                            class="inline-block bg-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-700 transform hover:scale-105 transition duration-300 ease-in-out text-lg">
+                            Download Resume <i class="fas fa-download ml-2"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-800">
+    <section id="services" class="py-20 bg-gray-800 section-bg-pattern-2">
         <div class="container mx-auto px-6 max-w-5xl">
             <h2 class="section-title text-center mx-auto animate-fade-in">What I Do</h2>
             <p class="text-center text-gray-300 text-xl mb-12 animate-fade-in" data-delay="100">I offer a range of
@@ -185,63 +191,89 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-900">
+    <section id="skills" class="py-20 bg-gray-900 section-bg-pattern-1">
         <div class="container mx-auto px-6 max-w-4xl">
             <h2 class="section-title text-center mx-auto animate-fade-in">My Skills</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-                <!-- Skill Card 1 -->
+                <!-- Skill Card 1: Web Development -->
                 <div class="skill-card bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
                     data-animation="fade-in">
                     <div class="text-4xl text-indigo-400 mb-4 text-center"><i class="fab fa-html5"></i></div>
                     <h3 class="text-xl font-semibold text-gray-100 mb-2 text-center">Web Development</h3>
-                    <p class="text-gray-300 text-center">HTML5, CSS3, JavaScript (ES6+), React, Node.js, MongoDB</p>
+                    <p class="text-gray-300 text-center text-sm mb-4">HTML5, CSS3, JavaScript (ES6+), React, Node.js,
+                        MongoDB</p>
+                    <div class="w-full bg-gray-600 rounded-full h-2.5 dark:bg-gray-700">
+                        <div class="bg-indigo-500 h-2.5 rounded-full skill-progress" data-progress="90"></div>
+                    </div>
+                    <p class="text-right text-gray-400 text-xs mt-1">90% Proficiency</p>
                 </div>
-                <!-- Skill Card 2 -->
+                <!-- Skill Card 2: UI/UX Design -->
                 <div class="skill-card bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="100">
                     <div class="text-4xl text-green-400 mb-4 text-center"><i class="fas fa-palette"></i></div>
                     <h3 class="text-xl font-semibold text-gray-100 mb-2 text-center">UI/UX Design</h3>
-                    <p class="text-gray-300 text-center">Figma, Adobe XD, User Research, Wireframing,
+                    <p class="text-gray-300 text-center text-sm mb-4">Figma, Adobe XD, User Research, Wireframing,
                         Prototyping, Usability Testing, Responsive Design.</p>
+                    <div class="w-full bg-gray-600 rounded-full h-2.5 dark:bg-gray-700">
+                        <div class="bg-green-500 h-2.5 rounded-full skill-progress" data-progress="85"></div>
+                    </div>
+                    <p class="text-right text-gray-400 text-xs mt-1">85% Proficiency</p>
                 </div>
-                <!-- Skill Card 3 -->
+                <!-- Skill Card 3: Database Management -->
                 <div class="skill-card bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="200">
                     <div class="text-4xl text-red-400 mb-4 text-center"><i class="fas fa-database"></i></div>
                     <h3 class="text-xl font-semibold text-gray-100 mb-2 text-center">Database Management</h3>
-                    <p class="text-gray-300 text-center">SQL (MySQL), NoSQL (MongoDB, Firebase), Database
+                    <p class="text-gray-300 text-center text-sm mb-4">SQL (MySQL), NoSQL (MongoDB, Firebase), Database
                         Design, Query Optimization, Data Migration.</p>
+                    <div class="w-full bg-gray-600 rounded-full h-2.5 dark:bg-gray-700">
+                        <div class="bg-red-500 h-2.5 rounded-full skill-progress" data-progress="80"></div>
+                    </div>
+                    <p class="text-right text-gray-400 text-xs mt-1">80% Proficiency</p>
                 </div>
-                <!-- Skill Card 4 -->
+                <!-- Skill Card 4: Cloud Platforms -->
                 <div class="skill-card bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="300">
                     <div class="text-4xl text-yellow-400 mb-4 text-center"><i class="fas fa-cloud"></i></div>
                     <h3 class="text-xl font-semibold text-gray-100 mb-2 text-center">Cloud Platforms</h3>
-                    <p class="text-gray-300 text-center">Google Cloud Platform (GCP), Azure,
+                    <p class="text-gray-300 text-center text-sm mb-4">Google Cloud Platform (GCP), Azure,
                         Serverless Architectures.</p>
+                    <div class="w-full bg-gray-600 rounded-full h-2.5 dark:bg-gray-700">
+                        <div class="bg-yellow-500 h-2.5 rounded-full skill-progress" data-progress="75"></div>
+                    </div>
+                    <p class="text-right text-gray-400 text-xs mt-1">75% Proficiency</p>
                 </div>
-                <!-- Skill Card 5 -->
+                <!-- Skill Card 5: Version Control -->
                 <div class="skill-card bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="400">
                     <div class="text-4xl text-purple-400 mb-4 text-center"><i class="fas fa-code-branch"></i></div>
                     <h3 class="text-xl font-semibold text-gray-100 mb-2 text-center">Version Control</h3>
-                    <p class="text-gray-300 text-center">Git, GitHub, GitLab, Branching Strategies, Pull
+                    <p class="text-gray-300 text-center text-sm mb-4">Git, GitHub, GitLab, Branching Strategies, Pull
                         Requests, Code Reviews.</p>
+                    <div class="w-full bg-gray-600 rounded-full h-2.5 dark:bg-gray-700">
+                        <div class="bg-purple-500 h-2.5 rounded-full skill-progress" data-progress="95"></div>
+                    </div>
+                    <p class="text-right text-gray-400 text-xs mt-1">95% Proficiency</p>
                 </div>
-                <!-- Skill Card 6 -->
-                <div class="skill-card bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                <!-- Skill Card 6: Data Analysis -->
+                <div class="skill-card bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="500">
                     <div class="text-4xl text-teal-400 mb-4 text-center"><i class="fas fa-chart-line"></i></div>
                     <h3 class="text-xl font-semibold text-gray-100 mb-2 text-center">Data Analysis</h3>
-                    <p class="text-gray-300 text-center">Python (Pandas, NumPy), SQL, Data Visualization (Matplotlib),
+                    <p class="text-gray-300 text-center text-sm mb-4">Python (Pandas, NumPy), SQL, Data Visualization
+                        (Matplotlib),
                         Statistical Analysis.</p>
+                    <div class="w-full bg-gray-600 rounded-full h-2.5 dark:bg-gray-700">
+                        <div class="bg-teal-500 h-2.5 rounded-full skill-progress" data-progress="70"></div>
+                    </div>
+                    <p class="text-right text-gray-400 text-xs mt-1">70% Proficiency</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-gray-800">
+    <section id="experience" class="py-20 bg-gray-800 section-bg-pattern-2">
         <div class="container mx-auto px-6 max-w-4xl">
             <h2 class="section-title text-center mx-auto animate-fade-in">Experience</h2>
             <div class="relative mt-10">
@@ -323,7 +355,7 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="py-20 bg-gray-900">
+    <section id="education" class="py-20 bg-gray-900 section-bg-pattern-1">
         <div class="container mx-auto px-6 max-w-4xl">
             <h2 class="section-title text-center mx-auto animate-fade-in">Education</h2>
             <div class="relative mt-10">
@@ -383,7 +415,7 @@
     </section>
 
     <!-- Certifications Section -->
-    <section id="certifications" class="py-20 bg-gray-800">
+    <section id="certifications" class="py-20 bg-gray-800 section-bg-pattern-2">
         <div class="container mx-auto px-6 max-w-4xl">
             <h2 class="section-title text-center mx-auto animate-fade-in">Certifications</h2>
             <p class="text-center text-gray-300 text-xl mb-12 animate-fade-in" data-delay="100">My professional
@@ -420,7 +452,7 @@
     </section>
 
     <!-- Blog/Articles Section -->
-    <section id="blog" class="py-20 bg-gray-900">
+    <section id="blog" class="py-20 bg-gray-900 section-bg-pattern-1">
         <div class="container mx-auto px-6 max-w-5xl">
             <h2 class="section-title text-center mx-auto animate-fade-in">Latest Articles & Insights</h2>
             <p class="text-center text-gray-300 text-xl mb-12 animate-fade-in" data-delay="100">Thoughts, tutorials, and
@@ -495,7 +527,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gray-800">
+    <section id="projects" class="py-20 bg-gray-800 section-bg-pattern-2">
         <div class="container mx-auto px-6 max-w-5xl">
             <h2 class="section-title text-center mx-auto animate-fade-in">My Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
@@ -702,29 +734,49 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-gray-900">
+    <section id="testimonials" class="py-20 bg-gray-900 section-bg-pattern-1">
         <div class="container mx-auto px-6 max-w-4xl">
             <h2 class="section-title text-center mx-auto animate-fade-in">What People Say</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
-                <!-- Testimonial Card 1 -->
-                <div class="testimonial-card bg-gray-700 p-8 rounded-xl shadow-lg border border-gray-600 flex flex-col items-center text-center animate-on-scroll"
-                    data-animation="fade-in">
-                    <img src="https://placehold.co/80x80/4a5568/a0aec0?text=Client+1" alt="Client 1"
-                        class="w-20 h-20 rounded-full mb-4 border-2 border-indigo-400 object-cover">
-                    <p class="text-gray-300 italic mb-4">"CHINMOY is an exceptional developer. Their
-                        attention to detail and ability to deliver high-quality code on time is truly impressive. Highly
-                        recommend!"</p>
-                    <p class="font-semibold text-gray-100">- Jane Doe, CEO of Company A</p>
+            <div class="relative mt-10">
+                <div id="testimonials-carousel"
+                    class="flex overflow-hidden rounded-xl shadow-lg border border-gray-600">
+                    <!-- Testimonial Card 1 -->
+                    <div
+                        class="testimonial-card flex-shrink-0 w-full bg-gray-700 p-8 flex flex-col items-center text-center">
+                        <img src="https://placehold.co/80x80/4a5568/a0aec0?text=Client+1" alt="Client 1"
+                            class="w-20 h-20 rounded-full mb-4 border-2 border-indigo-400 object-cover">
+                        <p class="text-gray-300 italic mb-4">"CHINMOY is an exceptional developer. Their
+                            attention to detail and ability to deliver high-quality code on time is truly impressive.
+                            Highly
+                            recommend!"</p>
+                        <p class="font-semibold text-gray-100">- Jane Doe, CEO of Company A</p>
+                    </div>
+                    <!-- Testimonial Card 2 -->
+                    <div
+                        class="testimonial-card flex-shrink-0 w-full bg-gray-700 p-8 flex flex-col items-center text-center">
+                        <img src="https://placehold.co/80x80/2d3748/a0aec0?text=Client+2" alt="Client 2"
+                            class="w-20 h-20 rounded-full mb-4 border-2 border-indigo-400 object-cover">
+                        <p class="text-gray-300 italic mb-4">"Working with CHINMOY was a fantastic experience.
+                            They understood our vision perfectly and brought it to life with their expertise in design
+                            and
+                            development."</p>
+                        <p class="font-semibold text-gray-100">- John Smith, Marketing Director at Company B</p>
+                    </div>
+                    <!-- Add more testimonial cards here if needed -->
                 </div>
-                <!-- Testimonial Card 2 -->
-                <div class="testimonial-card bg-gray-700 p-8 rounded-xl shadow-lg border border-gray-600 flex flex-col items-center text-center animate-on-scroll"
-                    data-animation="fade-in" data-delay="100">
-                    <img src="https://placehold.co/80x80/2d3748/a0aec0?text=Client+2" alt="Client 2"
-                        class="w-20 h-20 rounded-full mb-4 border-2 border-indigo-400 object-cover">
-                    <p class="text-gray-300 italic mb-4">"Working with CHINMOY was a fantastic experience.
-                        They understood our vision perfectly and brought it to life with their expertise in design and
-                        development."</p>
-                    <p class="font-semibold text-gray-100">- Name and role </p>
+                <!-- Carousel Navigation -->
+                <button id="testimonial-prev"
+                    class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-600 bg-opacity-75 text-white p-3 rounded-full shadow-lg hover:bg-opacity-100 transition duration-300 z-10">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="testimonial-next"
+                    class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-600 bg-opacity-75 text-white p-3 rounded-full shadow-lg hover:bg-opacity-100 transition duration-300 z-10">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <!-- Carousel Dots -->
+                <div id="testimonial-dots" class="flex justify-center mt-4 space-x-2">
+                    <span class="dot w-3 h-3 bg-gray-500 rounded-full cursor-pointer transition duration-300"></span>
+                    <span class="dot w-3 h-3 bg-gray-700 rounded-full cursor-pointer transition duration-300"></span>
                 </div>
             </div>
         </div>
@@ -744,7 +796,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-800">
+    <section id="contact" class="py-20 bg-gray-800 section-bg-pattern-2">
         <div class="container mx-auto px-6 max-w-3xl">
             <h2 class="section-title text-center mx-auto animate-fade-in">Get In Touch</h2>
             <div class="mt-10 bg-gray-700 p-8 rounded-xl shadow-lg border border-gray-600 animate-fade-in">
@@ -802,7 +854,7 @@
                             class="text-red-400 hover:text-red-300 text-3xl transition duration-300 ease-in-out transform hover:scale-110"
                             aria-label="Email" target="_blank"><i class="fas fa-envelope"></i></a>
                         <a href="https://www.instagram.com/itz_me_chinmoy_impaired/?hl=en"
-                            class="text-black-400 hover:text-red-300 text-3xl transition duration-300 ease-in-out transform hover:scale-110"
+                            class="text-pink-500 hover:text-pink-400 text-3xl transition duration-300 ease-in-out transform hover:scale-110"
                             aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
