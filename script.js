@@ -23,6 +23,17 @@ const closeLlmModalButton = document.getElementById('close-llm-modal-button');
 const llmIdeaContent = document.getElementById('llm-idea-content');
 const copyIdeaButton = document.getElementById('copy-idea-button');
 
+// New: Skill progress bars
+const skillProgressBars = document.querySelectorAll('.skill-progress');
+
+// New: Testimonial Carousel elements
+const testimonialsCarousel = document.getElementById('testimonials-carousel');
+const testimonialPrevButton = document.getElementById('testimonial-prev');
+const testimonialNextButton = document.getElementById('testimonial-next');
+const testimonialDotsContainer = document.getElementById('testimonial-dots');
+let currentTestimonialIndex = 0;
+let testimonialInterval;
+
 
 // Project Data (for modal) - Expanded descriptions
 const projectsData = {
@@ -160,8 +171,33 @@ const observerCallback = (entries, observer) => {
                 else {
                     target.classList.add('is-visible'); // Default fade-in
                 }
+
+                // New: Animate skill progress bars when their parent card is visible
+                if (target.classList.contains('skill-card')) {
+                    const progressBar = target.querySelector('.skill-progress');
+                    if (progressBar) {
+                        const progressValue = progressBar.dataset.progress;
+                        progressBar.style.setProperty('--progress-width', `${progressValue}%`);
+                        progressBar.classList.add('is-visible');
+                    }
+                }
+
             }, delay);
-            observer.unobserve(target); // Stop observing once animated
+            // Only unobserve if it's not a skill card, as skill cards might need re-animation on resize/re-scroll
+            if (!target.classList.contains('skill-card')) {
+                observer.unobserve(target); // Stop observing once animated
+            }
+        } else {
+            // Optional: Reset animation state if element scrolls out of view
+            const target = entry.target;
+            if (target.classList.contains('skill-card')) {
+                const progressBar = target.querySelector('.skill-progress');
+                if (progressBar) {
+                    progressBar.classList.remove('is-visible');
+                    progressBar.style.setProperty('--progress-width', '0%'); // Reset for re-animation
+                }
+            }
+            target.classList.remove('is-visible', 'animate-slide-left', 'animate-slide-right', 'animate-fade-in', 'animate-zoom-in', 'animate-rotate-in', 'animate-pop-in');
         }
     });
 };
@@ -192,6 +228,11 @@ certificationCards.forEach(card => {
 
 // Observe new article cards
 articleCards.forEach(card => {
+    observer.observe(card);
+});
+
+// Observe skill cards to trigger progress bar animations
+document.querySelectorAll('.skill-card').forEach(card => {
     observer.observe(card);
 });
 
@@ -319,7 +360,8 @@ contactForm.addEventListener('submit', function (e) {
     }
 
     // Construct the mailto link
-    const mailtoLink = `mailto:your.email@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+    // Ensure the email address matches the one you want to receive emails at
+    const mailtoLink = `mailto:bangladeshchinmoy@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
 
     // Open the user's default email client
     window.location.href = mailtoLink;
@@ -390,8 +432,7 @@ generateIdeaButton.addEventListener('click', async () => {
 });
 
 // Event listener to close the LLM idea modal
-closeLlmModalButton.addEventListener('click', closeLlmModalButton); // Fixed: Should be closeLlmModalButton
-closeLlmModalButton.addEventListener('click', closeLlmModal); // Fixed: Should be closeLlmModal
+closeLlmModalButton.addEventListener('click', closeLlmModal);
 
 // Close LLM modal if clicked outside content
 llmIdeaModal.addEventListener('click', function (event) {
@@ -426,5 +467,73 @@ copyIdeaButton.addEventListener('click', () => {
         }
     } else {
         alert('Nothing to copy yet!');
+    }
+});
+
+
+// --- Testimonial Carousel Logic ---
+function showTestimonial(index) {
+    const testimonials = testimonialsCarousel.querySelectorAll('.testimonial-card');
+    const dots = testimonialDotsContainer.querySelectorAll('.dot');
+
+    // Hide all testimonials
+    testimonials.forEach(card => card.style.display = 'none');
+    dots.forEach(dot => dot.classList.remove('active'));
+
+    // Show the current testimonial
+    testimonials[index].style.display = 'flex'; // Use flex to maintain centering
+    dots[index].classList.add('active');
+
+    currentTestimonialIndex = index;
+}
+
+function nextTestimonial() {
+    const testimonials = testimonialsCarousel.querySelectorAll('.testimonial-card');
+    currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+    showTestimonial(currentTestimonialIndex);
+    resetTestimonialAutoPlay();
+}
+
+function prevTestimonial() {
+    const testimonials = testimonialsCarousel.querySelectorAll('.testimonial-card');
+    currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
+    showTestimonial(currentTestimonialIndex);
+    resetTestimonialAutoPlay();
+}
+
+function createTestimonialDots() {
+    const testimonials = testimonialsCarousel.querySelectorAll('.testimonial-card');
+    testimonialDotsContainer.innerHTML = ''; // Clear existing dots
+    testimonials.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot', 'w-3', 'h-3', 'bg-gray-500', 'rounded-full', 'cursor-pointer', 'transition', 'duration-300');
+        dot.addEventListener('click', () => {
+            showTestimonial(index);
+            resetTestimonialAutoPlay();
+        });
+        testimonialDotsContainer.appendChild(dot);
+    });
+    showTestimonial(0); // Show the first testimonial initially
+}
+
+function startTestimonialAutoPlay() {
+    testimonialInterval = setInterval(nextTestimonial, 5000); // Change testimonial every 5 seconds
+}
+
+function resetTestimonialAutoPlay() {
+    clearInterval(testimonialInterval);
+    startTestimonialAutoPlay();
+}
+
+// Initialize carousel on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+    // ... (existing DOMContentLoaded logic)
+
+    // Initialize testimonial carousel
+    if (testimonialsCarousel) {
+        createTestimonialDots();
+        startTestimonialAutoPlay();
+        testimonialPrevButton.addEventListener('click', prevTestimonial);
+        testimonialNextButton.addEventListener('click', nextTestimonial);
     }
 });
