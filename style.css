@@ -9,11 +9,22 @@ body {
     /* Dark background */
     color: #e2e8f0;
     /* Light text */
-    /* New: Subtle animated background pattern */
+    /* Base background for body, will be overridden by section-specific patterns */
+}
+
+/* New: Animated background patterns for sections */
+.section-bg-pattern-1 {
     background-image: radial-gradient(circle at 10% 20%, rgba(30, 64, 175, 0.05) 0%, rgba(30, 64, 175, 0.01) 90%),
         radial-gradient(circle at 90% 80%, rgba(79, 70, 229, 0.05) 0%, rgba(79, 70, 229, 0.01) 90%);
     background-size: 150% 150%;
     animation: backgroundPan 30s linear infinite alternate;
+}
+
+.section-bg-pattern-2 {
+    background-image: linear-gradient(135deg, rgba(26, 32, 44, 0.9) 0%, rgba(45, 55, 72, 0.9) 100%),
+        url('data:image/svg+xml,%3Csvg width="6" height="6" viewBox="0 0 6 6" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%234a5568" fill-opacity="0.1" fill-rule="evenodd"%3E%3Cpath d="M5 0h1L0 6V5zM6 5v1H0z"/%3E%3C/g%3E%3C/svg%3E');
+    background-size: 100% 100%, 6px 6px;
+    animation: backgroundPan 25s linear infinite reverse;
 }
 
 @keyframes backgroundPan {
@@ -196,6 +207,18 @@ body {
     }
 }
 
+/* New: Skill progress bar animation */
+@keyframes fillProgress {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: var(--progress-width);
+    }
+
+    /* Dynamically set by JS */
+}
 
 /* Apply animations on scroll (handled by JS below) */
 .animate-on-scroll {
@@ -231,6 +254,11 @@ body {
 
 .animate-pop-in.is-visible {
     animation: popIn 0.5s ease-out forwards;
+}
+
+/* Skill Progress Bar specific animation trigger */
+.skill-progress.is-visible {
+    animation: fillProgress 1.5s ease-out forwards;
 }
 
 
@@ -340,4 +368,46 @@ body {
     border-radius: 0.5rem;
     object-fit: cover;
     margin-bottom: 0.5rem;
+}
+
+/* Testimonial Carousel Styles */
+#testimonials-carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    scroll-snap-type: x mandatory;
+    /* Enable smooth snapping */
+    -webkit-overflow-scrolling: touch;
+    /* For iOS Safari */
+}
+
+.testimonial-card {
+    scroll-snap-align: start;
+    background-color: #2d3748;
+    /* Consistent card background */
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border: 1px solid #4a5568;
+}
+
+#testimonial-prev,
+#testimonial-next {
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 50%;
+    transition: background-color 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#testimonial-dots .dot {
+    background-color: #4a5568;
+    /* Inactive dot */
+    transition: background-color 0.3s ease-in-out;
+}
+
+#testimonial-dots .dot.active {
+    background-color: #6366f1;
+    /* Active dot */
 }
