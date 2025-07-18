@@ -15,6 +15,9 @@
 
 <body class="antialiased">
 
+    <!-- Interactive Cursor Trail -->
+    <div id="cursor-trail" class="hidden md:block"></div>
+
     <!-- Loading Spinner -->
     <div id="loading-spinner"
         class="fixed inset-0 bg-gray-950 flex items-center justify-center z-[9999] transition-opacity duration-500 opacity-100">
@@ -43,6 +46,8 @@
                     class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Certifications</a>
                 <a href="#blog"
                     class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Blog</a>
+                <a href="#notes"
+                    class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Notes</a>
                 <a href="#projects"
                     class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Projects</a>
                 <a href="#testimonials"
@@ -76,6 +81,8 @@
                 class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-indigo-400 font-medium transition duration-300 ease-in-out">Certifications</a>
             <a href="#blog"
                 class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-indigo-400 font-medium transition duration-300 ease-in-out">Blog</a>
+            <a href="#notes"
+                class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-indigo-400 font-medium transition duration-300 ease-in-out">Notes</a>
             <a href="#projects"
                 class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-indigo-400 font-medium transition duration-300 ease-in-out">Projects</a>
             <a href="#testimonials"
@@ -471,8 +478,10 @@
                 <!-- Article Card 1 -->
                 <div class="article-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
                     data-animation="fade-in">
+                    <div class="skeleton-loader article-image-placeholder"></div>
                     <img src="https://cdn.prod.website-files.com/5ff66329429d880392f6cba2/620e342e310444a1f20d52d7_Serverless%20Computing%20Preview.jpg"
-                        alt="Article Thumbnail" class="w-full h-48 object-cover">
+                        alt="Article Thumbnail" class="w-full h-48 object-cover hidden"
+                        onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-gray-100 mb-2">The Future of Serverless Computing</h3>
                         <p class="text-gray-300 mb-4 text-sm">Explore the evolving landscape of serverless architectures
@@ -490,8 +499,10 @@
                 <!-- Article Card 2 -->
                 <div class="article-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="100">
+                    <div class="skeleton-loader article-image-placeholder"></div>
                     <img src="https://studio.uxpincdn.com/studio/wp-content/uploads/2024/07/React-Hooks-1024x512.webp"
-                        alt="Article Thumbnail" class="w-full h-48 object-cover">
+                        alt="Article Thumbnail" class="w-full h-48 object-cover hidden"
+                        onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-gray-100 mb-2">Mastering React Hooks: A Deep Dive</h3>
                         <p class="text-gray-300 mb-4 text-sm">Unlock the full potential of React Hooks to write cleaner,
@@ -509,8 +520,10 @@
                 <!-- Article Card 3 -->
                 <div class="article-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="200">
+                    <div class="skeleton-loader article-image-placeholder"></div>
                     <img src="https://public-images.interaction-design.org/tags/td-prototyping-03.webp"
-                        alt="Article Thumbnail" class="w-full h-48 object-cover">
+                        alt="Article Thumbnail" class="w-full h-48 object-cover hidden"
+                        onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-gray-100 mb-2">Effective Strategies for UI/UX Prototyping
                         </h3>
@@ -531,6 +544,63 @@
                 <a href="#"
                     class="inline-block bg-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-700 transform hover:scale-105 transition duration-300 ease-in-out text-lg">
                     View All Articles <i class="fas fa-book-open ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- New: Notes & Snippets Section -->
+    <section id="notes" class="py-20 bg-gray-800 section-bg-pattern-2">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h2 class="section-title text-center mx-auto animate-fade-in">Notes & Snippets</h2>
+            <p class="text-center text-gray-300 text-xl mb-12 animate-fade-in" data-delay="100">Quick thoughts, code
+                snippets, and interesting finds.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+                <!-- Note Card 1 -->
+                <div class="note-card bg-gray-700 p-6 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in">
+                    <h3 class="text-xl font-semibold text-gray-100 mb-3">CSS Grid vs. Flexbox: A Quick Guide</h3>
+                    <p class="text-gray-300 text-sm mb-4">A brief comparison of CSS Grid and Flexbox for layout, when to
+                        use each, and common use cases.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">CSS</span>
+                        <span
+                            class="bg-pink-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">Layout</span>
+                    </div>
+                    <span class="text-gray-400 text-xs">June 1, 2025</span>
+                </div>
+                <!-- Note Card 2 -->
+                <div class="note-card bg-gray-700 p-6 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in" data-delay="100">
+                    <h3 class="text-xl font-semibold text-gray-100 mb-3">JavaScript Debounce Function Example</h3>
+                    <p class="text-gray-300 text-sm mb-4">A reusable JavaScript debounce function to limit how often a
+                        function can run.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span
+                            class="bg-yellow-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">JavaScript</span>
+                        <span
+                            class="bg-purple-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">Performance</span>
+                    </div>
+                    <span class="text-gray-400 text-xs">May 20, 2025</span>
+                </div>
+                <!-- Note Card 3 -->
+                <div class="note-card bg-gray-700 p-6 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                    data-animation="fade-in" data-delay="200">
+                    <h3 class="text-xl font-semibold text-gray-100 mb-3">My Favorite VS Code Extensions for Web Dev</h3>
+                    <p class="text-gray-300 text-sm mb-4">A quick list of essential VS Code extensions that boost my web
+                        development productivity.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-red-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">Tools</span>
+                        <span
+                            class="bg-green-600 text-white text-xs font-medium px-2.5 py-0.5 rounded-full">Productivity</span>
+                    </div>
+                    <span class="text-gray-400 text-xs">April 10, 2025</span>
+                </div>
+            </div>
+            <div class="text-center mt-12 animate-on-scroll" data-animation="fade-in" data-delay="300">
+                <a href="#"
+                    class="inline-block bg-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-700 transform hover:scale-105 transition duration-300 ease-in-out text-lg">
+                    View All Notes <i class="fas fa-lightbulb ml-2"></i>
                 </a>
             </div>
         </div>
@@ -563,8 +633,10 @@
                 <!-- Project Card 1 -->
                 <div class="project-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-project-id="project1" data-tech="React Node.js MongoDB">
+                    <div class="skeleton-loader project-image-placeholder"></div>
                     <img src="https://placehold.co/600x400/3b82f6/ffffff?text=E-commerce+Platform"
-                        alt="E-commerce Platform" class="w-full h-48 object-cover">
+                        alt="E-commerce Platform" class="w-full h-48 object-cover hidden"
+                        onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-gray-100 mb-2">E-commerce Platform</h3>
                         <p class="text-gray-300 mb-4">A full-stack e-commerce application built with React, Node.js, and
@@ -595,8 +667,10 @@
                 <!-- Project Card 2 -->
                 <div class="project-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="100" data-project-id="project2" data-tech="Vue.js Firebase">
+                    <div class="skeleton-loader project-image-placeholder"></div>
                     <img src="https://placehold.co/600x400/6366f1/ffffff?text=Task+Manager+App"
-                        alt="Task Management App" class="w-full h-48 object-cover">
+                        alt="Task Management App" class="w-full h-48 object-cover hidden"
+                        onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-gray-100 mb-2">Task Management App</h3>
                         <p class="text-gray-300 mb-4">A responsive task management application with drag-and-drop
@@ -628,8 +702,10 @@
                 <div class="project-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="200" data-project-id="project3"
                     data-tech="D3.js React Data Viz">
+                    <div class="skeleton-loader project-image-placeholder"></div>
                     <img src="https://placehold.co/600x400/f59e0b/ffffff?text=Data+Dashboard"
-                        alt="Interactive Data Dashboard" class="w-full h-48 object-cover">
+                        alt="Interactive Data Dashboard" class="w-full h-48 object-cover hidden"
+                        onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-gray-100 mb-2">Interactive Data Dashboard</h3>
                         <p class="text-gray-300 mb-4">A dynamic dashboard visualizing complex datasets using D3.js and
@@ -660,8 +736,10 @@
                 <!-- Project Card 4 -->
                 <div class="project-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="300" data-project-id="project4" data-tech="UI/UX Figma">
+                    <div class="skeleton-loader project-image-placeholder"></div>
                     <img src="https://placehold.co/600x400/475569/ffffff?text=Mobile+App+Concept"
-                        alt="Mobile App Concept" class="w-full h-48 object-cover">
+                        alt="Mobile App Concept" class="w-full h-48 object-cover hidden"
+                        onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-gray-100 mb-2">Mobile App Concept</h3>
                         <p class="text-gray-300 mb-4">UI/UX design and prototype for a fitness tracking mobile
@@ -693,8 +771,10 @@
                 <div class="project-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="400" data-project-id="project5"
                     data-tech="Next.js GraphQL CMS">
+                    <div class="skeleton-loader project-image-placeholder"></div>
                     <img src="https://placehold.co/600x400/6b7280/ffffff?text=Blog+Platform"
-                        alt="Personal Blog Platform" class="w-full h-48 object-cover">
+                        alt="Personal Blog Platform" class="w-full h-48 object-cover hidden"
+                        onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-gray-100 mb-2">Personal Blog Platform</h3>
                         <p class="text-gray-300 mb-4">A custom-built blog platform with a content management system
@@ -726,8 +806,10 @@
                 <div class="project-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="500" data-project-id="project6"
                     data-tech="JavaScript HTML Canvas">
+                    <div class="skeleton-loader project-image-placeholder"></div>
                     <img src="https://placehold.co/600x400/374151/ffffff?text=Game+Dev" alt="Simple Game Development"
-                        class="w-full h-48 object-cover">
+                        class="w-full h-48 object-cover hidden"
+                        onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-gray-100 mb-2"> Game Development</h3>
                         <p class="text-gray-300 mb-4">An browser-based game developed using pure JavaScript and
@@ -914,6 +996,7 @@
                 <a href="#certifications"
                     class="text-gray-400 hover:text-white transition duration-300 ease-in-out">Certifications</a>
                 <a href="#blog" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">Blog</a>
+                <a href="#notes" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">Notes</a>
                 <a href="#projects"
                     class="text-gray-400 hover:text-white transition duration-300 ease-in-out">Projects</a>
                 <a href="#contact"
@@ -936,7 +1019,10 @@
                 <i class="fas fa-times-circle"></i>
             </button>
             <h3 id="modal-project-title" class="text-3xl font-bold text-indigo-400 mb-4"></h3>
-            <img id="modal-project-image" src="" alt="Project Image" class="w-full h-64 object-cover rounded-lg mb-6">
+            <div class="skeleton-loader modal-image-placeholder"></div>
+            <img id="modal-project-image" src="" alt="Project Image"
+                class="w-full h-64 object-cover rounded-lg mb-6 hidden"
+                onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';">
             <p id="modal-project-description" class="text-gray-300 text-lg mb-6 leading-relaxed"></p>
             <div id="modal-project-tech" class="flex flex-wrap gap-2 mb-6"></div>
             <div class="flex flex-col sm:flex-row justify-center sm:justify-start gap-4">
