@@ -17,9 +17,14 @@ const modalGithub = document.getElementById('modal-github');
 const contactForm = document.getElementById('contact-form'); // Reference to the contact form
 
 // LLM Feature elements
-const generateIdeaButton = document.getElementById('generate-idea-button');
-const llmIdeaModal = document.getElementById('llm-idea-modal');
-const closeLlmModalButton = document.getElementById('close-llm-modal-button');
+const openLlmInputModalButton = document.getElementById('open-llm-input-modal-button');
+const llmInputModal = document.getElementById('llm-input-modal');
+const closeLlmInputModalButton = document.getElementById('close-llm-input-modal-button');
+const projectThemeInput = document.getElementById('project-theme-input');
+const generateBriefButton = document.getElementById('generate-brief-button');
+
+const llmIdeaDisplayModal = document.getElementById('llm-idea-display-modal');
+const closeLlmDisplayModalButton = document.getElementById('close-llm-display-modal-button');
 const llmIdeaContent = document.getElementById('llm-idea-content');
 const copyIdeaButton = document.getElementById('copy-idea-button');
 
@@ -453,32 +458,88 @@ contactForm.addEventListener('submit', function (e) {
 });
 
 
-// --- LLM Feature: Generate Project Idea ---
+// --- LLM Feature: Generate Project Brief ---
 
-// Function to open the LLM idea modal
-function openLlmIdeaModal(content = "Generating idea...") {
-    llmIdeaContent.textContent = content;
-    llmIdeaModal.classList.remove('hidden');
+// Function to open the LLM input modal
+function openLlmInputModal() {
+    llmInputModal.classList.remove('hidden');
     document.body.style.overflow = 'hidden'; // Prevent scrolling
     setTimeout(() => {
-        llmIdeaModal.classList.add('is-visible');
+        llmInputModal.classList.add('is-visible');
     }, 10);
+    projectThemeInput.focus(); // Focus on the input field
 }
 
-// Function to close the LLM idea modal
-function closeLlmIdeaModal() {
-    llmIdeaModal.classList.remove('is-visible');
+// Function to close the LLM input modal
+function closeLlmInputModal() {
+    llmInputModal.classList.remove('is-visible');
     document.body.style.overflow = ''; // Re-enable scrolling
     setTimeout(() => {
-        llmIdeaModal.classList.add('hidden');
+        llmInputModal.classList.add('hidden');
+        projectThemeInput.value = ''; // Clear input field
     }, 300);
 }
 
-// Event listener for the "Generate Project Idea" button
-generateIdeaButton.addEventListener('click', async () => {
-    openLlmIdeaModal("Generating a creative project idea for you..."); // Show loading message
+// Function to open the LLM display modal
+function openLlmDisplayModal(content = "Generating brief...") {
+    llmIdeaContent.textContent = content;
+    llmIdeaDisplayModal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+    setTimeout(() => {
+        llmIdeaDisplayModal.classList.add('is-visible');
+    }, 10);
+}
 
-    const prompt = `Generate a creative and feasible web development project idea for a portfolio. The idea should be concise (1-2 sentences) and could involve technologies like React, Node.js, UI/UX design, data visualization, or general software engineering principles. Provide only the idea, no conversational text.`;
+// Function to close the LLM display modal
+function closeLlmDisplayModal() {
+    llmIdeaDisplayModal.classList.remove('is-visible');
+    document.body.style.overflow = ''; // Re-enable scrolling
+    setTimeout(() => {
+        llmIdeaDisplayModal.classList.add('hidden');
+    }, 300);
+}
+
+
+// Event listener for the "Generate Project Brief" button (to open input modal)
+openLlmInputModalButton.addEventListener('click', openLlmInputModal);
+
+// Event listener to close the LLM input modal
+closeLlmInputModalButton.addEventListener('click', closeLlmInputModal);
+
+// Close LLM input modal if clicked outside content
+llmInputModal.addEventListener('click', function (event) {
+    if (event.target === llmInputModal) {
+        closeLlmInputModal();
+    }
+});
+
+// Close LLM input modal with Escape key
+document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && llmInputModal.classList.contains('is-visible')) {
+        closeLlmInputModal();
+    }
+});
+
+// Event listener for the "Generate Brief" button inside the input modal
+generateBriefButton.addEventListener('click', async () => {
+    const theme = projectThemeInput.value.trim();
+    if (!theme) {
+        alert("Please enter a project theme!");
+        return;
+    }
+
+    closeLlmInputModal(); // Close the input modal
+    openLlmDisplayModal("Generating a detailed project brief based on your theme: " + theme + "..."); // Show loading message in display modal
+
+    const prompt = `Generate a detailed web development project brief for a portfolio based on the theme "${theme}". The brief should include:
+    1.  **Project Title:** A catchy and descriptive title.
+    2.  **Overview:** A concise paragraph describing the project's purpose and what it aims to achieve.
+    3.  **Core Features:** A bulleted list of 3-5 key functionalities.
+    4.  **Suggested Tech Stack:** A list of recommended technologies (e.g., frontend framework, backend, database, APIs).
+    5.  **Target Audience:** Who is this project for?
+    6.  **Potential Challenges/Considerations:** 1-2 points on what might be challenging or important to consider during development.
+
+    Format the output clearly with headings and bullet points. Do not include any conversational text outside the brief.`;
 
     let chatHistory = [];
     chatHistory.push({ role: "user", parts: [{ text: prompt }] });
@@ -500,38 +561,38 @@ generateIdeaButton.addEventListener('click', async () => {
             result.candidates[0].content && result.candidates[0].content.parts &&
             result.candidates[0].content.parts.length > 0) {
             const text = result.candidates[0].content.parts[0].text;
-            llmIdeaContent.textContent = text; // Display the generated idea
+            llmIdeaContent.textContent = text; // Display the generated brief
         } else {
-            llmIdeaContent.textContent = "Failed to generate an idea. Please try again.";
+            llmIdeaContent.textContent = "Failed to generate a brief. Please try again.";
             console.error("Gemini API returned an unexpected structure:", result);
         }
     } catch (error) {
-        llmIdeaContent.textContent = "Error connecting to the idea generator. Please check your network or try again later.";
+        llmIdeaContent.textContent = "Error connecting to the brief generator. Please check your network or try again later.";
         console.error("Error calling Gemini API:", error);
     }
 });
 
-// Event listener to close the LLM idea modal
-closeLlmModalButton.addEventListener('click', closeLlmModal);
+// Event listener to close the LLM display modal
+closeLlmDisplayModalButton.addEventListener('click', closeLlmDisplayModal);
 
-// Close LLM modal if clicked outside content
-llmIdeaModal.addEventListener('click', function (event) {
-    if (event.target === llmIdeaModal) {
-        closeLlmModal();
+// Close LLM display modal if clicked outside content
+llmIdeaDisplayModal.addEventListener('click', function (event) {
+    if (event.target === llmIdeaDisplayModal) {
+        closeLlmDisplayModal();
     }
 });
 
-// Close LLM modal with Escape key
+// Close LLM display modal with Escape key
 document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape' && llmIdeaModal.classList.contains('is-visible')) {
-        closeLlmModal();
+    if (event.key === 'Escape' && llmIdeaDisplayModal.classList.contains('is-visible')) {
+        closeLlmDisplayModal();
     }
 });
 
-// Copy idea to clipboard
+// Copy brief to clipboard
 copyIdeaButton.addEventListener('click', () => {
     const textToCopy = llmIdeaContent.textContent;
-    if (textToCopy && textToCopy !== "Generating a creative project idea for you..." && textToCopy !== "Failed to generate an idea. Please try again." && textToCopy !== "Error connecting to the idea generator. Please check your network or try again later.") {
+    if (textToCopy && !textToCopy.startsWith("Generating") && !textToCopy.startsWith("Failed") && !textToCopy.startsWith("Error")) {
         try {
             // Use execCommand for broader browser compatibility in iframes
             const textarea = document.createElement('textarea');
@@ -540,13 +601,13 @@ copyIdeaButton.addEventListener('click', () => {
             textarea.select();
             document.execCommand('copy');
             document.body.removeChild(textarea);
-            alert('Idea copied to clipboard!');
+            alert('Project brief copied to clipboard!');
         } catch (err) {
             console.error('Failed to copy text: ', err);
-            alert('Failed to copy the idea. Please copy it manually.');
+            alert('Failed to copy the brief. Please copy it manually.');
         }
     } else {
-        alert('Nothing to copy yet!');
+        alert('Nothing to copy yet or generation is still in progress!');
     }
 });
 

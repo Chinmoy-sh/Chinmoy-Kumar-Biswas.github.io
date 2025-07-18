@@ -328,9 +328,9 @@
                         <p class="text-indigo-400">Role in the company or institution</p>
                         <p class="text-gray-400 text-sm">Duration</p>
                         <ul class="list-disc list-inside text-gray-300 mt-2 text-left">
-                            <li>Subjects</li>
-                            <li>Wroking Project:</li>
-                            <li>Activities/Achievements</li>
+                            <li>Experience No.1</li>
+                            <li>Experience No.2</li>
+                            <li>Experience No.3</li>
                         </ul>
                     </div>
                     <div class="md:w-1/12 flex justify-center md:order-2 order-1 mb-4 md:mb-0">
@@ -836,9 +836,9 @@
             </div>
             <!-- New LLM Feature Button -->
             <div class="text-center mt-12 animate-on-scroll" data-animation="fade-in" data-delay="600">
-                <button id="generate-idea-button"
+                <button id="open-llm-input-modal-button"
                     class="inline-flex items-center bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-yellow-300 transform hover:scale-105 transition duration-300 ease-in-out text-lg">
-                    ✨ Generate your Project Idea. Just give the promt here!
+                    ✨ Generate Project Brief
                 </button>
             </div>
         </div>
@@ -1037,20 +1037,41 @@
         </div>
     </div>
 
-    <!-- LLM Idea Modal -->
-    <div id="llm-idea-modal" class="modal-overlay hidden">
+    <!-- LLM Idea Input Modal -->
+    <div id="llm-input-modal" class="modal-overlay hidden">
         <div class="modal-content w-full md:w-1/2 lg:w-1/3">
-            <button id="close-llm-modal-button"
+            <button id="close-llm-input-modal-button"
                 class="absolute top-4 right-4 text-gray-400 hover:text-gray-100 text-3xl focus:outline-none">
                 <i class="fas fa-times-circle"></i>
             </button>
-            <h3 class="text-3xl font-bold text-yellow-400 mb-4 text-center">✨ Your Project Idea ✨</h3>
-            <p id="llm-idea-content" class="text-gray-300 text-lg mb-6 leading-relaxed text-center">Generating idea...
-            </p>
+            <h3 class="text-3xl font-bold text-yellow-400 mb-4 text-center">Generate Project Brief</h3>
+            <p class="text-gray-300 text-lg mb-4 text-center">Enter a theme for your project idea:</p>
+            <input type="text" id="project-theme-input"
+                class="w-full px-4 py-2 bg-gray-600 border border-gray-500 rounded-md shadow-sm text-gray-100 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm mb-6"
+                placeholder="e.g., educational app, social media, game, data visualization">
+            <div class="text-center">
+                <button id="generate-brief-button"
+                    class="inline-flex justify-center py-2 px-6 border border-transparent shadow-sm text-md font-medium rounded-full text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transform hover:scale-105 transition duration-300 ease-in-out">
+                    Generate Brief <i class="fas fa-magic ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LLM Idea Display Modal -->
+    <div id="llm-idea-display-modal" class="modal-overlay hidden">
+        <div class="modal-content w-full md:w-1/2 lg:w-2/3">
+            <button id="close-llm-display-modal-button"
+                class="absolute top-4 right-4 text-gray-400 hover:text-gray-100 text-3xl focus:outline-none">
+                <i class="fas fa-times-circle"></i>
+            </button>
+            <h3 class="text-3xl font-bold text-yellow-400 mb-4 text-center">✨ Your Project Brief ✨</h3>
+            <p id="llm-idea-content" class="text-gray-300 text-lg mb-6 leading-relaxed whitespace-pre-wrap">Generating
+                brief...</p>
             <div class="text-center">
                 <button id="copy-idea-button"
                     class="inline-flex justify-center py-2 px-6 border border-transparent shadow-sm text-md font-medium rounded-full text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transform hover:scale-105 transition duration-300 ease-in-out">
-                    Copy Idea <i class="fas fa-copy ml-2"></i>
+                    Copy Brief <i class="fas fa-copy ml-2"></i>
                 </button>
             </div>
         </div>
