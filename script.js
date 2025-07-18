@@ -23,16 +23,24 @@ const closeLlmModalButton = document.getElementById('close-llm-modal-button');
 const llmIdeaContent = document.getElementById('llm-idea-content');
 const copyIdeaButton = document.getElementById('copy-idea-button');
 
-// New: Skill progress bars
+// Skill progress bars
 const skillProgressBars = document.querySelectorAll('.skill-progress');
 
-// New: Testimonial Carousel elements
+// Testimonial Carousel elements
 const testimonialsCarousel = document.getElementById('testimonials-carousel');
 const testimonialPrevButton = document.getElementById('testimonial-prev');
 const testimonialNextButton = document.getElementById('testimonial-next');
 const testimonialDotsContainer = document.getElementById('testimonial-dots');
 let currentTestimonialIndex = 0;
 let testimonialInterval;
+
+// Theme Toggle elements
+const themeToggleButtons = document.querySelectorAll('#theme-toggle, #mobile-theme-toggle');
+const themeIcons = document.querySelectorAll('#theme-icon, #mobile-theme-icon');
+
+// Project Filter elements
+const filterButtons = document.querySelectorAll('.filter-btn');
+const allProjectCards = document.querySelectorAll('.project-card');
 
 
 // Project Data (for modal) - Expanded descriptions
@@ -139,6 +147,7 @@ const ctaSection = document.querySelector('#cta .animate-fade-in');
 // New sections added to be observed
 const certificationCards = document.querySelectorAll('.certification-card');
 const articleCards = document.querySelectorAll('.article-card');
+const noteCards = document.querySelectorAll('.note-card'); // New: Notes cards
 
 
 const observerOptions = {
@@ -172,7 +181,7 @@ const observerCallback = (entries, observer) => {
                     target.classList.add('is-visible'); // Default fade-in
                 }
 
-                // New: Animate skill progress bars when their parent card is visible
+                // Animate skill progress bars when their parent card is visible
                 if (target.classList.contains('skill-card')) {
                     const progressBar = target.querySelector('.skill-progress');
                     if (progressBar) {
@@ -231,6 +240,11 @@ articleCards.forEach(card => {
     observer.observe(card);
 });
 
+// Observe new note cards
+noteCards.forEach(card => {
+    observer.observe(card);
+});
+
 // Observe skill cards to trigger progress bar animations
 document.querySelectorAll('.skill-card').forEach(card => {
     observer.observe(card);
@@ -244,8 +258,28 @@ function openProjectModal(projectId) {
     const project = projectsData[projectId];
     if (project) {
         modalProjectTitle.textContent = project.title;
-        modalProjectImage.src = project.image;
-        modalProjectImage.alt = project.title;
+
+        // Show skeleton loader first
+        modalProjectImage.classList.add('hidden');
+        modalProjectImage.previousElementSibling.style.display = 'block';
+
+        // Load image and hide skeleton
+        const img = new Image();
+        img.onload = () => {
+            modalProjectImage.src = project.image;
+            modalProjectImage.classList.remove('hidden');
+            modalProjectImage.previousElementSibling.style.display = 'none';
+        };
+        img.onerror = () => {
+            console.error('Failed to load image for project modal:', project.image);
+            // Fallback to a placeholder or hide skeleton anyway
+            modalProjectImage.src = 'https://placehold.co/800x500/cccccc/333333?text=Image+Error';
+            modalProjectImage.classList.remove('hidden');
+            modalProjectImage.previousElementSibling.style.display = 'none';
+        };
+        img.src = project.image;
+
+
         modalProjectDescription.textContent = project.description;
 
         // Clear previous technologies and add new ones
@@ -344,34 +378,80 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// --- Contact Form Submission (mailto:) ---
+// --- Contact Form Submission (mailto:) with Validation ---
 contactForm.addEventListener('submit', function (e) {
     e.preventDefault(); // Prevent default form submission
 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const subjectInput = document.getElementById('subject');
+    const messageInput = document.getElementById('message');
 
-    // Basic validation
-    if (!name || !email || !subject || !message) {
-        alert('Please fill in all fields.');
-        return;
+    const nameError = document.getElementById('name-error');
+    const emailError = document.getElementById('email-error');
+    const subjectError = document.getElementById('subject-error');
+    const messageError = document.getElementById('message-error');
+
+    let isValid = true;
+
+    // Validate Name
+    if (nameInput.value.trim() === '') {
+        nameError.textContent = 'Name is required.';
+        nameError.classList.remove('hidden');
+        isValid = false;
+    } else {
+        nameError.classList.add('hidden');
     }
 
-    // Construct the mailto link
-    // Ensure the email address matches the one you want to receive emails at
-    const mailtoLink = `mailto:bangladeshchinmoy@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+    // Validate Email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailInput.value.trim() === '') {
+        emailError.textContent = 'Email is required.';
+        emailError.classList.remove('hidden');
+        isValid = false;
+    } else if (!emailRegex.test(emailInput.value.trim())) {
+        emailError.textContent = 'Please enter a valid email address.';
+        emailError.classList.remove('hidden');
+        isValid = false;
+    } else {
+        emailError.classList.add('hidden');
+    }
 
-    // Open the user's default email client
-    window.location.href = mailtoLink;
+    // Validate Subject
+    if (subjectInput.value.trim() === '') {
+        subjectError.textContent = 'Subject is required.';
+        subjectError.classList.remove('hidden');
+        isValid = false;
+    } else {
+        subjectError.classList.add('hidden');
+    }
 
-    // Optionally, clear the form after opening mail client
-    contactForm.reset();
+    // Validate Message
+    if (messageInput.value.trim() === '') {
+        messageError.textContent = 'Message is required.';
+        messageError.classList.remove('hidden');
+        isValid = false;
+    } else {
+        messageError.classList.add('hidden');
+    }
 
-    // Provide a user friendly message (since mailto doesn't give feedback)
-    alert('Your email client should open shortly with your message. Thank you!');
+    if (isValid) {
+        // Construct the mailto link
+        const mailtoLink = `mailto:bangladeshchinmoy@gmail.com?subject=${encodeURIComponent(subjectInput.value.trim())}&body=${encodeURIComponent(`Name: ${nameInput.value.trim()}\nEmail: ${emailInput.value.trim()}\n\nMessage:\n${messageInput.value.trim()}`)}`;
+
+        // Open the user's default email client
+        window.location.href = mailtoLink;
+
+        // Optionally, clear the form after opening mail client
+        contactForm.reset();
+
+        // Provide a user friendly message (since mailto doesn't give feedback)
+        alert('Your email client should open shortly with your message. Thank you!');
+    } else {
+        alert('Please correct the errors in the form.');
+    }
 });
+
 
 // --- LLM Feature: Generate Project Idea ---
 
@@ -476,28 +556,35 @@ function showTestimonial(index) {
     const testimonials = testimonialsCarousel.querySelectorAll('.testimonial-card');
     const dots = testimonialDotsContainer.querySelectorAll('.dot');
 
-    // Hide all testimonials
-    testimonials.forEach(card => card.style.display = 'none');
-    dots.forEach(dot => dot.classList.remove('active'));
+    // Ensure index wraps around correctly
+    if (index >= testimonials.length) {
+        index = 0;
+    } else if (index < 0) {
+        index = testimonials.length - 1;
+    }
 
-    // Show the current testimonial
-    testimonials[index].style.display = 'flex'; // Use flex to maintain centering
-    dots[index].classList.add('active');
+    // Adjust carousel position
+    testimonialsCarousel.style.transform = `translateX(-${index * 100}%)`;
+
+    // Update active dot
+    dots.forEach((dot, i) => {
+        if (i === index) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
 
     currentTestimonialIndex = index;
 }
 
 function nextTestimonial() {
-    const testimonials = testimonialsCarousel.querySelectorAll('.testimonial-card');
-    currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
-    showTestimonial(currentTestimonialIndex);
+    showTestimonial(currentTestimonialIndex + 1);
     resetTestimonialAutoPlay();
 }
 
 function prevTestimonial() {
-    const testimonials = testimonialsCarousel.querySelectorAll('.testimonial-card');
-    currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
-    showTestimonial(currentTestimonialIndex);
+    showTestimonial(currentTestimonialIndex - 1);
     resetTestimonialAutoPlay();
 }
 
@@ -525,10 +612,68 @@ function resetTestimonialAutoPlay() {
     startTestimonialAutoPlay();
 }
 
-// Initialize carousel on DOMContentLoaded
-document.addEventListener('DOMContentLoaded', () => {
-    // ... (existing DOMContentLoaded logic)
+// --- Theme Toggle Logic ---
+function setTheme(theme) {
+    document.body.classList.remove('light-mode', 'dark-mode');
+    if (theme === 'light') {
+        document.body.classList.add('light-mode');
+        themeIcons.forEach(icon => {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        });
+    } else {
+        document.body.classList.add('dark-mode');
+        themeIcons.forEach(icon => {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        });
+    }
+    localStorage.setItem('theme', theme);
+}
 
+function toggleTheme() {
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    if (currentTheme === 'dark') {
+        setTheme('light');
+    } else {
+        setTheme('dark');
+    }
+}
+
+// Add event listeners to theme toggle buttons
+themeToggleButtons.forEach(button => {
+    button.addEventListener('click', toggleTheme);
+});
+
+
+// --- Project Filtering Logic ---
+filterButtons.forEach(button => {
+    button.addEventListener('click', function () {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active-filter', 'bg-indigo-600', 'text-white'));
+        filterButtons.forEach(btn => btn.classList.add('bg-gray-700', 'text-gray-300'));
+
+        // Add active class to the clicked button
+        this.classList.add('active-filter', 'bg-indigo-600', 'text-white');
+        this.classList.remove('bg-gray-700', 'text-gray-300');
+
+
+        const filterValue = this.dataset.filter;
+
+        allProjectCards.forEach(card => {
+            const technologies = card.dataset.tech;
+            if (filterValue === 'all' || technologies.includes(filterValue)) {
+                card.style.display = 'block'; // Show the card
+            } else {
+                card.style.display = 'none'; // Hide the card
+            }
+        });
+    });
+});
+
+
+// --- Initialize on DOMContentLoaded ---
+document.addEventListener('DOMContentLoaded', () => {
     // Initialize testimonial carousel
     if (testimonialsCarousel) {
         createTestimonialDots();
@@ -536,4 +681,11 @@ document.addEventListener('DOMContentLoaded', () => {
         testimonialPrevButton.addEventListener('click', prevTestimonial);
         testimonialNextButton.addEventListener('click', nextTestimonial);
     }
+
+    // Apply saved theme on load
+    const savedTheme = localStorage.getItem('theme') || 'dark'; // Default to dark if no preference
+    setTheme(savedTheme);
+
+    // Trigger initial filter to show all projects
+    document.querySelector('.filter-btn[data-filter="all"]').click();
 });

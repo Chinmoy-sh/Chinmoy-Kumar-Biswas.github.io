@@ -1,31 +1,125 @@
-/* Custom styles for smoother scrolling and Inter font */
-html {
-    scroll-behavior: smooth;
-    font-family: 'Inter', sans-serif;
+/* Custom properties for colors (Dark Mode by default) */
+:root {
+    --bg-primary: #1a202c;
+    --bg-secondary: #2d3748;
+    --bg-card: #4a5568;
+    --text-primary: #e2e8f0;
+    --text-secondary: #cbd5e0;
+    --text-highlight: #6366f1;
+    /* Indigo */
+    --text-yellow: #facc15;
+    /* Yellow */
+    --text-green: #34d399;
+    /* Green */
+    --text-red: #ef4444;
+    /* Red */
+    --border-color: #4a5568;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --modal-bg: #2d3748;
+    --modal-shadow: rgba(0, 0, 0, 0.5);
+    --spinner-color: #6366f1;
+    --filter-inactive-bg: #4a5568;
+    --filter-inactive-text: #cbd5e0;
+    --skeleton-bg: #374151;
+    /* Darker grey for skeleton */
+    /* --cursor-trail-color: #6366f1; /* Removed cursor trail color */
 }
 
+/* Light Mode properties */
+body.light-mode {
+    --bg-primary: #f0f2f5;
+    --bg-secondary: #ffffff;
+    --bg-card: #f9f9f9;
+    --text-primary: #2d3748;
+    --text-secondary: #4a5568;
+    --text-highlight: #4f46e5;
+    /* Darker Indigo */
+    --text-yellow: #d97706;
+    /* Darker Yellow */
+    --text-green: #059669;
+    /* Darker Green */
+    --text-red: #dc2626;
+    /* Darker Red */
+    --border-color: #e2e8f0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --modal-bg: #ffffff;
+    --modal-shadow: rgba(0, 0, 0, 0.2);
+    --spinner-color: #4f46e5;
+    --filter-inactive-bg: #e2e8f0;
+    --filter-inactive-text: #4a5568;
+    --skeleton-bg: #e5e7eb;
+    /* Lighter grey for skeleton */
+    /* --cursor-trail-color: #4f46e5; /* Removed cursor trail color in light mode */
+}
+
+
+/* Apply variables */
 body {
-    background-color: #1a202c;
-    /* Dark background */
-    color: #e2e8f0;
-    /* Light text */
-    /* Base background for body, will be overridden by section-specific patterns */
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.5s ease, color 0.5s ease;
+    /* Removed: cursor: none; */
 }
 
-/* New: Animated background patterns for sections */
+/* Removed: Custom Cursor Trail styles */
+/*
+#cursor-trail {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background-color: var(--cursor-trail-color);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out, opacity 0.1s ease-out, background-color 0.5s ease;
+    z-index: 9999;
+    opacity: 0;
+    will-change: transform, opacity;
+}
+*/
+
+/* Ensure default cursor is visible on interactive elements */
+a,
+button,
+input,
+textarea,
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+
 .section-bg-pattern-1 {
     background-image: radial-gradient(circle at 10% 20%, rgba(30, 64, 175, 0.05) 0%, rgba(30, 64, 175, 0.01) 90%),
         radial-gradient(circle at 90% 80%, rgba(79, 70, 229, 0.05) 0%, rgba(79, 70, 229, 0.01) 90%);
     background-size: 150% 150%;
+    background-attachment: fixed;
+    /* Parallax effect */
     animation: backgroundPan 30s linear infinite alternate;
 }
 
 .section-bg-pattern-2 {
-    background-image: linear-gradient(135deg, rgba(26, 32, 44, 0.9) 0%, rgba(45, 55, 72, 0.9) 100%),
+    background-image: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%),
         url('data:image/svg+xml,%3Csvg width="6" height="6" viewBox="0 0 6 6" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%234a5568" fill-opacity="0.1" fill-rule="evenodd"%3E%3Cpath d="M5 0h1L0 6V5zM6 5v1H0z"/%3E%3C/g%3E%3C/svg%3E');
     background-size: 100% 100%, 6px 6px;
+    background-attachment: fixed;
+    /* Parallax effect */
     animation: backgroundPan 25s linear infinite reverse;
 }
+
+/* Micro-interactions: Button/Link active states */
+button:active,
+a:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease-out;
+}
+
+/* Ensure hover transform is not overridden by active */
+button:hover,
+a:hover {
+    transform: scale(1.05);
+    /* Example hover scale */
+}
+
 
 @keyframes backgroundPan {
     0% {
@@ -45,7 +139,7 @@ body {
     /* Larger title */
     font-weight: 700;
     /* Bold */
-    color: #f8fafc;
+    color: var(--text-primary);
     /* Even lighter for titles */
 }
 
@@ -56,7 +150,7 @@ body {
     bottom: -8px;
     width: 60%;
     height: 4px;
-    background-color: #6366f1;
+    background-color: var(--text-highlight);
     /* Indigo accent for dark theme */
     border-radius: 9999px;
 }
@@ -67,19 +161,19 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: #2d3748;
+    background: var(--bg-secondary);
     /* Darker track */
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #4a5568;
+    background: var(--bg-card);
     /* Darker thumb */
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #718096;
+    background: var(--border-color);
 }
 
 /* Keyframe animations */
@@ -194,7 +288,6 @@ body {
     }
 }
 
-/* New animation for a subtle pop-in effect */
 @keyframes popIn {
     0% {
         opacity: 0;
@@ -207,7 +300,6 @@ body {
     }
 }
 
-/* New: Skill progress bar animation */
 @keyframes fillProgress {
     from {
         width: 0%;
@@ -216,11 +308,24 @@ body {
     to {
         width: var(--progress-width);
     }
-
-    /* Dynamically set by JS */
 }
 
-/* Apply animations on scroll (handled by JS below) */
+/* New: Skeleton Loading Animation */
+@keyframes pulse {
+    0% {
+        background-color: var(--skeleton-bg);
+    }
+
+    50% {
+        background-color: color-mix(in srgb, var(--skeleton-bg) 80%, var(--bg-card));
+    }
+
+    /* Lighter pulse */
+    100% {
+        background-color: var(--skeleton-bg);
+    }
+}
+
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(20px);
@@ -256,9 +361,31 @@ body {
     animation: popIn 0.5s ease-out forwards;
 }
 
-/* Skill Progress Bar specific animation trigger */
 .skill-progress.is-visible {
     animation: fillProgress 1.5s ease-out forwards;
+}
+
+/* Skeleton Loader Styles */
+.skeleton-loader {
+    background-color: var(--skeleton-bg);
+    animation: pulse 1.5s infinite ease-in-out;
+    border-radius: 0.5rem;
+    /* Match card border radius */
+}
+
+.article-image-placeholder {
+    width: 100%;
+    height: 48px;
+    /* Match image height */
+    margin-bottom: 0.5rem;
+}
+
+.project-image-placeholder,
+.modal-image-placeholder {
+    width: 100%;
+    height: 192px;
+    /* Match image height */
+    margin-bottom: 1.5rem;
 }
 
 
@@ -285,12 +412,11 @@ body {
 }
 
 .modal-content {
-    background-color: #2d3748;
-    /* Darker modal background */
-    color: #e2e8f0;
+    background-color: var(--modal-bg);
+    color: var(--text-primary);
     padding: 2rem;
     border-radius: 0.75rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 25px var(--modal-shadow);
     max-width: 90%;
     max-height: 90%;
     overflow-y: auto;
@@ -308,8 +434,7 @@ body {
 /* Loading Spinner Styles */
 .spinner {
     border: 8px solid rgba(255, 255, 255, 0.3);
-    border-top: 8px solid #6366f1;
-    /* Indigo color */
+    border-top: 8px solid var(--spinner-color);
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -319,18 +444,15 @@ body {
 /* CSS Particles for Hero Section */
 .particles-container {
     overflow: hidden;
-    /* Ensure particles don't overflow */
 }
 
-/* Base styles for dynamically created particles */
 .particles-container div {
     position: absolute;
     border-radius: 50%;
     animation: particleMove infinite alternate;
     filter: blur(2px);
-    /* Soften the particles */
     pointer-events: none;
-    /* Ensure particles don't interfere with clicks */
+    z-index: -1;
 }
 
 /* Hover effects for cards */
@@ -339,22 +461,21 @@ body {
 .project-card:hover,
 .testimonial-card:hover,
 .certification-card:hover,
-/* New hover for certification cards */
-.article-card:hover {
-    /* New hover for article cards */
-    box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
-    /* Subtle glow on hover */
+.article-card:hover,
+.note-card:hover {
+    /* Added note-card */
+    box-shadow: 0 0 20px var(--text-highlight);
 }
 
 /* New section card styles */
 .certification-card,
-.article-card {
-    background-color: #2d3748;
-    /* Darker background for these cards */
+.article-card,
+.note-card {
+    /* Added note-card */
+    background-color: var(--bg-card);
     border-radius: 0.75rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    border: 1px solid #4a5568;
-    /* Border for definition */
+    box-shadow: 0 4px 10px var(--shadow-color);
+    border: 1px solid var(--border-color);
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -375,18 +496,13 @@ body {
     display: flex;
     transition: transform 0.5s ease-in-out;
     scroll-snap-type: x mandatory;
-    /* Enable smooth snapping */
     -webkit-overflow-scrolling: touch;
-    /* For iOS Safari */
 }
 
 .testimonial-card {
     scroll-snap-align: start;
-    background-color: #2d3748;
-    /* Consistent card background */
-    border-radius: 0.75rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    border: 1px solid #4a5568;
+    flex-shrink: 0;
+    width: 100%;
 }
 
 #testimonial-prev,
@@ -401,13 +517,42 @@ body {
     justify-content: center;
 }
 
+#testimonial-prev,
+#testimonial-next {
+    background-color: var(--filter-inactive-bg);
+    color: var(--text-primary);
+}
+
+#testimonial-prev:hover,
+#testimonial-next:hover {
+    background-color: var(--text-highlight);
+}
+
 #testimonial-dots .dot {
-    background-color: #4a5568;
-    /* Inactive dot */
-    transition: background-color 0.3s ease-in-out;
+    background-color: var(--filter-inactive-bg);
 }
 
 #testimonial-dots .dot.active {
-    background-color: #6366f1;
-    /* Active dot */
+    background-color: var(--text-highlight);
+}
+
+/* Project filter buttons */
+.filter-btn {
+    background-color: var(--filter-inactive-bg);
+    color: var(--filter-inactive-text);
+}
+
+.filter-btn:hover {
+    background-color: var(--text-highlight);
+    color: var(--text-primary);
+}
+
+.filter-btn.active-filter {
+    background-color: var(--text-highlight);
+    color: var(--text-primary);
+}
+
+/* Contact form validation error messages */
+.error-message {
+    color: var(--text-red);
 }
