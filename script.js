@@ -1,4 +1,5 @@
 // --- DOM Elements ---
+
 const mobileMenuButton = document.getElementById('mobile-menu-button');
 const mobileMenu = document.getElementById('mobile-menu');
 const loadingSpinner = document.getElementById('loading-spinner');
@@ -919,3 +920,4 @@ document.addEventListener('DOMContentLoaded', () => {
     init3DScene();
     animate3DScene();
 });
+
