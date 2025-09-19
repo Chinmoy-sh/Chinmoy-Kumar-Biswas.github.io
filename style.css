@@ -54,11 +54,17 @@ body.light-mode {
 
 
 /* Apply variables */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     transition: background-color 0.5s ease, color 0.5s ease;
     /* Removed: cursor: none; */
+    font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    line-height: 1.65;
 }
 
 /* Removed: Custom Cursor Trail styles */
@@ -116,8 +122,7 @@ a:active {
 /* Ensure hover transform is not overridden by active */
 button:hover,
 a:hover {
-    transform: scale(1.05);
-    /* Example hover scale */
+    transform: translateY(-1px);
 }
 
 
@@ -135,7 +140,7 @@ a:hover {
     position: relative;
     display: inline-block;
     margin-bottom: 2rem;
-    font-size: 2.5rem;
+    font-size: clamp(1.75rem, 1.2rem + 1.5vw, 2.5rem);
     /* Larger title */
     font-weight: 700;
     /* Bold */
@@ -404,6 +409,8 @@ a:hover {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
 }
 
 .modal-overlay.is-visible {
@@ -464,7 +471,8 @@ a:hover {
 .article-card:hover,
 .note-card:hover {
     /* Added note-card */
-    box-shadow: 0 0 20px var(--text-highlight);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.35), 0 0 0 1px var(--border-color) inset;
+    transform: translateY(-2px);
 }
 
 /* New section card styles */
@@ -564,4 +572,14 @@ a:hover {
     height: 100%;
     background-color: #1a202c;
     /* Dark background for the 3D scene */
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
 }

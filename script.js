@@ -134,6 +134,25 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// --- Scrollspy for Navbar ---
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+const sections = Array.from(navLinks).map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+function onScrollSpy() {
+    const fromTop = window.scrollY + 100; // offset for fixed navbar
+    sections.forEach((section, idx) => {
+        const link = navLinks[idx];
+        if (!section) return;
+        const top = section.offsetTop;
+        const bottom = top + section.offsetHeight;
+        if (fromTop >= top && fromTop < bottom) {
+            link.classList.add('text-indigo-400');
+        } else {
+            link.classList.remove('text-indigo-400');
+        }
+    });
+}
+window.addEventListener('scroll', onScrollSpy);
+
 scrollToTopButton.addEventListener('click', () => {
     window.scrollTo({
         top: 0,
@@ -345,7 +364,8 @@ document.addEventListener('keydown', function (event) {
 // --- Dynamic Particle Generation (for Hero Section) ---
 document.addEventListener('DOMContentLoaded', () => {
     const particlesContainer = document.querySelector('.particles-container');
-    if (particlesContainer) {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (particlesContainer && !reduceMotion) {
         const numberOfParticles = 25; // Increased for more density
         for (let i = 0; i < numberOfParticles; i++) {
             const particle = document.createElement('div');
@@ -542,34 +562,12 @@ generateBriefButton.addEventListener('click', async () => {
 
     Format the output clearly with headings and bullet points. Do not include any conversational text outside the brief.`;
 
-    let chatHistory = [];
-    chatHistory.push({ role: "user", parts: [{ text: prompt }] });
-
-    const payload = { contents: chatHistory };
-    const apiKey = ""; // Canvas will automatically provide this in runtime
-    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-    try {
-        const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-        });
-
-        const result = await response.json();
-
-        if (result.candidates && result.candidates.length > 0 &&
-            result.candidates[0].content && result.candidates[0].content.parts &&
-            result.candidates[0].content.parts.length > 0) {
-            const text = result.candidates[0].content.parts[0].text;
-            llmIdeaContent.textContent = text; // Display the generated brief
-        } else {
-            llmIdeaContent.textContent = "Failed to generate a brief. Please try again.";
-            console.error("Gemini API returned an unexpected structure:", result);
-        }
-    } catch (error) {
-        llmIdeaContent.textContent = "Error connecting to the brief generator. Please check your network or try again later.";
-        console.error("Error calling Gemini API:", error);
+    // If no API key, provide an on-device templated brief so it works offline
+    const hasApiKey = false; // no key wired by default
+    if (!hasApiKey) {
+        const localBrief = `Project Title: ${theme.charAt(0).toUpperCase() + theme.slice(1)} — Modern Web App\n\nOverview:\nA polished, responsive ${theme} designed to deliver a fast, accessible, and delightful user experience. It focuses on real-world usability, clean architecture, and maintainability.\n\nCore Features:\n- Intuitive onboarding and clear navigation\n- Mobile-first responsive UI with offline-friendly caching\n- Real-time updates and optimistic UI (where applicable)\n- Robust forms with validation and helpful feedback\n- Accessible components, keyboard navigation, and dark mode\n\nSuggested Tech Stack:\n- Frontend: React/Vite or Next.js, Tailwind CSS\n- Backend: Node.js with Express or serverless functions\n- Database: PostgreSQL or MongoDB (Prisma/Drizzle ORM)\n- Auth & APIs: JWT/OAuth, REST or GraphQL\n- Tooling: ESLint, Prettier, Vitest/Jest\n\nTarget Audience:\n- Users who need a reliable ${theme} with clear value and minimal friction.\n\nPotential Challenges/Considerations:\n- Designing scalable data models and efficient queries\n- Balancing performance, accessibility, and visual polish`;
+        llmIdeaContent.textContent = localBrief;
+        return;
     }
 });
 
@@ -683,12 +681,16 @@ function setTheme(theme) {
             icon.classList.remove('fa-sun');
             icon.classList.add('fa-moon');
         });
+        const m = document.querySelector('meta#fallback-theme-color');
+        if (m) m.setAttribute('content', '#f0f2f5');
     } else {
         document.body.classList.add('dark-mode');
         themeIcons.forEach(icon => {
             icon.classList.remove('fa-moon');
             icon.classList.add('fa-sun');
         });
+        const m = document.querySelector('meta#fallback-theme-color');
+        if (m) m.setAttribute('content', '#0f172a');
     }
     localStorage.setItem('theme', theme);
 }
@@ -741,6 +743,7 @@ let targetX = 0, targetY = 0;
 // const windowHalfX = window.innerWidth / 2; // Not used directly in mouse interaction
 // const windowHalfY = window.innerHeight / 2; // Not used directly in mouse interaction
 let skillsGroup;
+let isDragging = false; // moved to outer scope for animate access
 
 function init3DScene() {
     const canvas = document.getElementById('three-js-canvas');
@@ -841,7 +844,6 @@ function init3DScene() {
     });
 
     // Mouse interaction for rotation
-    let isDragging = false;
     let previousMousePosition = { x: 0, y: 0 };
 
     canvas.addEventListener('mousedown', (e) => {
@@ -916,8 +918,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Trigger initial filter to show all projects
     document.querySelector('.filter-btn[data-filter="all"]').click();
 
-    // Initialize the 3D scene
-    init3DScene();
-    animate3DScene();
+    // Initialize the 3D scene lazily when the canvas is in view, respect reduced motion
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const canvas = document.getElementById('three-js-canvas');
+    if (canvas && !reduceMotion) {
+        const canvasObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    init3DScene();
+                    animate3DScene();
+                    obs.disconnect();
+                }
+            });
+        }, { threshold: 0.2 });
+        canvasObserver.observe(canvas);
+    }
 });
 

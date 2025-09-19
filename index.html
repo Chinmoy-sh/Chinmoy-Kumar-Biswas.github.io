@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHINMOY KUMAR BISWAS - Portfolio</title>
+    <meta name="description"
+        content="Portfolio of CHINMOY KUMAR BISWAS — Programmer and developer. Explore projects, skills, experience, education, certifications, blog, and ways to get in touch.">
+    <!-- Color scheme & theme colors (cross-browser) -->
+    <meta name="color-scheme" content="dark light">
+    <!-- Light/Dark theme-color for modern browsers -->
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0f2f5">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a">
+    <!-- Fallback theme-color (updated dynamically by JS for some browsers) -->
+    <meta name="theme-color" content="#0f172a" id="fallback-theme-color">
+    <!-- Windows tiles -->
+    <meta name="msapplication-TileColor" content="#0f172a">
+    <!-- Open Graph -->
+    <meta property="og:title" content="CHINMOY KUMAR BISWAS - Portfolio">
+    <meta property="og:description"
+        content="Programmer crafting intuitive, performant products. View projects, experience, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chinmoy-kumar-biswas.github.io/">
+    <meta property="og:image" content="https://chinmoy-kumar-biswas.github.io/images/chinmoy.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CHINMOY KUMAR BISWAS - Portfolio">
+    <meta name="twitter:description"
+        content="Programmer crafting intuitive, performant products. View projects, experience, and more.">
+    <meta name="twitter:image" content="https://chinmoy-kumar-biswas.github.io/images/chinmoy.png">
+    <!-- Favicon & Manifest -->
+    <link rel="icon" href="favicon.svg?v=3" type="image/svg+xml">
+    <link rel="shortcut icon" href="favicon.svg?v=3" type="image/svg+xml">
+    <link rel="icon" type="image/png" href="images/chinmoy.png">
+    <link rel="apple-touch-icon" href="images/chinmoy.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@500;700&display=swap"
+        rel="stylesheet">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for icons -->
@@ -13,11 +49,16 @@
     <!-- Link to your external CSS file -->
     <link rel="stylesheet" href="style.css">
     <!-- Three.js CDN for 3D visualizations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 </head>
 
-    
+
 <body class="antialiased">
+
+    <!-- Skip to content for accessibility -->
+    <a href="#hero"
+        class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[10000] bg-indigo-600 text-white px-4 py-2 rounded-md">Skip
+        to content</a>
 
     <!-- Loading Spinner -->
     <div id="loading-spinner"
@@ -32,7 +73,7 @@
             <a href="#hero"
                 class="text-2xl font-bold text-indigo-400 hover:text-indigo-300 rounded-md p-2 transition duration-300 ease-in-out">CHINMOY
                 KUMAR BISWAS</a>
-            
+
             <div class="hidden md:flex space-x-8 items-center">
                 <a href="#about"
                     class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">About</a>
@@ -65,13 +106,13 @@
                     <i class="fas fa-sun text-xl" id="theme-icon"></i>
                 </button>
             </div>
-            
+
             <!-- Mobile Menu Button -->
             <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-indigo-400 focus:outline-none">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
-        
+
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-gray-800 py-2 shadow-inner">
             <a href="#about"
@@ -105,7 +146,7 @@
                 <i class="fas fa-sun mr-2" id="mobile-theme-icon"></i> Toggle Theme
             </button>
         </div>
-        
+
     </nav>
 
     <!-- Hero Section -->
@@ -132,7 +173,7 @@
 
         <div
             class="relative z-10 p-6 bg-gray-900 bg-opacity-50 rounded-xl shadow-2xl backdrop-blur-sm max-w-2xl mx-auto md:mx-0 md:ml-20 animate-fade-in text-left">
-            <img src="images/chinmoy.png" alt="Your Photo"
+            <img src="images/chinmoy.png" alt="Portrait of CHINMOY KUMAR BISWAS"
                 class="w-36 h-36 rounded-full mb-6 border-4 border-indigo-400 shadow-lg object-cover animate-rotate-in mx-auto md:mx-0">
             <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight">Hi, I'm <span
                     class="text-yellow-300">CHINMOY KUMAR BISWAS</span></h1>
@@ -150,7 +191,7 @@
             <h2 class="section-title text-center mx-auto animate-fade-in">About Me</h2>
             <div class="flex flex-col md:flex-row items-center md:space-x-12 mt-10">
                 <div class="md:w-1/2 mb-8 md:mb-0 animate-slide-left">
-                    <img src="images/chinmoy.png" alt="About Me"
+                    <img src="images/chinmoy.png" alt="About CHINMOY KUMAR BISWAS"
                         class="rounded-xl shadow-lg transform hover:scale-105 transition duration-300 ease-in-out object-cover w-full h-auto">
                 </div>
                 <div class="md:w-1/2 text-lg text-gray-300 leading-relaxed animate-slide-right">
@@ -489,9 +530,10 @@
                 <!-- Article Card 1 -->
                 <div class="article-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
                     data-animation="fade-in">
-                    <div class="skeleton-loader article-image-placeholder"></div>
-                    <img src="https://cdn.prod.website-files.com/5ff66329429d880392f6cba2/620e342e310444a1f20d52d7_Serverless%20Computing%20Preview.jpg"
-                        alt="Article Thumbnail" class="w-full h-48 object-cover hidden"
+                    <div class="skeleton-loader article-image-placeholder" aria-hidden="true"></div>
+                    <img loading="lazy"
+                        src="https://cdn.prod.website-files.com/5ff66329429d880392f6cba2/620e342e310444a1f20d52d7_Serverless%20Computing%20Preview.jpg"
+                        alt="Article thumbnail: Serverless Computing" class="w-full h-48 object-cover hidden"
                         onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-gray-100 mb-2">The Future of Serverless Computing</h3>
@@ -510,9 +552,10 @@
                 <!-- Article Card 2 -->
                 <div class="article-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="100">
-                    <div class="skeleton-loader article-image-placeholder"></div>
-                    <img src="https://studio.uxpincdn.com/studio/wp-content/uploads/2024/07/React-Hooks-1024x512.webp"
-                        alt="Article Thumbnail" class="w-full h-48 object-cover hidden"
+                    <div class="skeleton-loader article-image-placeholder" aria-hidden="true"></div>
+                    <img loading="lazy"
+                        src="https://studio.uxpincdn.com/studio/wp-content/uploads/2024/07/React-Hooks-1024x512.webp"
+                        alt="Article thumbnail: React Hooks" class="w-full h-48 object-cover hidden"
                         onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-gray-100 mb-2">Mastering React Hooks: A Deep Dive</h3>
@@ -531,9 +574,9 @@
                 <!-- Article Card 3 -->
                 <div class="article-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="200">
-                    <div class="skeleton-loader article-image-placeholder"></div>
-                    <img src="https://public-images.interaction-design.org/tags/td-prototyping-03.webp"
-                        alt="Article Thumbnail" class="w-full h-48 object-cover hidden"
+                    <div class="skeleton-loader article-image-placeholder" aria-hidden="true"></div>
+                    <img loading="lazy" src="https://public-images.interaction-design.org/tags/td-prototyping-03.webp"
+                        alt="Article thumbnail: UI/UX Prototyping" class="w-full h-48 object-cover hidden"
                         onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-gray-100 mb-2">Effective Strategies for UI/UX Prototyping
@@ -644,8 +687,8 @@
                 <!-- Project Card 1 -->
                 <div class="project-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-project-id="project1" data-tech="React Node.js MongoDB">
-                    <div class="skeleton-loader project-image-placeholder"></div>
-                    <img src="https://placehold.co/600x400/3b82f6/ffffff?text=E-commerce+Platform"
+                    <div class="skeleton-loader project-image-placeholder" aria-hidden="true"></div>
+                    <img loading="lazy" src="https://placehold.co/600x400/3b82f6/ffffff?text=E-commerce+Platform"
                         alt="E-commerce Platform" class="w-full h-48 object-cover hidden"
                         onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';">
                     <div class="p-6">
@@ -678,8 +721,8 @@
                 <!-- Project Card 2 -->
                 <div class="project-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="100" data-project-id="project2" data-tech="Vue.js Firebase">
-                    <div class="skeleton-loader project-image-placeholder"></div>
-                    <img src="https://placehold.co/600x400/6366f1/ffffff?text=Task+Manager+App"
+                    <div class="skeleton-loader project-image-placeholder" aria-hidden="true"></div>
+                    <img loading="lazy" src="https://placehold.co/600x400/6366f1/ffffff?text=Task+Manager+App"
                         alt="Task Management App" class="w-full h-48 object-cover hidden"
                         onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';">
                     <div class="p-6">
@@ -713,8 +756,8 @@
                 <div class="project-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="200" data-project-id="project3"
                     data-tech="D3.js React Data Viz">
-                    <div class="skeleton-loader project-image-placeholder"></div>
-                    <img src="https://placehold.co/600x400/f59e0b/ffffff?text=Data+Dashboard"
+                    <div class="skeleton-loader project-image-placeholder" aria-hidden="true"></div>
+                    <img loading="lazy" src="https://placehold.co/600x400/f59e0b/ffffff?text=Data+Dashboard"
                         alt="Interactive Data Dashboard" class="w-full h-48 object-cover hidden"
                         onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';">
                     <div class="p-6">
@@ -747,8 +790,8 @@
                 <!-- Project Card 4 -->
                 <div class="project-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="300" data-project-id="project4" data-tech="UI/UX Figma">
-                    <div class="skeleton-loader project-image-placeholder"></div>
-                    <img src="https://placehold.co/600x400/475569/ffffff?text=Mobile+App+Concept"
+                    <div class="skeleton-loader project-image-placeholder" aria-hidden="true"></div>
+                    <img loading="lazy" src="https://placehold.co/600x400/475569/ffffff?text=Mobile+App+Concept"
                         alt="Mobile App Concept" class="w-full h-48 object-cover hidden"
                         onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';">
                     <div class="p-6">
@@ -782,8 +825,8 @@
                 <div class="project-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="400" data-project-id="project5"
                     data-tech="Next.js GraphQL CMS">
-                    <div class="skeleton-loader project-image-placeholder"></div>
-                    <img src="https://placehold.co/600x400/6b7280/ffffff?text=Blog+Platform"
+                    <div class="skeleton-loader project-image-placeholder" aria-hidden="true"></div>
+                    <img loading="lazy" src="https://placehold.co/600x400/6b7280/ffffff?text=Blog+Platform"
                         alt="Personal Blog Platform" class="w-full h-48 object-cover hidden"
                         onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';">
                     <div class="p-6">
@@ -817,9 +860,9 @@
                 <div class="project-card bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out overflow-hidden border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="500" data-project-id="project6"
                     data-tech="JavaScript HTML Canvas">
-                    <div class="skeleton-loader project-image-placeholder"></div>
-                    <img src="https://placehold.co/600x400/374151/ffffff?text=Game+Dev" alt="Simple Game Development"
-                        class="w-full h-48 object-cover hidden"
+                    <div class="skeleton-loader project-image-placeholder" aria-hidden="true"></div>
+                    <img loading="lazy" src="https://placehold.co/600x400/374151/ffffff?text=Game+Dev"
+                        alt="Simple Game Development" class="w-full h-48 object-cover hidden"
                         onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-gray-100 mb-2"> Game Development</h3>
@@ -883,7 +926,7 @@
                     <!-- Testimonial Card 1 -->
                     <div
                         class="testimonial-card flex-shrink-0 w-full bg-gray-700 p-8 flex flex-col items-center text-center">
-                        <img src="https://placehold.co/80x80/4a5568/a0aec0?text=Client+1" alt="Client 1"
+                        <img loading="lazy" src="https://placehold.co/80x80/4a5568/a0aec0?text=Client+1" alt="Client 1"
                             class="w-20 h-20 rounded-full mb-4 border-2 border-indigo-400 object-cover">
                         <p class="text-gray-300 italic mb-4">"CHINMOY is an exceptional developer. Their
                             attention to detail and ability to deliver high-quality code on time is truly impressive.
@@ -894,7 +937,7 @@
                     <!-- Testimonial Card 2 -->
                     <div
                         class="testimonial-card flex-shrink-0 w-full bg-gray-700 p-8 flex flex-col items-center text-center">
-                        <img src="https://placehold.co/80x80/2d3748/a0aec0?text=Client+2" alt="Client 2"
+                        <img loading="lazy" src="https://placehold.co/80x80/2d3748/a0aec0?text=Client+2" alt="Client 2"
                             class="w-20 h-20 rounded-full mb-4 border-2 border-indigo-400 object-cover">
                         <p class="text-gray-300 italic mb-4">"Working with CHINMOY was a fantastic experience.
                             They understood our vision perfectly and brought it to life with their expertise in design
@@ -1111,7 +1154,7 @@
     </div>
 
     <!-- Link to your external JavaScript file -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>

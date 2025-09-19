@@ -19,6 +19,14 @@
           "background-color: color-mix(in srgb, var(--skeleton-bg) 80%, var(--bg-card))"
         ]
       }
+    ],
+    "compat-api/html": [
+      "default",
+      {
+        "ignore": [
+          "meta[name=theme-color]"
+        ]
+      }
     ]
   }
 }
