@@ -1,5 +1,37 @@
-// Ensure CSS fallback is disabled when JS is running
-try { document.documentElement.classList.remove('no-js'); } catch { }
+// Defer removing `no-js` until initial elements are revealed to avoid flicker
+function revealElementsInViewport() {
+    const inView = (el) => {
+        const rect = el.getBoundingClientRect();
+        return rect.top < (window.innerHeight || document.documentElement.clientHeight) && rect.bottom > 0;
+    };
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        if (inView(el)) el.classList.add('is-visible');
+    });
+    document.querySelectorAll('.skill-card .skill-progress').forEach(el => {
+        if (inView(el)) {
+            const v = el.dataset.progress || 75;
+            el.style.setProperty('--progress-width', `${v}%`);
+            el.classList.add('is-visible');
+        }
+    });
+}
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        revealElementsInViewport();
+        requestAnimationFrame(() => {
+            document.documentElement.classList.remove('no-js');
+            // Safety: ensure everything is visible shortly after, regardless of IO timing
+            setTimeout(() => {
+                document.querySelectorAll('.animate-on-scroll').forEach(el => el.classList.add('is-visible'));
+                document.querySelectorAll('.skill-progress').forEach(el => {
+                    const v = el.dataset.progress || 75;
+                    el.style.setProperty('--progress-width', `${v}%`);
+                    el.classList.add('is-visible');
+                });
+            }, 200);
+        });
+    } catch { }
+});
 
 // --- DOM Elements ---
 
@@ -255,16 +287,8 @@ const observerCallback = (entries, observer) => {
                 observer.unobserve(target); // Stop observing once animated
             }
         } else {
-            // Optional: Reset animation state if element scrolls out of view
-            const target = entry.target;
-            if (target.classList.contains('skill-card')) {
-                const progressBar = target.querySelector('.skill-progress');
-                if (progressBar) {
-                    progressBar.classList.remove('is-visible');
-                    progressBar.style.setProperty('--progress-width', '0%'); // Reset for re-animation
-                }
-            }
-            target.classList.remove('is-visible', 'animate-slide-left', 'animate-slide-right', 'animate-fade-in', 'animate-zoom-in', 'animate-rotate-in', 'animate-pop-in');
+            // Do not hide elements once revealed; avoid flicker/disappearance
+            // If you want re-animations later, consider toggling only specific cases.
         }
     });
 };
@@ -794,18 +818,41 @@ let targetX = 0, targetY = 0;
 // const windowHalfY = window.innerHeight / 2; // Not used directly in mouse interaction
 let skillsGroup;
 let isDragging = false; // moved to outer scope for animate access
+let fallbackShown = false;
+let threeStarted = false;
 
 function init3DScene() {
+    if (threeStarted) return;
     const canvas = document.getElementById('three-js-canvas');
     if (!canvas) {
         console.warn("Three.js canvas not found. Skipping 3D scene initialization.");
+        return;
+    }
+    // WebGL support check
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    if (!gl) {
+        const fb = document.getElementById('three-fallback');
+        if (fb && !fallbackShown) { fb.classList.remove('hidden'); fb.classList.add('flex'); fallbackShown = true; }
+        return;
+    }
+    if (typeof THREE === 'undefined') {
+        console.error('THREE.js library not loaded. Showing fallback.');
+        const fb = document.getElementById('three-fallback');
+        if (fb && !fallbackShown) { fb.classList.remove('hidden'); fb.classList.add('flex'); fallbackShown = true; }
         return;
     }
     console.log("Initializing 3D scene...");
     console.log("Canvas dimensions:", canvas.clientWidth, "x", canvas.clientHeight);
 
     // Scene
-    scene = new THREE.Scene();
+    try {
+        scene = new THREE.Scene();
+    } catch (e) {
+        console.error('Failed to create THREE.Scene()', e);
+        const fb = document.getElementById('three-fallback');
+        if (fb && !fallbackShown) { fb.classList.remove('hidden'); fb.classList.add('flex'); fallbackShown = true; }
+        return;
+    }
     scene.background = new THREE.Color(0x1a202c); // Match primary background color
 
     // Camera
@@ -813,9 +860,16 @@ function init3DScene() {
     camera.position.z = 5;
 
     // Renderer
-    renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+    try {
+        renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+    } catch (e) {
+        console.error('Failed to initialize WebGLRenderer', e);
+        const fb = document.getElementById('three-fallback');
+        if (fb && !fallbackShown) { fb.classList.remove('hidden'); fb.classList.add('flex'); fallbackShown = true; }
+        return;
+    }
 
     // Lights
     const ambientLight = new THREE.AmbientLight(0x404040, 2); // Soft white light
@@ -833,7 +887,7 @@ function init3DScene() {
     skillsGroup = new THREE.Group();
     scene.add(skillsGroup);
 
-    // Define skills and their colors
+    // Define skills and template labels to show breadth of templates included
     const skills = [
         { name: "React", color: 0x61DAFB, type: "sphere" },
         { name: "Node.js", color: 0x68A063, type: "box" },
@@ -844,7 +898,11 @@ function init3DScene() {
         { name: "UI/UX", color: 0xFF69B4, type: "tetrahedron" },
         { name: "Git", color: 0xF05032, type: "torusKnot" },
         { name: "Firebase", color: 0xFFCA28, type: "dodecahedron" },
-        { name: "3D Skills", color: 0x8A2BE2, type: "icosahedron" } // Changed type for distinctiveness
+        { name: "3D Skills", color: 0x8A2BE2, type: "icosahedron" },
+        // Template labels (visualized as small boxes with text sprites later)
+        { name: "Dashboard Kit", color: 0x14b8a6, type: "box" },
+        { name: "SaaS Starter", color: 0x0ea5e9, type: "box" },
+        { name: "Creator Portfolio", color: 0x6366f1, type: "box" }
     ];
 
     // Create 3D objects for each skill
@@ -868,6 +926,34 @@ function init3DScene() {
         icosahedron: geometryIcosahedron // Added new geometry
     };
 
+    // Utility: create simple text sprite using canvas
+    function makeTextSprite(message, parameters = {}) {
+        const fontface = parameters.fontface || 'Inter, Arial';
+        const fontsize = parameters.fontsize || 44;
+        const borderThickness = parameters.borderThickness || 4;
+        const borderColor = parameters.borderColor || { r: 50, g: 65, b: 100, a: 1.0 };
+        const backgroundColor = parameters.backgroundColor || { r: 17, g: 24, b: 39, a: 0.8 };
+
+        const canvas2d = document.createElement('canvas');
+        const context = canvas2d.getContext('2d');
+        context.font = `bold ${fontsize}px ${fontface}`;
+        const metrics = context.measureText(message);
+        const textWidth = metrics.width;
+        context.fillStyle = `rgba(${backgroundColor.r},${backgroundColor.g},${backgroundColor.b},${backgroundColor.a})`;
+        context.strokeStyle = `rgba(${borderColor.r},${borderColor.g},${borderColor.b},${borderColor.a})`;
+        context.lineWidth = borderThickness;
+        const padding = 20;
+        context.fillRect(borderThickness / 2, borderThickness / 2, textWidth + padding, fontsize + padding);
+        context.strokeRect(borderThickness / 2, borderThickness / 2, textWidth + padding, fontsize + padding);
+        context.fillStyle = 'rgba(255,255,255,0.95)';
+        context.fillText(message, padding / 2 + borderThickness / 2, fontsize + padding / 2);
+        const texture = new THREE.CanvasTexture(canvas2d);
+        const spriteMaterial = new THREE.SpriteMaterial({ map: texture, transparent: true });
+        const sprite = new THREE.Sprite(spriteMaterial);
+        sprite.scale.set(2.2, 1.1, 1);
+        return sprite;
+    }
+
     skills.forEach((skill, index) => {
         const material = new THREE.MeshPhongMaterial({ color: skill.color, flatShading: true });
         const mesh = new THREE.Mesh(geometries[skill.type], material);
@@ -890,7 +976,12 @@ function init3DScene() {
         mesh.rotation.z = Math.random() * Math.PI;
 
         skillsGroup.add(mesh);
-        console.log(`Added skill: ${skill.name} at (${mesh.position.x.toFixed(2)}, ${mesh.position.y.toFixed(2)}, ${mesh.position.z.toFixed(2)})`);
+
+        // Add a tiny text label above each mesh
+        const label = makeTextSprite(skill.name, { fontsize: 64 });
+        label.position.set(mesh.position.x, mesh.position.y + 1.1, mesh.position.z);
+        skillsGroup.add(label);
+        // console.debug(`Added skill: ${skill.name} at (${mesh.position.x.toFixed(2)}, ${mesh.position.y.toFixed(2)}, ${mesh.position.z.toFixed(2)})`);
     });
 
     // Mouse interaction for rotation
@@ -920,6 +1011,7 @@ function init3DScene() {
 
     // Handle window resize
     window.addEventListener('resize', onWindowResize, false);
+    threeStarted = true;
 }
 
 function onWindowResize() {
@@ -932,29 +1024,34 @@ function onWindowResize() {
 }
 
 function animate3DScene() {
-    requestAnimationFrame(animate3DScene);
+    try {
+        requestAnimationFrame(animate3DScene);
 
-    if (skillsGroup) {
-        // Continuous subtle rotation if not dragging
-        if (!isDragging) {
-            skillsGroup.rotation.y += 0.002;
-            skillsGroup.rotation.x += 0.0005;
+        if (skillsGroup) {
+            if (!isDragging) {
+                skillsGroup.rotation.y += 0.002;
+                skillsGroup.rotation.x += 0.0005;
+            }
+            skillsGroup.children.forEach(mesh => {
+                mesh.rotation.x += 0.005 * Math.random();
+                mesh.rotation.y += 0.005 * Math.random();
+            });
         }
 
-        // Individual object rotation (optional, for more dynamism)
-        skillsGroup.children.forEach(mesh => {
-            mesh.rotation.x += 0.005 * Math.random();
-            mesh.rotation.y += 0.005 * Math.random();
-        });
+        if (renderer && scene && camera) {
+            renderer.render(scene, camera);
+        }
+    } catch (e) {
+        console.error('3D animation loop error:', e);
+        const fb = document.getElementById('three-fallback');
+        if (fb && !fallbackShown) { fb.classList.remove('hidden'); fb.classList.add('flex'); fallbackShown = true; }
     }
-
-    renderer.render(scene, camera);
 }
 
 // --- Initialize on DOMContentLoaded ---
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize testimonial carousel
-    if (testimonialsCarousel) {
+    if (testimonialsCarousel && testimonialPrevButton && testimonialNextButton && testimonialDotsContainer) {
         createTestimonialDots();
         startTestimonialAutoPlay();
         testimonialPrevButton.addEventListener('click', prevTestimonial);
@@ -965,23 +1062,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'dark'; // Default to dark if no preference
     setTheme(savedTheme);
 
-    // Trigger initial filter to show all projects
-    document.querySelector('.filter-btn[data-filter="all"]').click();
+    // Appearance section theme toggle
+    const sectionThemeToggle = document.getElementById('section-theme-toggle');
+    if (sectionThemeToggle) sectionThemeToggle.addEventListener('click', toggleTheme);
 
-    // Initialize the 3D scene lazily when the canvas is in view, respect reduced motion
+    // Trigger initial filter to show all projects (guarded)
+    const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+    if (allBtn) allBtn.click();
+
+    // Initialize the 3D scene reliably; show fallback for reduced motion
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const canvas = document.getElementById('three-js-canvas');
-    if (canvas && !reduceMotion) {
-        const canvasObserver = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    init3DScene();
-                    animate3DScene();
-                    obs.disconnect();
-                }
-            });
-        }, { threshold: 0.2 });
-        canvasObserver.observe(canvas);
+    const fallback = document.getElementById('three-fallback');
+    if (canvas) {
+        if (reduceMotion) {
+            if (fallback && !fallbackShown) { fallback.classList.remove('hidden'); fallback.classList.add('flex'); fallbackShown = true; }
+        } else {
+            const inView = () => {
+                const r = canvas.getBoundingClientRect();
+                return r.top < (window.innerHeight || document.documentElement.clientHeight) && r.bottom > 0;
+            };
+            if (inView()) {
+                try { init3DScene(); animate3DScene(); } catch (e) { console.error(e); }
+            } else if ('IntersectionObserver' in window) {
+                const canvasObserver = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !threeStarted) {
+                            try { init3DScene(); animate3DScene(); } catch (e) { console.error(e); }
+                            obs.disconnect();
+                        }
+                    });
+                }, { threshold: 0.15 });
+                canvasObserver.observe(canvas);
+            } else {
+                // No IO support, just start
+                try { init3DScene(); animate3DScene(); } catch (e) { console.error(e); }
+            }
+            // Final safety: start after a short delay if still not started
+            setTimeout(() => {
+                if (!threeStarted) { try { init3DScene(); animate3DScene(); } catch (e) { console.error(e); } }
+            }, 1000);
+        }
     }
 });
 

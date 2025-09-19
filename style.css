@@ -52,6 +52,68 @@ body.light-mode {
     /* --cursor-trail-color: #4f46e5; /* Removed cursor trail color in light mode */
 }
 
+/* Light mode overrides for common Tailwind utility classes used in markup */
+/* Backgrounds */
+body.light-mode .bg-gray-950,
+body.light-mode .bg-gray-900 {
+    background-color: var(--bg-secondary) !important;
+}
+
+body.light-mode .bg-gray-800,
+body.light-mode .bg-gray-700,
+body.light-mode .bg-gray-600 {
+    background-color: var(--bg-card) !important;
+}
+
+/* Text colors */
+body.light-mode .text-white,
+body.light-mode .text-gray-100 {
+    color: var(--text-primary) !important;
+}
+
+body.light-mode .text-gray-200,
+body.light-mode .text-gray-300,
+body.light-mode .text-gray-400 {
+    color: var(--text-secondary) !important;
+}
+
+/* Borders */
+body.light-mode .border-gray-700,
+body.light-mode .border-gray-600,
+body.light-mode .border-gray-500 {
+    border-color: var(--border-color) !important;
+}
+
+/* Cards and containers that rely on Tailwind bg- grays */
+body.light-mode .service-card,
+body.light-mode .skill-card,
+body.light-mode .project-card,
+body.light-mode .testimonial-card,
+body.light-mode .certification-card,
+body.light-mode .article-card,
+body.light-mode .note-card {
+    background-color: var(--bg-card) !important;
+}
+
+/* Nav bar */
+body.light-mode nav {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Mobile menu */
+body.light-mode #mobile-menu {
+    background-color: var(--bg-card) !important;
+}
+
+/* Footer */
+body.light-mode footer {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+}
+
+/* CTA section retains brand indigo, just adjust text contrast via variables where possible */
+
+
 
 /* Apply variables */
 html {
@@ -584,6 +646,19 @@ html.no-js .skill-progress {
     height: 100%;
     background-color: #1a202c;
     /* Dark background for the 3D scene */
+    cursor: grab;
+}
+
+body.light-mode #three-js-canvas {
+    background-color: #f0f2f5;
+}
+
+#three-js-canvas:active {
+    cursor: grabbing;
+}
+
+.theme-toggle-btn {
+    border: 1px solid var(--border-color);
 }
 
 /* Respect reduced motion */
