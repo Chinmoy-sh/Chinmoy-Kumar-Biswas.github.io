@@ -442,16 +442,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const particlesContainer = document.querySelector('.particles-container');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (particlesContainer && !reduceMotion) {
-        const numberOfParticles = 25; // Increased for more density
+        const isSmall = window.matchMedia('(max-width: 768px)').matches;
+        const numberOfParticles = isSmall ? 12 : 22;
         for (let i = 0; i < numberOfParticles; i++) {
             const particle = document.createElement('div');
-            const size = Math.random() * 70 + 30; // Particles between 30px and 100px
+            const size = (isSmall ? Math.random() * 40 + 16 : Math.random() * 60 + 24);
             const x = Math.random() * 100;
             const y = Math.random() * 100;
-            const delay = Math.random() * 20; // Longer animation delay range
-            const duration = Math.random() * 15 + 25; // Longer animation duration
+            const delay = Math.random() * 12;
+            const duration = (isSmall ? Math.random() * 10 + 18 : Math.random() * 12 + 22);
             const opacity = Math.random() * 0.5 + 0.1; // Wider opacity range
-            const blur = Math.random() * 5 + 1; // Wider blur range
+            const blur = Math.random() * 3 + 1;
 
             const colors = ['rgba(99, 102, 241,', 'rgba(251, 191, 36,', 'rgba(129, 140, 248,', 'rgba(165, 243, 252,', 'rgba(236, 72, 153,']; // Added more colors
             const randomColor = colors[Math.floor(Math.random() * colors.length)];
@@ -1120,6 +1121,7 @@ function setupFloatingIcons() {
     const container = document.querySelector('.floating-icons');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!container || reduceMotion) return;
+    const isSmall = window.matchMedia('(max-width: 768px)').matches;
     const icons = [
         'fab fa-react',
         'fab fa-node',
@@ -1133,7 +1135,7 @@ function setupFloatingIcons() {
         'fas fa-cubes'
     ];
     const colors = ['#60a5fa', '#34d399', '#fbbf24', '#a78bfa', '#22d3ee', '#f472b6'];
-    const count = 16;
+    const count = isSmall ? 8 : 14;
     const frag = document.createDocumentFragment();
     for (let i = 0; i < count; i++) {
         const el = document.createElement('i');
@@ -1141,7 +1143,7 @@ function setupFloatingIcons() {
         el.style.left = `${Math.random() * 100}%`;
         el.style.top = `${Math.random() * 100}%`;
         el.style.color = colors[i % colors.length];
-        el.style.animationDuration = `${8 + Math.random() * 6}s`;
+        el.style.animationDuration = `${10 + Math.random() * 8}s`;
         el.style.animationDelay = `${Math.random() * 4}s`;
         frag.appendChild(el);
     }
@@ -1161,8 +1163,8 @@ function setupHeroParallax() {
         const y = (e.clientY - rect.top) / rect.height - 0.5;
         if (raf) cancelAnimationFrame(raf);
         raf = requestAnimationFrame(() => {
-            if (particles) particles.style.transform = `translate3d(${x * 20}px, ${y * 20}px, 0)`;
-            if (aurora) aurora.style.transform = `translate3d(${x * -15}px, ${y * -15}px, 0)`;
+            if (particles) particles.style.transform = `translate3d(${x * 12}px, ${y * 12}px, 0)`;
+            if (aurora) aurora.style.transform = `translate3d(${x * -10}px, ${y * -10}px, 0)`;
         });
     }
     heroSection.addEventListener('mousemove', onMove);
@@ -1175,6 +1177,7 @@ function setupHeroParallax() {
 function setupCardTilt() {
     if (!tiltCandidates || tiltCandidates.length === 0) return;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const finePointer = window.matchMedia('(pointer: fine)').matches;
     const maxTilt = 10; // degrees
     tiltCandidates.forEach(card => {
         const glow = card.querySelector('.tilt-glow');
@@ -1193,7 +1196,7 @@ function setupCardTilt() {
         function reset() {
             card.style.transform = '';
         }
-        if (!reduceMotion) {
+        if (!reduceMotion && finePointer) {
             card.addEventListener('mousemove', onMove);
             card.addEventListener('mouseleave', reset);
         } else if (glow) {

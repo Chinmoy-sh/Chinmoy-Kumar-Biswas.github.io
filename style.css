@@ -149,7 +149,7 @@ body {
     background: radial-gradient(60% 60% at 20% 30%, rgba(99, 102, 241, 0.25) 0%, rgba(99, 102, 241, 0) 60%),
         radial-gradient(50% 50% at 80% 20%, rgba(236, 72, 153, 0.25) 0%, rgba(236, 72, 153, 0) 60%),
         radial-gradient(40% 40% at 50% 80%, rgba(34, 197, 94, 0.20) 0%, rgba(34, 197, 94, 0) 60%);
-    filter: blur(50px) saturate(120%);
+    filter: blur(35px) saturate(115%);
     animation: auroraDrift 30s ease-in-out infinite alternate;
 }
 
@@ -165,11 +165,11 @@ body {
     }
 
     50% {
-        transform: translate3d(2%, -2%, 0) rotate(5deg) scale(1.05);
+        transform: translate3d(1.5%, -1.5%, 0) rotate(4deg) scale(1.04);
     }
 
     100% {
-        transform: translate3d(-2%, 2%, 0) rotate(-5deg) scale(1.1);
+        transform: translate3d(-1.5%, 1.5%, 0) rotate(-4deg) scale(1.06);
     }
 }
 
@@ -216,6 +216,16 @@ textarea,
     background-attachment: fixed;
     /* Parallax effect */
     animation: backgroundPan 25s linear infinite reverse;
+}
+
+/* Disable fixed background on small screens to reduce paint cost */
+@media (max-width: 768px) {
+
+    .section-bg-pattern-1,
+    .section-bg-pattern-2 {
+        background-attachment: scroll;
+        animation-duration: 45s;
+    }
 }
 
 /* Micro-interactions: Button/Link active states */
@@ -578,6 +588,7 @@ html.no-js .skill-progress {
     filter: blur(2px);
     pointer-events: none;
     z-index: -1;
+    will-change: transform, opacity;
 }
 
 /* Hover effects for cards */
@@ -658,8 +669,9 @@ html.no-js .skill-progress {
     position: absolute;
     font-size: clamp(16px, 2vw, 28px);
     opacity: 0.25;
-    animation: floatY 10s ease-in-out infinite;
+    animation: floatY 12s ease-in-out infinite;
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+    will-change: transform;
 }
 
 @keyframes floatY {
