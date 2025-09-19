@@ -2,10 +2,6 @@
 
 Beautiful, fast, and accessible personal website showcasing projects, experience, and skills — with light/dark theming and a 3D skills showcase.
 
-![Chinmoy portrait](images/chinmoy.png)
-
-[Live Demo](#live-demo) · [Features](#features) · [Quick Start](#quick-start) · [Customize](#customize) · [Sections](#sections)
-
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=333)
@@ -13,6 +9,11 @@ Beautiful, fast, and accessible personal website showcasing projects, experience
 ![Three.js](https://img.shields.io/badge/Three.js-000000?logo=three.js&logoColor=white)
 ![A11y](https://img.shields.io/badge/Accessible-AAA-34D399)
 ![Status](https://img.shields.io/badge/Status-Active-22c55e)
+
+<!-- markdownlint-disable-next-line MD033 -->
+<img src="images/chinmoy.png" alt="Chinmoy portrait" width="120" style="border-radius:50%" />
+
+[Live Demo](#live-demo) · [Features](#features) · [Quick Start](#quick-start) · [Customize](#customize) · [Sections](#sections)
 
 ---
 
