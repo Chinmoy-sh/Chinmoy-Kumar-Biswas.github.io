@@ -170,6 +170,10 @@
         </div>
         <!-- Animated Particles Overlay (CSS generated) -->
         <div class="absolute inset-0 z-0 particles-container"></div>
+        <!-- New: Aurora background overlay -->
+        <div class="aurora-bg"></div>
+        <!-- New: Floating icons overlay -->
+        <div class="floating-icons" aria-hidden="true"></div>
 
         <div
             class="relative z-10 p-6 bg-gray-900 bg-opacity-50 rounded-xl shadow-2xl backdrop-blur-sm max-w-2xl mx-auto md:mx-0 md:ml-20 animate-fade-in text-left">
@@ -180,7 +184,7 @@
             <p class="text-xl md:text-2xl font-light mb-8">A passionate <span
                     class="font-semibold text-indigo-200">Programmer</span> building amazing things.</p>
             <a href="#projects"
-                class="inline-block bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-yellow-300 transform hover:scale-105 transition duration-300 ease-in-out">View
+                class="inline-block bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-yellow-300 transform hover:scale-105 transition duration-300 ease-in-out btn-shine">View
                 My Work <i class="fas fa-arrow-right ml-2"></i></a>
         </div>
     </section>
@@ -224,56 +228,63 @@
                 services to help bring your digital ideas to life.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
                 <!-- Service Card 1 -->
-                <div class="service-card bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                <div class="service-card tilt-card relative bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="0">
+                    <span class="tilt-glow"></span>
                     <div class="text-5xl text-indigo-400 mb-6 text-center"><i class="fas fa-laptop-code"></i></div>
                     <h3 class="text-2xl font-semibold text-gray-100 mb-3 text-center">Web Development</h3>
                     <p class="text-gray-300 text-center">Building responsive, high-performance web applications and
                         websites from scratch using modern frameworks and best practices.</p>
                 </div>
                 <!-- Service Card 2 -->
-                <div class="service-card bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                <div class="service-card tilt-card relative bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="150">
+                    <span class="tilt-glow"></span>
                     <div class="text-5xl text-green-400 mb-6 text-center"><i class="fas fa-drafting-compass"></i></div>
                     <h3 class="text-2xl font-semibold text-gray-100 mb-3 text-center">UI/UX Design</h3>
                     <p class="text-gray-300 text-center">Crafting intuitive and engaging user interfaces with a focus on
                         user experience, accessibility, and visual appeal.</p>
                 </div>
                 <!-- Service Card 3 -->
-                <div class="service-card bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                <div class="service-card tilt-card relative bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="300">
+                    <span class="tilt-glow"></span>
                     <div class="text-5xl text-yellow-400 mb-6 text-center"><i class="fas fa-cogs"></i></div>
                     <h3 class="text-2xl font-semibold text-gray-100 mb-3 text-center">API Development</h3>
                     <p class="text-gray-300 text-center">Designing and implementing robust, scalable, and secure RESTful
                         APIs to power your web and mobile applications.</p>
                 </div>
                 <!-- Service Card 4 -->
-                <div class="service-card bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                <div class="service-card tilt-card relative bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="450">
+                    <span class="tilt-glow"></span>
                     <div class="text-5xl text-red-400 mb-6 text-center"><i class="fas fa-database"></i></div>
                     <h3 class="text-2xl font-semibold text-gray-100 mb-3 text-center">Database Solutions</h3>
                     <p class="text-gray-300 text-center">Expertise in designing, optimizing, and managing databases
                         (SQL/NoSQL) for efficient data storage and retrieval.</p>
                 </div>
                 <!-- Service Card 5 (Template) -->
-                <div class="service-card bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                <div class="service-card tilt-card relative bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="600">
+                    <span class="tilt-glow"></span>
                     <div class="text-5xl text-pink-400 mb-6 text-center"><i class="fas fa-universal-access"></i></div>
                     <h3 class="text-2xl font-semibold text-gray-100 mb-3 text-center">Accessibility Audits</h3>
                     <p class="text-gray-300 text-center">WCAG-focused audits, actionable fixes, and inclusive design
                         practices to ensure everyone can use your product.</p>
                 </div>
                 <!-- Service Card 6 (Template) -->
-                <div class="service-card bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                <div class="service-card tilt-card relative bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="750">
+                    <span class="tilt-glow"></span>
                     <div class="text-5xl text-teal-400 mb-6 text-center"><i class="fas fa-tachometer-alt"></i></div>
                     <h3 class="text-2xl font-semibold text-gray-100 mb-3 text-center">Performance Optimization</h3>
                     <p class="text-gray-300 text-center">Core Web Vitals tuning, code splitting, caching strategies, and
                         image optimization for fast experiences.</p>
                 </div>
                 <!-- Service Card 7 (Template) -->
-                <div class="service-card bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
+                <div class="service-card tilt-card relative bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out border border-gray-600 animate-on-scroll"
                     data-animation="fade-in" data-delay="900">
+                    <span class="tilt-glow"></span>
                     <div class="text-5xl text-blue-400 mb-6 text-center"><i class="fas fa-tools"></i></div>
                     <h3 class="text-2xl font-semibold text-gray-100 mb-3 text-center">DevOps & CI/CD</h3>
                     <p class="text-gray-300 text-center">Automated pipelines, environment setups, and zero-downtime
@@ -805,7 +816,7 @@
             </div>
             <div class="text-center mt-12 animate-on-scroll" data-animation="fade-in" data-delay="300">
                 <a href="#"
-                    class="inline-block bg-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-700 transform hover:scale-105 transition duration-300 ease-in-out text-lg">
+                    class="inline-block bg-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-700 transform hover:scale-105 transition duration-300 ease-in-out text-lg btn-shine">
                     View All Articles <i class="fas fa-book-open ml-2"></i>
                 </a>
             </div>
@@ -903,7 +914,7 @@
             </div>
             <div class="text-center mt-12 animate-on-scroll" data-animation="fade-in" data-delay="300">
                 <a href="#"
-                    class="inline-block bg-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-700 transform hover:scale-105 transition duration-300 ease-in-out text-lg">
+                    class="inline-block bg-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-700 transform hover:scale-105 transition duration-300 ease-in-out text-lg btn-shine">
                     View All Notes <i class="fas fa-lightbulb ml-2"></i>
                 </a>
             </div>
@@ -1233,7 +1244,7 @@
             <!-- New LLM Feature Button -->
             <div class="text-center mt-12 animate-on-scroll" data-animation="fade-in" data-delay="600">
                 <button id="open-llm-input-modal-button"
-                    class="inline-flex items-center bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-yellow-300 transform hover:scale-105 transition duration-300 ease-in-out text-lg">
+                    class="inline-flex items-center bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-yellow-300 transform hover:scale-105 transition duration-300 ease-in-out text-lg btn-shine">
                     ✨ Generate Project Brief
                 </button>
             </div>
@@ -1357,7 +1368,7 @@
             <p class="text-xl md:text-2xl font-light mb-10">Let's build something amazing together. Reach out and tell
                 me about your ideas!</p>
             <a href="#contact"
-                class="inline-block bg-yellow-400 text-indigo-900 font-bold py-4 px-10 rounded-full shadow-lg hover:bg-yellow-300 transform hover:scale-105 transition duration-300 ease-in-out text-xl">
+                class="inline-block bg-yellow-400 text-indigo-900 font-bold py-4 px-10 rounded-full shadow-lg hover:bg-yellow-300 transform hover:scale-105 transition duration-300 ease-in-out text-xl btn-shine">
                 Contact Me Now <i class="fas fa-envelope ml-3"></i>
             </a>
         </div>

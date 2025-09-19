@@ -51,6 +51,7 @@ const modalLiveDemo = document.getElementById('modal-live-demo');
 const modalGithub = document.getElementById('modal-github');
 
 const contactForm = document.getElementById('contact-form'); // Reference to the contact form
+const heroSection = document.getElementById('hero');
 
 // LLM Feature elements
 const openLlmInputModalButton = document.getElementById('open-llm-input-modal-button');
@@ -82,6 +83,7 @@ const themeIcons = document.querySelectorAll('#theme-icon, #mobile-theme-icon');
 // Project Filter elements
 const filterButtons = document.querySelectorAll('.filter-btn');
 const allProjectCards = document.querySelectorAll('.project-card');
+const tiltCandidates = document.querySelectorAll('.tilt-card');
 
 
 // Project Data (for modal) - Expanded descriptions
@@ -476,6 +478,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentYearSpan) {
         currentYearSpan.textContent = new Date().getFullYear();
     }
+
+    // Initialize floating icons and parallax
+    try {
+        setupFloatingIcons();
+        setupHeroParallax();
+        setupCardTilt();
+    } catch (e) { console.warn('Enhancement init failed:', e); }
 });
 
 // --- Contact Form Submission (mailto:) with Validation ---
@@ -1105,4 +1114,91 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+// --- UI Enhancements: Floating Icons, Parallax, Tilt ---
+function setupFloatingIcons() {
+    const container = document.querySelector('.floating-icons');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!container || reduceMotion) return;
+    const icons = [
+        'fab fa-react',
+        'fab fa-node',
+        'fas fa-database',
+        'fab fa-github',
+        'fas fa-cloud',
+        'fas fa-bolt',
+        'fas fa-lock',
+        'fas fa-code',
+        'fas fa-mobile-alt',
+        'fas fa-cubes'
+    ];
+    const colors = ['#60a5fa', '#34d399', '#fbbf24', '#a78bfa', '#22d3ee', '#f472b6'];
+    const count = 16;
+    const frag = document.createDocumentFragment();
+    for (let i = 0; i < count; i++) {
+        const el = document.createElement('i');
+        el.className = `icon ${icons[i % icons.length]}`;
+        el.style.left = `${Math.random() * 100}%`;
+        el.style.top = `${Math.random() * 100}%`;
+        el.style.color = colors[i % colors.length];
+        el.style.animationDuration = `${8 + Math.random() * 6}s`;
+        el.style.animationDelay = `${Math.random() * 4}s`;
+        frag.appendChild(el);
+    }
+    container.appendChild(frag);
+}
+
+function setupHeroParallax() {
+    if (!heroSection) return;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return;
+    const particles = document.querySelector('.particles-container');
+    const aurora = document.querySelector('.aurora-bg');
+    let raf = null;
+    function onMove(e) {
+        const rect = heroSection.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+            if (particles) particles.style.transform = `translate3d(${x * 20}px, ${y * 20}px, 0)`;
+            if (aurora) aurora.style.transform = `translate3d(${x * -15}px, ${y * -15}px, 0)`;
+        });
+    }
+    heroSection.addEventListener('mousemove', onMove);
+    heroSection.addEventListener('mouseleave', () => {
+        if (particles) particles.style.transform = '';
+        if (aurora) aurora.style.transform = '';
+    });
+}
+
+function setupCardTilt() {
+    if (!tiltCandidates || tiltCandidates.length === 0) return;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const maxTilt = 10; // degrees
+    tiltCandidates.forEach(card => {
+        const glow = card.querySelector('.tilt-glow');
+        function onMove(e) {
+            const rect = card.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width;
+            const y = (e.clientY - rect.top) / rect.height;
+            const tiltX = (0.5 - y) * maxTilt;
+            const tiltY = (x - 0.5) * maxTilt;
+            card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+            if (glow) {
+                glow.style.setProperty('--mx', `${x * 100}%`);
+                glow.style.setProperty('--my', `${y * 100}%`);
+            }
+        }
+        function reset() {
+            card.style.transform = '';
+        }
+        if (!reduceMotion) {
+            card.addEventListener('mousemove', onMove);
+            card.addEventListener('mouseleave', reset);
+        } else if (glow) {
+            glow.style.display = 'none';
+        }
+    });
+}
 
