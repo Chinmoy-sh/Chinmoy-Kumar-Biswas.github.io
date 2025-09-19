@@ -1,3 +1,6 @@
+// Ensure CSS fallback is disabled when JS is running
+try { document.documentElement.classList.remove('no-js'); } catch { }
+
 // --- DOM Elements ---
 
 const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -100,12 +103,39 @@ const projectsData = {
         github: "#"
     }
 };
+// Template projects synced with new cards
+projectsData.project7 = {
+    title: "UI Dashboard Kit",
+    image: "https://placehold.co/800x500/14b8a6/ffffff?text=Dashboard+Kit",
+    description: "A reusable admin dashboard template with modular widgets, role-based access, charts, tables, and authentication flows. Built for speed and clarity.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Chart.js", "Vite"],
+    liveDemo: "#",
+    github: "#"
+};
+projectsData.project8 = {
+    title: "SaaS Starter",
+    image: "https://placehold.co/800x500/0ea5e9/ffffff?text=SaaS+Starter",
+    description: "A production-ready starter for SaaS apps with subscriptions, teams, roles, email auth, and billing integration.",
+    technologies: ["Next.js", "Prisma", "PostgreSQL", "NextAuth", "Stripe"],
+    liveDemo: "#",
+    github: "#"
+};
+projectsData.project9 = {
+    title: "Creator Portfolio",
+    image: "https://placehold.co/800x500/6366f1/ffffff?text=Creator+Portfolio",
+    description: "A sleek portfolio template for creators with Firebase CMS editing, image optimization, and SEO best practices.",
+    technologies: ["Vue.js", "Firebase", "UI/UX", "SEO"],
+    liveDemo: "#",
+    github: "#"
+};
 
 
 // --- Mobile Menu Logic ---
-mobileMenuButton.addEventListener('click', function () {
-    mobileMenu.classList.toggle('hidden');
-});
+if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', function () {
+        mobileMenu.classList.toggle('hidden');
+    });
+}
 
 // Close mobile menu when a link is clicked
 document.querySelectorAll('#mobile-menu a').forEach(item => {
@@ -117,15 +147,16 @@ document.querySelectorAll('#mobile-menu a').forEach(item => {
 // --- Loading Spinner Logic ---
 // Hide spinner once the page content is fully loaded
 window.addEventListener('load', () => {
-    loadingSpinner.classList.add('opacity-0');
-    setTimeout(() => {
-        loadingSpinner.classList.add('hidden');
-    }, 500); // Allow transition to finish before hiding
+    if (loadingSpinner) {
+        loadingSpinner.classList.add('opacity-0');
+        setTimeout(() => loadingSpinner.classList.add('hidden'), 500);
+    }
 });
 
 // --- Scroll-to-Top Button Logic ---
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) { // Show button after scrolling 300px
+    if (!scrollToTopButton) return;
+    if (window.scrollY > 300) {
         scrollToTopButton.classList.remove('scale-0', 'opacity-0');
         scrollToTopButton.classList.add('scale-100', 'opacity-100');
     } else {
@@ -153,12 +184,14 @@ function onScrollSpy() {
 }
 window.addEventListener('scroll', onScrollSpy);
 
-scrollToTopButton.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth' // Smooth scroll to top
+if (scrollToTopButton) {
+    scrollToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Smooth scroll to top
+        });
     });
-});
+}
 
 // --- Intersection Observer for Scroll Animations ---
 const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
@@ -236,43 +269,58 @@ const observerCallback = (entries, observer) => {
     });
 };
 
-const observer = new IntersectionObserver(observerCallback, observerOptions);
+let observer;
+if ('IntersectionObserver' in window) {
+    observer = new IntersectionObserver(observerCallback, observerOptions);
+} else {
+    // Fallback: reveal all animated elements immediately
+    document.querySelectorAll('.animate-on-scroll').forEach(el => el.classList.add('is-visible'));
+    document.querySelectorAll('.skill-progress').forEach(el => {
+        const v = el.dataset.progress || 75;
+        el.style.setProperty('--progress-width', `${v}%`);
+        el.classList.add('is-visible');
+    });
+}
 
 // Observe section titles
 sectionTitles.forEach(title => {
-    observer.observe(title);
+    if (observer) observer.observe(title); else title.classList.add('is-visible');
 });
 
 // Observe elements with animate-on-scroll class
 animateOnScrollElements.forEach(element => {
-    observer.observe(element);
+    if (observer) observer.observe(element); else element.classList.add('is-visible');
 });
 
 // Observe specific elements with custom animations
-if (heroContent) observer.observe(heroContent);
-if (aboutImage) observer.observe(aboutImage);
-if (aboutText) observer.observe(aboutText);
-if (contactSection) observer.observe(contactSection);
-if (ctaSection) observer.observe(ctaSection);
+if (observer) {
+    if (heroContent) observer.observe(heroContent);
+    if (aboutImage) observer.observe(aboutImage);
+    if (aboutText) observer.observe(aboutText);
+    if (contactSection) observer.observe(contactSection);
+    if (ctaSection) observer.observe(ctaSection);
+} else {
+    [heroContent, aboutImage, aboutText, contactSection, ctaSection].forEach(el => el && el.classList.add('is-visible'));
+}
 
 // Observe new certification cards
 certificationCards.forEach(card => {
-    observer.observe(card);
+    if (observer) observer.observe(card); else card.classList.add('is-visible');
 });
 
 // Observe new article cards
 articleCards.forEach(card => {
-    observer.observe(card);
+    if (observer) observer.observe(card); else card.classList.add('is-visible');
 });
 
 // Observe new note cards
 noteCards.forEach(card => {
-    observer.observe(card);
+    if (observer) observer.observe(card); else card.classList.add('is-visible');
 });
 
 // Observe skill cards to trigger progress bar animations
 document.querySelectorAll('.skill-card').forEach(card => {
-    observer.observe(card);
+    if (observer) observer.observe(card); else card.classList.add('is-visible');
 });
 
 
@@ -345,14 +393,16 @@ projectCards.forEach(card => {
 });
 
 // Add click listener to close modal button
-closeModalButton.addEventListener('click', closeProjectModal);
+if (closeModalButton) closeModalButton.addEventListener('click', closeProjectModal);
 
 // Close modal if clicked outside content
-projectDetailModal.addEventListener('click', function (event) {
-    if (event.target === projectDetailModal) {
-        closeProjectModal();
-    }
-});
+if (projectDetailModal) {
+    projectDetailModal.addEventListener('click', function (event) {
+        if (event.target === projectDetailModal) {
+            closeProjectModal();
+        }
+    });
+}
 
 // Close modal with Escape key
 document.addEventListener('keydown', function (event) {
@@ -405,7 +455,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // --- Contact Form Submission (mailto:) with Validation ---
-contactForm.addEventListener('submit', function (e) {
+if (contactForm) contactForm.addEventListener('submit', function (e) {
     e.preventDefault(); // Prevent default form submission
 
     const nameInput = document.getElementById('name');
@@ -522,13 +572,13 @@ function closeLlmDisplayModal() {
 
 
 // Event listener for the "Generate Project Brief" button (to open input modal)
-openLlmInputModalButton.addEventListener('click', openLlmInputModal);
+if (openLlmInputModalButton) openLlmInputModalButton.addEventListener('click', openLlmInputModal);
 
 // Event listener to close the LLM input modal
-closeLlmInputModalButton.addEventListener('click', closeLlmInputModal);
+if (closeLlmInputModalButton) closeLlmInputModalButton.addEventListener('click', closeLlmInputModal);
 
 // Close LLM input modal if clicked outside content
-llmInputModal.addEventListener('click', function (event) {
+if (llmInputModal) llmInputModal.addEventListener('click', function (event) {
     if (event.target === llmInputModal) {
         closeLlmInputModal();
     }
@@ -542,7 +592,7 @@ document.addEventListener('keydown', function (event) {
 });
 
 // Event listener for the "Generate Brief" button inside the input modal
-generateBriefButton.addEventListener('click', async () => {
+if (generateBriefButton) generateBriefButton.addEventListener('click', async () => {
     const theme = projectThemeInput.value.trim();
     if (!theme) {
         alert("Please enter a project theme!");
@@ -572,10 +622,10 @@ generateBriefButton.addEventListener('click', async () => {
 });
 
 // Event listener to close the LLM display modal
-closeLlmDisplayModalButton.addEventListener('click', closeLlmDisplayModal);
+if (closeLlmDisplayModalButton) closeLlmDisplayModalButton.addEventListener('click', closeLlmDisplayModal);
 
 // Close LLM display modal if clicked outside content
-llmIdeaDisplayModal.addEventListener('click', function (event) {
+if (llmIdeaDisplayModal) llmIdeaDisplayModal.addEventListener('click', function (event) {
     if (event.target === llmIdeaDisplayModal) {
         closeLlmDisplayModal();
     }
@@ -589,7 +639,7 @@ document.addEventListener('keydown', function (event) {
 });
 
 // Copy brief to clipboard
-copyIdeaButton.addEventListener('click', () => {
+if (copyIdeaButton) copyIdeaButton.addEventListener('click', () => {
     const textToCopy = llmIdeaContent.textContent;
     if (textToCopy && !textToCopy.startsWith("Generating") && !textToCopy.startsWith("Failed") && !textToCopy.startsWith("Error")) {
         try {

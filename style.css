@@ -370,6 +370,18 @@ a:hover {
     animation: fillProgress 1.5s ease-out forwards;
 }
 
+/* No-JS or IO fallback: show all elements */
+html.no-js .animate-on-scroll,
+html.no-js .section-title,
+html.no-js .skill-progress {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+html.no-js .skill-progress {
+    width: var(--progress-width, 75%);
+}
+
 /* Skeleton Loader Styles */
 .skeleton-loader {
     background-color: var(--skeleton-bg);
