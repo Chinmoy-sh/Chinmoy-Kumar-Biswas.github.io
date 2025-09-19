@@ -2,6 +2,8 @@
 
 Beautiful, fast, and accessible personal website showcasing projects, experience, and skills — with light/dark theming and a 3D skills showcase.
 
+🔗 Live Demo: [chinmoy-sh.github.io/Chinmoy-Kumar-Biswas.github.io](https://chinmoy-sh.github.io/Chinmoy-Kumar-Biswas.github.io/)
+
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=333)
@@ -48,7 +50,9 @@ Beautiful, fast, and accessible personal website showcasing projects, experience
 
 ## Live Demo
 
-If published with GitHub Pages, enable in `Settings → Pages` for the `main` branch (root). Your site will be available at your Pages URL. Alternatively preview locally as below.
+- Open the site here: [chinmoy-sh.github.io/Chinmoy-Kumar-Biswas.github.io](https://chinmoy-sh.github.io/Chinmoy-Kumar-Biswas.github.io/)
+- Tip: If assets look cached after updates, do a hard refresh.
+- Not seeing changes live? Ensure GitHub Pages is enabled for the `main` branch under `Settings → Pages`.
 
 ---
 
