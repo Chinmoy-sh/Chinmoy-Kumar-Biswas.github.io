@@ -118,6 +118,10 @@ body.light-mode footer {
 /* Apply variables */
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 body {
@@ -127,6 +131,8 @@ body {
     /* Removed: cursor: none; */
     font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
     line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Aurora gradient background overlay */
@@ -136,6 +142,8 @@ body {
     pointer-events: none;
     z-index: 0;
     overflow: hidden;
+    contain: paint;
+    will-change: transform;
 }
 
 .aurora-bg::before,
@@ -151,6 +159,7 @@ body {
         radial-gradient(40% 40% at 50% 80%, rgba(34, 197, 94, 0.20) 0%, rgba(34, 197, 94, 0) 60%);
     filter: blur(35px) saturate(115%);
     animation: auroraDrift 30s ease-in-out infinite alternate;
+    will-change: transform, filter;
 }
 
 .aurora-bg::after {
@@ -638,9 +647,12 @@ html.no-js .skill-progress {
 
 /* Card 3D tilt base styles */
 .tilt-card {
+    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    transition: transform 200ms ease, box-shadow 200ms ease;
+    -webkit-transition: -webkit-transform 150ms ease, box-shadow 150ms ease;
+    transition: transform 150ms ease, box-shadow 150ms ease;
     will-change: transform;
+    contain: paint;
 }
 
 .tilt-card .tilt-glow {
@@ -651,6 +663,7 @@ html.no-js .skill-progress {
     opacity: 0;
     transition: opacity 200ms ease;
     pointer-events: none;
+    will-change: opacity;
 }
 
 .tilt-card:hover .tilt-glow {
@@ -663,6 +676,8 @@ html.no-js .skill-progress {
     inset: 0;
     pointer-events: none;
     z-index: 0;
+    contain: layout paint;
+    will-change: transform, opacity;
 }
 
 .floating-icons .icon {

@@ -1,3 +1,63 @@
+// Performance and security optimizations
+const PERFORMANCE_CONFIG = {
+    INTERSECTION_THRESHOLD: 0.1,
+    INTERSECTION_ROOT_MARGIN: '0px 0px -50px 0px',
+    ANIMATION_DELAY_MS: 16, // ~60fps
+    DEBOUNCE_DELAY_MS: 100,
+    MAX_PARTICLES: { mobile: 12, desktop: 22 },
+    MAX_ICONS: { mobile: 8, desktop: 14 }
+};
+
+// Utility functions
+const utils = {
+    debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    },
+
+    throttle(func, limit) {
+        let inThrottle;
+        return function (...args) {
+            if (!inThrottle) {
+                func.apply(this, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        }
+    },
+
+    sanitizeHTML(str) {
+        const temp = document.createElement('div');
+        temp.textContent = str;
+        return temp.innerHTML;
+    },
+
+    isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+};
+
+// Service Worker Registration
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+                console.log('SW registered: ', registration);
+            })
+            .catch((registrationError) => {
+                console.log('SW registration failed: ', registrationError);
+            });
+    });
+}
+
 // Defer removing `no-js` until initial elements are revealed to avoid flicker
 function revealElementsInViewport() {
     const inView = (el) => {
@@ -443,7 +503,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (particlesContainer && !reduceMotion) {
         const isSmall = window.matchMedia('(max-width: 768px)').matches;
-        const numberOfParticles = isSmall ? 12 : 22;
+        const numberOfParticles = isSmall ? PERFORMANCE_CONFIG.MAX_PARTICLES.mobile : PERFORMANCE_CONFIG.MAX_PARTICLES.desktop;
+
+        // Use DocumentFragment for better performance
+        const fragment = document.createDocumentFragment();
+
         for (let i = 0; i < numberOfParticles; i++) {
             const particle = document.createElement('div');
             const size = (isSmall ? Math.random() * 40 + 16 : Math.random() * 60 + 24);
@@ -469,9 +533,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 animation-delay: ${delay}s;
                 filter: blur(${blur}px);
                 z-index: -1;
+                will-change: transform, opacity;
             `;
-            particlesContainer.appendChild(particle);
+            fragment.appendChild(particle);
         }
+
+        particlesContainer.appendChild(fragment);
     }
 
     // Set current year in footer
@@ -504,22 +571,27 @@ if (contactForm) contactForm.addEventListener('submit', function (e) {
 
     let isValid = true;
 
-    // Validate Name
-    if (nameInput.value.trim() === '') {
+    // Validate Name with sanitization
+    const sanitizedName = utils.sanitizeHTML(nameInput.value.trim());
+    if (sanitizedName === '') {
         nameError.textContent = 'Name is required.';
+        nameError.classList.remove('hidden');
+        isValid = false;
+    } else if (sanitizedName.length > 100) {
+        nameError.textContent = 'Name must be less than 100 characters.';
         nameError.classList.remove('hidden');
         isValid = false;
     } else {
         nameError.classList.add('hidden');
     }
 
-    // Validate Email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (emailInput.value.trim() === '') {
+    // Validate Email with improved validation
+    const emailValue = emailInput.value.trim();
+    if (emailValue === '') {
         emailError.textContent = 'Email is required.';
         emailError.classList.remove('hidden');
         isValid = false;
-    } else if (!emailRegex.test(emailInput.value.trim())) {
+    } else if (!utils.isValidEmail(emailValue)) {
         emailError.textContent = 'Please enter a valid email address.';
         emailError.classList.remove('hidden');
         isValid = false;
@@ -527,18 +599,28 @@ if (contactForm) contactForm.addEventListener('submit', function (e) {
         emailError.classList.add('hidden');
     }
 
-    // Validate Subject
-    if (subjectInput.value.trim() === '') {
+    // Validate Subject with sanitization
+    const sanitizedSubject = utils.sanitizeHTML(subjectInput.value.trim());
+    if (sanitizedSubject === '') {
         subjectError.textContent = 'Subject is required.';
+        subjectError.classList.remove('hidden');
+        isValid = false;
+    } else if (sanitizedSubject.length > 200) {
+        subjectError.textContent = 'Subject must be less than 200 characters.';
         subjectError.classList.remove('hidden');
         isValid = false;
     } else {
         subjectError.classList.add('hidden');
     }
 
-    // Validate Message
-    if (messageInput.value.trim() === '') {
+    // Validate Message with sanitization
+    const sanitizedMessage = utils.sanitizeHTML(messageInput.value.trim());
+    if (sanitizedMessage === '') {
         messageError.textContent = 'Message is required.';
+        messageError.classList.remove('hidden');
+        isValid = false;
+    } else if (sanitizedMessage.length > 2000) {
+        messageError.textContent = 'Message must be less than 2000 characters.';
         messageError.classList.remove('hidden');
         isValid = false;
     } else {
@@ -1135,7 +1217,7 @@ function setupFloatingIcons() {
         'fas fa-cubes'
     ];
     const colors = ['#60a5fa', '#34d399', '#fbbf24', '#a78bfa', '#22d3ee', '#f472b6'];
-    const count = isSmall ? 8 : 14;
+    const count = isSmall ? PERFORMANCE_CONFIG.MAX_ICONS.mobile : PERFORMANCE_CONFIG.MAX_ICONS.desktop;
     const frag = document.createDocumentFragment();
     for (let i = 0; i < count; i++) {
         const el = document.createElement('i');
