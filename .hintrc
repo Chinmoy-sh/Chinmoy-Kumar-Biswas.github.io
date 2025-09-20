@@ -16,7 +16,8 @@
       {
         "ignore": [
           "-webkit-overflow-scrolling",
-          "background-color: color-mix(in srgb, var(--skeleton-bg) 80%, var(--bg-card))"
+          "background-color: color-mix(in srgb, var(--skeleton-bg) 80%, var(--bg-card))",
+          "text-size-adjust"
         ]
       }
     ],

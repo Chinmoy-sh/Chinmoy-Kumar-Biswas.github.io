@@ -30,6 +30,41 @@
     <meta name="twitter:description"
         content="Programmer crafting intuitive, performant products. View projects, experience, and more.">
     <meta name="twitter:image" content="https://chinmoy-kumar-biswas.github.io/images/chinmoy.png">
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "CHINMOY KUMAR BISWAS",
+        "jobTitle": "Programmer",
+        "url": "https://chinmoy-kumar-biswas.github.io/",
+        "sameAs": [
+            "https://github.com/Chinmoy-Kumar-Biswas",
+            "https://linkedin.com/in/chinmoy-kumar-biswas"
+        ],
+        "image": "https://chinmoy-kumar-biswas.github.io/images/chinmoy.png",
+        "description": "Passionate Programmer building amazing things with expertise in web development, UI/UX design, and API development.",
+        "knowsAbout": [
+            "Web Development",
+            "JavaScript",
+            "Python",
+            "React",
+            "Node.js",
+            "UI/UX Design",
+            "API Development",
+            "Database Design"
+        ]
+    }
+    </script>
+    <!-- Performance & SEO -->
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <link rel="canonical" href="https://chinmoy-kumar-biswas.github.io/">
+    <meta name="author" content="CHINMOY KUMAR BISWAS">
+    <meta name="keywords"
+        content="programmer, web developer, JavaScript, Python, React, Node.js, portfolio, CHINMOY KUMAR BISWAS">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:author" content="CHINMOY KUMAR BISWAS">
     <!-- Favicon & Manifest -->
     <link rel="icon" href="favicon.svg?v=3" type="image/svg+xml">
     <link rel="shortcut icon" href="favicon.svg?v=3" type="image/svg+xml">
@@ -39,17 +74,23 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@500;700&display=swap"
         rel="stylesheet">
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Tailwind CSS CDN with integrity -->
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    <!-- Font Awesome for icons with integrity -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
     <!-- Link to your external CSS file -->
     <link rel="stylesheet" href="style.css">
-    <!-- Three.js CDN for 3D visualizations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <!-- Three.js CDN for 3D visualizations with integrity -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
+        integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 </head>
 
 
@@ -67,54 +108,56 @@
     </div>
 
     <!-- Navigation Bar -->
-    <nav class="bg-gray-900 shadow-xl fixed w-full z-50">
+    <nav class="bg-gray-900 shadow-xl fixed w-full z-50" role="navigation" aria-label="Main navigation">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Profile Name/Logo on Left -->
-            <a href="#hero"
+            <a href="#hero" aria-label="Go to homepage"
                 class="text-2xl font-bold text-indigo-400 hover:text-indigo-300 rounded-md p-2 transition duration-300 ease-in-out">CHINMOY
                 KUMAR BISWAS</a>
 
             <div class="hidden md:flex space-x-8 items-center">
-                <a href="#about"
+                <a href="#about" aria-label="Go to About section"
                     class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">About</a>
-                <a href="#services"
+                <a href="#services" aria-label="Go to Services section"
                     class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Services</a>
-                <a href="#skills"
+                <a href="#skills" aria-label="Go to Skills section"
                     class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Skills</a>
-                <a href="#experience"
+                <a href="#experience" aria-label="Go to Experience section"
                     class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Experience</a>
-                <a href="#education"
+                <a href="#education" aria-label="Go to Education section"
                     class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Education</a>
-                <a href="#certifications"
+                <a href="#certifications" aria-label="Go to Certifications section"
                     class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Certifications</a>
-                <a href="#blog"
+                <a href="#blog" aria-label="Go to Blog section"
                     class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Blog</a>
-                <a href="#notes"
+                <a href="#notes" aria-label="Go to Notes section"
                     class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Notes</a>
-                <a href="#projects"
+                <a href="#projects" aria-label="Go to Projects section"
                     class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Projects</a>
-                <a href="#3d-showcase"
+                <a href="#3d-showcase" aria-label="Go to 3D Showcase section"
                     class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">3D
                     Showcase</a>
-                <a href="#testimonials"
+                <a href="#testimonials" aria-label="Go to Testimonials section"
                     class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Testimonials</a>
-                <a href="#contact"
+                <a href="#contact" aria-label="Go to Contact section"
                     class="text-gray-300 hover:text-indigo-400 font-medium transition duration-300 ease-in-out rounded-md p-2">Contact</a>
                 <!-- New: Dark/Light Mode Toggle -->
-                <button id="theme-toggle"
+                <button id="theme-toggle" aria-label="Toggle between dark and light themes"
                     class="ml-4 p-2 rounded-full bg-gray-700 text-yellow-300 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-300 ease-in-out">
-                    <i class="fas fa-sun text-xl" id="theme-icon"></i>
+                    <i class="fas fa-sun text-xl" id="theme-icon" aria-hidden="true"></i>
                 </button>
             </div>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-indigo-400 focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
+            <button id="mobile-menu-button" aria-label="Open mobile menu" aria-expanded="false"
+                aria-controls="mobile-menu" class="md:hidden text-gray-300 hover:text-indigo-400 focus:outline-none">
+                <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
             </button>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 py-2 shadow-inner">
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 py-2 shadow-inner" role="navigation"
+            aria-labelledby="mobile-menu-button">
             <a href="#about"
                 class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-indigo-400 font-medium transition duration-300 ease-in-out">About</a>
             <a href="#services"
@@ -141,9 +184,9 @@
             <a href="#contact"
                 class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-indigo-400 font-medium transition duration-300 ease-in-out">Contact</a>
             <!-- New: Dark/Light Mode Toggle for Mobile -->
-            <button id="mobile-theme-toggle"
+            <button id="mobile-theme-toggle" aria-label="Toggle between dark and light themes"
                 class="w-full text-left px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-indigo-400 font-medium transition duration-300 ease-in-out">
-                <i class="fas fa-sun mr-2" id="mobile-theme-icon"></i> Toggle Theme
+                <i class="fas fa-sun mr-2" id="mobile-theme-icon" aria-hidden="true"></i> Toggle Theme
             </button>
         </div>
 
@@ -177,7 +220,7 @@
 
         <div
             class="relative z-10 p-6 bg-gray-900 bg-opacity-50 rounded-xl shadow-2xl backdrop-blur-sm max-w-2xl mx-auto md:mx-0 md:ml-20 animate-fade-in text-left">
-            <img src="images/chinmoy.png" alt="Portrait of CHINMOY KUMAR BISWAS"
+            <img src="images/chinmoy.png" alt="Portrait of CHINMOY KUMAR BISWAS" loading="eager"
                 class="w-36 h-36 rounded-full mb-6 border-4 border-indigo-400 shadow-lg object-cover animate-rotate-in mx-auto md:mx-0">
             <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight">Hi, I'm <span
                     class="text-yellow-300">CHINMOY KUMAR BISWAS</span></h1>
@@ -195,7 +238,7 @@
             <h2 class="section-title text-center mx-auto animate-fade-in">About Me</h2>
             <div class="flex flex-col md:flex-row items-center md:space-x-12 mt-10">
                 <div class="md:w-1/2 mb-8 md:mb-0 animate-slide-left">
-                    <img src="images/chinmoy.png" alt="About CHINMOY KUMAR BISWAS"
+                    <img src="images/chinmoy.png" alt="About CHINMOY KUMAR BISWAS" loading="lazy" decoding="async"
                         class="rounded-xl shadow-lg transform hover:scale-105 transition duration-300 ease-in-out object-cover w-full h-auto">
                 </div>
                 <div class="md:w-1/2 text-lg text-gray-300 leading-relaxed animate-slide-right">
