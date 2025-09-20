@@ -5,6 +5,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:; media-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), location=(), payment=()">
+
     <title>CHINMOY KUMAR BISWAS - Portfolio</title>
     <meta name="description"
         content="Portfolio of CHINMOY KUMAR BISWAS — Programmer and developer. Explore projects, skills, experience, education, certifications, blog, and ways to get in touch.">
@@ -85,8 +95,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
-    <!-- Link to your external CSS file -->
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Modular CSS Architecture -->
+    <link rel="stylesheet" href="assets/css/main.css">
+
     <!-- Three.js CDN for 3D visualizations with integrity -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
         integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ=="
@@ -1592,8 +1604,12 @@
         </div>
     </div>
 
-    <!-- Link to your external JavaScript file -->
-    <script src="script.js" defer></script>
+    <!-- Modular JavaScript Architecture -->
+    <script type="module" src="assets/js/app.js"></script>
+
+    <!-- Performance monitoring and optimization -->
+    <script src="assets/js/performance.js" defer></script>
+    <script src="assets/js/asset-optimizer.js" defer></script>
 </body>
 
 </html>
