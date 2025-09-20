@@ -1,0 +1,35 @@
+{
+    "defaults": {
+        "standard": "WCAG2AA",
+        "timeout": 30000,
+        "wait": 2000,
+        "chromeLaunchConfig": {
+            "ignoreHTTPSErrors": true
+        }
+    },
+    "urls": [
+        {
+            "url": "http://localhost:3000/",
+            "screenCapture": "tests/reports/accessibility/home-page.png"
+        },
+        {
+            "url": "http://localhost:3000/#about",
+            "screenCapture": "tests/reports/accessibility/about-section.png"
+        },
+        {
+            "url": "http://localhost:3000/#projects",
+            "screenCapture": "tests/reports/accessibility/projects-section.png"
+        },
+        {
+            "url": "http://localhost:3000/#skills",
+            "screenCapture": "tests/reports/accessibility/skills-section.png"
+        },
+        {
+            "url": "http://localhost:3000/#contact",
+            "screenCapture": "tests/reports/accessibility/contact-section.png"
+        }
+    ],
+    "ignore": [
+        "WCAG2AA.Principle1.Guideline1_3.1_3_1.H42.2"
+    ]
+}
