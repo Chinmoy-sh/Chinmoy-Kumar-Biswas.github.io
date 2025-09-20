@@ -1,0 +1,67 @@
+{
+    "extends": [
+        "stylelint-config-standard"
+    ],
+    "rules": {
+        "indentation": 2,
+        "string-quotes": "double",
+        "no-duplicate-selectors": true,
+        "color-hex-case": "lower",
+        "color-hex-length": "short",
+        "color-named": "never",
+        "selector-max-id": 0,
+        "selector-combinator-space-after": "always",
+        "selector-attribute-quotes": "always",
+        "selector-attribute-operator-space-before": "never",
+        "selector-attribute-operator-space-after": "never",
+        "selector-attribute-brackets-space-inside": "never",
+        "declaration-block-trailing-semicolon": "always",
+        "declaration-no-important": true,
+        "declaration-colon-space-before": "never",
+        "declaration-colon-space-after": "always",
+        "property-no-unknown": true,
+        "unit-whitelist": [
+            "px",
+            "em",
+            "rem",
+            "%",
+            "s",
+            "ms",
+            "deg",
+            "vh",
+            "vw",
+            "vmin",
+            "vmax"
+        ],
+        "shorthand-property-no-redundant-values": true,
+        "comment-whitespace-inside": "always",
+        "rule-empty-line-before": [
+            "always",
+            {
+                "except": [
+                    "first-nested"
+                ],
+                "ignore": [
+                    "after-comment"
+                ]
+            }
+        ],
+        "at-rule-no-unknown": [
+            true,
+            {
+                "ignoreAtRules": [
+                    "tailwind",
+                    "apply",
+                    "variants",
+                    "responsive",
+                    "screen",
+                    "layer"
+                ]
+            }
+        ],
+        "selector-class-pattern": "^[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}$|^[a-z][a-zA-Z0-9]+$"
+    },
+    "ignoreFiles": [
+        "legacy/**/*.css"
+    ]
+}
