@@ -1,0 +1,43 @@
+{
+    "name": "portfolio-testing",
+    "version": "1.0.0",
+    "description": "Testing and validation scripts for the portfolio project",
+    "main": "tests/index.js",
+    "scripts": {
+        "test": "npm run test:unit && npm run test:integration && npm run test:e2e",
+        "test:unit": "jest --config=tests/config/jest.config.js",
+        "test:integration": "playwright test tests/integration/",
+        "test:e2e": "playwright test tests/e2e/",
+        "test:accessibility": "pa11y-ci --config tests/config/pa11y.json",
+        "test:performance": "lighthouse-ci --config=tests/config/lighthouse.json",
+        "test:security": "node tests/security/security-audit.js",
+        "test:cross-browser": "playwright test tests/cross-browser/",
+        "validate:html": "html-validate src/**/*.html",
+        "validate:css": "stylelint assets/css/**/*.css",
+        "validate:js": "eslint assets/js/**/*.js",
+        "validate:links": "markdown-link-check README.md",
+        "validate:all": "npm run validate:html && npm run validate:css && npm run validate:js && npm run validate:links",
+        "coverage": "jest --coverage --config=tests/config/jest.config.js",
+        "test:watch": "jest --watch --config=tests/config/jest.config.js"
+    },
+    "devDependencies": {
+        "@playwright/test": "^1.40.0",
+        "@testing-library/jest-dom": "^6.1.0",
+        "@testing-library/dom": "^9.3.0",
+        "html-validate": "^8.7.0",
+        "jest": "^29.7.0",
+        "jest-environment-jsdom": "^29.7.0",
+        "lighthouse-ci": "^0.12.0",
+        "pa11y-ci": "^3.0.1",
+        "markdown-link-check": "^3.11.2"
+    },
+    "keywords": [
+        "testing",
+        "validation",
+        "accessibility",
+        "performance",
+        "cross-browser"
+    ],
+    "author": "Chinmoy Kumar Biswas",
+    "license": "MIT"
+}
