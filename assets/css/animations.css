@@ -1,0 +1,369 @@
+/* ==========================================================================
+   ANIMATIONS & KEYFRAMES
+   ========================================================================== */
+
+/* ==========================================================================
+   SCROLL-TRIGGERED ANIMATIONS
+   ========================================================================== */
+
+/* Base animation classes */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Specific animation variants */
+.animate-fade-in {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.animate-fade-in.is-visible {
+    opacity: 1;
+}
+
+.animate-slide-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease;
+}
+
+.animate-slide-left.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.animate-slide-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s ease;
+}
+
+.animate-slide-right.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.animate-rotate-in {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+    transition: all 1s ease;
+}
+
+.animate-rotate-in.is-visible {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+/* ==========================================================================
+   BACKGROUND ANIMATIONS
+   ========================================================================== */
+
+/* Aurora Background Effect */
+.aurora-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+    contain: paint;
+    will-change: transform;
+}
+
+.aurora-bg::before,
+.aurora-bg::after {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
+    background: radial-gradient(60% 60% at 20% 30%, rgba(99, 102, 241, 0.25) 0%, rgba(99, 102, 241, 0) 60%),
+        radial-gradient(50% 50% at 80% 20%, rgba(236, 72, 153, 0.25) 0%, rgba(236, 72, 153, 0) 60%),
+        radial-gradient(40% 40% at 50% 80%, rgba(34, 197, 94, 0.20) 0%, rgba(34, 197, 94, 0) 60%);
+    filter: blur(35px) saturate(115%);
+    animation: auroraDrift 30s ease-in-out infinite alternate;
+    will-change: transform, filter;
+}
+
+.aurora-bg::after {
+    transform: rotate(15deg) scale(1.1);
+    animation-duration: 40s;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes auroraDrift {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: translate3d(1.5%, -1.5%, 0) rotate(4deg) scale(1.04);
+    }
+
+    100% {
+        transform: translate3d(-1.5%, 1.5%, 0) rotate(-4deg) scale(1.06);
+    }
+}
+
+/* Background Pattern Animations */
+.section-bg-pattern-1 {
+    background-image: radial-gradient(circle at 10% 20%, rgba(30, 64, 175, 0.05) 0%, rgba(30, 64, 175, 0.01) 90%),
+        radial-gradient(circle at 90% 80%, rgba(79, 70, 229, 0.05) 0%, rgba(79, 70, 229, 0.01) 90%);
+    background-size: 150% 150%;
+    background-attachment: fixed;
+    animation: backgroundPan 30s linear infinite alternate;
+}
+
+.section-bg-pattern-2 {
+    background-image: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%),
+        url('data:image/svg+xml,%3Csvg width="6" height="6" viewBox="0 0 6 6" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%234a5568" fill-opacity="0.1" fill-rule="evenodd"%3E%3Cpath d="M5 0h1L0 6V5zM6 5v1H0z"/%3E%3C/g%3E%3C/svg%3E');
+    background-size: 100% 100%, 6px 6px;
+    background-attachment: fixed;
+    animation: backgroundPan 25s linear infinite reverse;
+}
+
+@keyframes backgroundPan {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+/* Disable fixed background on small screens */
+@media (max-width: 768px) {
+
+    .section-bg-pattern-1,
+    .section-bg-pattern-2 {
+        background-attachment: scroll;
+        animation-duration: 45s;
+    }
+}
+
+/* ==========================================================================
+   PARTICLE ANIMATIONS
+   ========================================================================== */
+
+.particles-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+@keyframes particleMove {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.8;
+    }
+
+    25% {
+        transform: translate(20vw, 15vh) scale(1.2);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translate(40vw, -10vh) scale(0.8);
+        opacity: 0.4;
+    }
+
+    75% {
+        transform: translate(60vw, 20vh) scale(1.1);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translate(80vw, -5vh) scale(0.9);
+        opacity: 0.5;
+    }
+}
+
+/* ==========================================================================
+   FLOATING ICONS
+   ========================================================================== */
+
+.floating-icons {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    contain: layout paint;
+    will-change: transform, opacity;
+}
+
+.floating-icons .icon {
+    position: absolute;
+    font-size: clamp(16px, 2vw, 28px);
+    opacity: 0.25;
+    animation: floatY 12s ease-in-out infinite;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+    will-change: transform;
+}
+
+@keyframes floatY {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* ==========================================================================
+   INTERACTIVE ANIMATIONS
+   ========================================================================== */
+
+/* Card 3D Tilt Effect */
+.tilt-card {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: -webkit-transform 150ms ease, box-shadow 150ms ease;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+    will-change: transform;
+    contain: paint;
+}
+
+.tilt-card .tilt-glow {
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: radial-gradient(200px circle at var(--mx, 50%) var(--my, 50%), rgba(99, 102, 241, 0.18), transparent 60%);
+    opacity: 0;
+    transition: opacity 200ms ease;
+    pointer-events: none;
+    will-change: opacity;
+}
+
+.tilt-card:hover .tilt-glow {
+    opacity: 1;
+}
+
+/* Button Shine Effect */
+.btn-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-shine:hover::before {
+    left: 100%;
+}
+
+/* ==========================================================================
+   LOADING & PROGRESS ANIMATIONS
+   ========================================================================== */
+
+/* Loading Spinner */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(99, 102, 241, 0.3);
+    border-top-color: var(--spinner-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    will-change: transform;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Skill Progress Bar Animation */
+.skill-progress {
+    width: 100%;
+    height: 8px;
+    background-color: var(--bg-secondary);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-progress::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(135deg, var(--text-highlight), #8b5cf6);
+    border-radius: 4px;
+    transition: width 1.5s ease-in-out;
+    will-change: width;
+}
+
+.skill-progress.is-visible::before {
+    width: var(--progress-width, 75%);
+}
+
+/* Glow Effect */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(99, 102, 241, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.8);
+    }
+
+    100% {
+        box-shadow: 0 0 5px rgba(99, 102, 241, 0.4);
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVE MOTION CONTROLS
+   ========================================================================== */
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .tilt-card .tilt-glow {
+        display: none !important;
+    }
+
+    .floating-icons {
+        display: none !important;
+    }
+
+    .aurora-bg {
+        opacity: 0.3 !important;
+        animation: none !important;
+    }
+}
