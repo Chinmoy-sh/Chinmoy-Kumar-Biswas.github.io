@@ -1,0 +1,36 @@
+{
+    "default": true,
+    "MD013": {
+        "line_length": 100
+    },
+    "MD033": false,
+    "MD041": false,
+    "MD001": true,
+    "MD003": {
+        "style": "atx"
+    },
+    "MD022": true,
+    "MD025": true,
+    "MD026": true,
+    "MD029": {
+        "style": "ordered"
+    },
+    "MD031": true,
+    "MD032": true,
+    "MD034": false,
+    "MD036": true,
+    "MD040": true,
+    "MD046": {
+        "style": "fenced"
+    },
+    "MD047": true,
+    "MD048": {
+        "style": "backtick"
+    },
+    "MD049": {
+        "style": "underscore"
+    },
+    "MD050": {
+        "style": "asterisk"
+    }
+}
