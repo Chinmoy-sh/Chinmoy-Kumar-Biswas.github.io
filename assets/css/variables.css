@@ -1,0 +1,122 @@
+/* ==========================================================================
+   CSS CUSTOM PROPERTIES & THEME VARIABLES
+   ========================================================================== */
+
+:root {
+    /* Dark Theme Colors (Default) */
+    --bg-primary: #1a202c;
+    --bg-secondary: #2d3748;
+    --bg-card: #4a5568;
+    --text-primary: #e2e8f0;
+    --text-secondary: #cbd5e0;
+    --text-highlight: #6366f1;
+    /* Indigo */
+    --text-yellow: #facc15;
+    /* Yellow */
+    --text-green: #34d399;
+    /* Green */
+    --text-red: #ef4444;
+    /* Red */
+    --border-color: #4a5568;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --modal-bg: #2d3748;
+    --modal-shadow: rgba(0, 0, 0, 0.5);
+    --spinner-color: #6366f1;
+    --filter-inactive-bg: #4a5568;
+    --filter-inactive-text: #cbd5e0;
+    --skeleton-bg: #374151;
+    /* Darker grey for skeleton */
+}
+
+/* Light Mode Theme Variables */
+body.light-mode {
+    --bg-primary: #f0f2f5;
+    --bg-secondary: #ffffff;
+    --bg-card: #f9f9f9;
+    --text-primary: #2d3748;
+    --text-secondary: #4a5568;
+    --text-highlight: #4f46e5;
+    /* Darker Indigo */
+    --text-yellow: #d97706;
+    /* Darker Yellow */
+    --text-green: #059669;
+    /* Darker Green */
+    --text-red: #dc2626;
+    /* Darker Red */
+    --border-color: #e2e8f0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --modal-bg: #ffffff;
+    --modal-shadow: rgba(0, 0, 0, 0.2);
+    --spinner-color: #4f46e5;
+    --filter-inactive-bg: #e2e8f0;
+    --filter-inactive-text: #4a5568;
+    --skeleton-bg: #e5e7eb;
+    /* Lighter grey for skeleton */
+}
+
+/* ==========================================================================
+   LIGHT MODE UTILITY CLASS OVERRIDES
+   ========================================================================== */
+
+/* Backgrounds */
+body.light-mode .bg-gray-950,
+body.light-mode .bg-gray-900 {
+    background-color: var(--bg-secondary) !important;
+}
+
+body.light-mode .bg-gray-800,
+body.light-mode .bg-gray-700,
+body.light-mode .bg-gray-600 {
+    background-color: var(--bg-card) !important;
+}
+
+/* Text colors */
+body.light-mode .text-white,
+body.light-mode .text-gray-100 {
+    color: var(--text-primary) !important;
+}
+
+body.light-mode .text-gray-200,
+body.light-mode .text-gray-300,
+body.light-mode .text-gray-400 {
+    color: var(--text-secondary) !important;
+}
+
+/* Borders */
+body.light-mode .border-gray-700,
+body.light-mode .border-gray-600,
+body.light-mode .border-gray-500 {
+    border-color: var(--border-color) !important;
+}
+
+/* Component-specific overrides */
+body.light-mode .service-card,
+body.light-mode .skill-card,
+body.light-mode .project-card,
+body.light-mode .testimonial-card,
+body.light-mode .certification-card,
+body.light-mode .article-card,
+body.light-mode .note-card {
+    background-color: var(--bg-card) !important;
+}
+
+/* Navigation */
+body.light-mode nav {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Mobile menu */
+body.light-mode #mobile-menu {
+    background-color: var(--bg-card) !important;
+}
+
+/* Footer */
+body.light-mode footer {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Three.js Canvas */
+body.light-mode #three-js-canvas {
+    background-color: #f0f2f5;
+}
