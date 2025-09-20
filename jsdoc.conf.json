@@ -1,0 +1,29 @@
+{
+    "source": {
+        "include": [
+            "./assets/js/",
+            "./config/",
+            "./README.md"
+        ],
+        "includePattern": "\\.(js|md)$",
+        "exclude": [
+            "./legacy/",
+            "./node_modules/"
+        ]
+    },
+    "opts": {
+        "destination": "./docs/api/",
+        "recurse": true,
+        "readme": "./README.md"
+    },
+    "plugins": [
+        "plugins/markdown"
+    ],
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false
+    },
+    "metadata": {
+        "title": "Chinmoy Kumar Biswas Portfolio - API Documentation"
+    }
+}

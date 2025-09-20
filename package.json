@@ -1,0 +1,66 @@
+{
+    "name": "chinmoy-kumar-biswas-portfolio",
+    "version": "2.0.0",
+    "description": "Production-ready modular portfolio showcasing modern web development practices with enterprise-level architecture, accessibility, and performance optimization",
+    "keywords": [
+        "portfolio",
+        "web-development",
+        "javascript",
+        "css",
+        "pwa",
+        "three.js",
+        "accessibility",
+        "performance"
+    ],
+    "author": {
+        "name": "Chinmoy Kumar Biswas",
+        "email": "bangladeshchinmoy@gmail.com",
+        "url": "https://chinmoy-sh.github.io/Chinmoy-Kumar-Biswas.github.io/"
+    },
+    "license": "MIT",
+    "homepage": "https://chinmoy-sh.github.io/Chinmoy-Kumar-Biswas.github.io/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Chinmoy-sh/Chinmoy-Kumar-Biswas.github.io.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Chinmoy-sh/Chinmoy-Kumar-Biswas.github.io/issues"
+    },
+    "main": "index.html",
+    "scripts": {
+        "dev": "python -m http.server 5500",
+        "start": "python -m http.server 8000",
+        "lint:js": "eslint assets/js/**/*.js config/*.js",
+        "lint:css": "stylelint assets/css/*.css",
+        "lint:html": "htmlhint index.html",
+        "lint:md": "markdownlint *.md **/*.md",
+        "lint": "npm run lint:js && npm run lint:css && npm run lint:html && npm run lint:md",
+        "format": "prettier --write \"**/*.{js,css,html,md,json}\"",
+        "validate": "npm run lint && npm run format",
+        "build": "echo 'Static site - no build required'",
+        "test": "echo 'Tests not implemented yet'",
+        "audit": "npm audit",
+        "security": "npm audit --audit-level moderate"
+    },
+    "devDependencies": {
+        "eslint": "^8.50.0",
+        "@eslint/js": "^9.0.0",
+        "eslint-config-prettier": "^9.0.0",
+        "prettier": "^3.0.3",
+        "stylelint": "^15.10.0",
+        "stylelint-config-standard": "^34.0.0",
+        "htmlhint": "^1.1.4",
+        "markdownlint-cli": "^0.37.0",
+        "http-server": "^14.1.1"
+    },
+    "engines": {
+        "node": ">=16.0.0",
+        "npm": ">=8.0.0"
+    },
+    "browserslist": [
+        "defaults",
+        "not IE 11",
+        "not op_mini all"
+    ],
+    "type": "module"
+}
