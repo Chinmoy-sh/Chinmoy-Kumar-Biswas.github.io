@@ -172,7 +172,7 @@ class SmoothScrollManager {
 
         // Find all sections with IDs
         this.sections = Array.from(document.querySelectorAll('section[id]'));
-        this.navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
+        this.navLinks = Array.from(document.querySelectorAll('.navbar .nav-links a[href^="#"]'));
 
         if (this.sections.length === 0) return;
 
