@@ -1,0 +1,189 @@
+﻿# Portfolio Website - Chinmoy Kumar Biswas
+
+##  Overview
+
+A modern, responsive portfolio website built with production-ready standards. Features a premium design with light/dark theme support, rich animations, and optimized performance.
+
+ **Live Demo**: https://chinmoy-sh.github.io/Chinmoy-Kumar-Biswas.github.io/
+
+##  Features
+
+###  Design & UI
+- **Premium Design**: Modern, clean aesthetic with glassmorphism effects
+- **Dual Themes**: Light and dark mode with system preference detection
+- **Responsive**: Mobile-first design that works on all devices
+- **Rich Animations**: Scroll-triggered animations, hover effects, and micro-interactions
+- **Custom Cursor**: Enhanced cursor experience on desktop
+
+###  Architecture
+- **Modular CSS**: Organized architecture with reset, variables, base, components, layouts, and animations
+- **Dynamic Content**: JSON-driven content management system
+- **Semantic HTML**: Accessible, SEO-friendly markup
+- **Progressive Enhancement**: Works without JavaScript, enhanced with it
+
+###  Performance
+- **Lazy Loading**: Images and resources load on demand
+- **Service Worker**: Offline support and caching
+- **Core Web Vitals**: Optimized for LCP, FID, and CLS
+- **Resource Optimization**: Preloading, prefetching, and efficient loading strategies
+
+###  Sections
+1. **Home**: Hero section with animated stats and call-to-action
+2. **About**: Personal introduction with highlights
+3. **Skills**: Technical expertise with interactive progress bars
+4. **Projects**: Portfolio showcase with filtering capabilities
+5. **Experience**: Career timeline with detailed achievements
+6. **Testimonials**: Client feedback and recommendations
+7. **Community**: Open-source contributions and involvement
+8. **Resources**: Curated tools and learning materials
+9. **Contact**: Multiple contact methods and form
+
+##  Project Structure
+
+```text
+portfolio/
+ index.html                 # Main HTML file
+ service-worker.js          # Service worker for caching
+ assets/
+    css/
+       reset.css         # CSS reset and normalization
+       variables.css     # Design system tokens
+       base.css          # Typography and utilities
+       components.css    # Reusable UI components
+       layouts.css       # Section-specific styling
+       animations.css    # Animation effects
+    js/
+       main.js          # Core functionality
+       data-loader.js   # Content management
+       performance.js   # Performance optimizations
+    data/
+        content.json     # Portfolio content data
+ images/                   # Image assets
+ design/                  # Design files and assets
+```
+
+##  Technologies Used
+
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+- **Styling**: Custom CSS with CSS Grid and Flexbox
+- **Performance**: Service Worker, Lazy Loading, Web Vitals optimization
+- **Accessibility**: ARIA labels, semantic HTML, keyboard navigation
+- **SEO**: Meta tags, structured data, sitemap
+- **PWA**: Manifest, service worker, offline support
+
+##  Quick Start
+
+### Prerequisites
+- Any modern browser
+- Local HTTP server (JSON must be fetched over HTTP, not file://)
+
+### Setup
+```bash
+# Clone
+git clone https://github.com/Chinmoy-sh/Chinmoy-Kumar-Biswas.github.io.git
+cd Chinmoy-Kumar-Biswas.github.io
+
+# Serve (choose one)
+python -m http.server 5500
+# or
+npx serve -l 5500 .
+```
+
+Open http://localhost:5500 and hard-refresh (Ctrl+F5) if you change scripts.
+
+##  Customization
+
+### Content Updates
+Edit `assets/data/content.json` to update:
+- Personal information
+- Skills and expertise
+- Projects and portfolio items
+- Experience and achievements
+- Testimonials and recommendations
+
+### Theme Customization
+Modify `assets/css/variables.css` to customize:
+- Color schemes
+- Typography
+- Spacing and layout
+- Animation timings
+
+### Adding New Sections
+1. Add section HTML to `index.html`
+2. Add corresponding styles to `assets/css/layouts.css`
+3. Update navigation in `assets/js/main.js`
+
+##  Performance Metrics
+
+- **Lighthouse Score**: 95+ across all categories
+- **Core Web Vitals**: All green
+- **Accessibility**: WCAG 2.1 AA compliant
+- **SEO**: Optimized meta tags and structured data
+
+##  Development
+
+### CSS Architecture
+```text
+assets/css/
+ reset.css      # Normalize and reset styles
+ variables.css  # Design system tokens
+ base.css       # Base typography and utilities
+ components.css # Reusable UI components
+ layouts.css    # Section-specific layouts
+ animations.css # Animation definitions
+```
+
+### JavaScript Modules
+```text
+assets/js/
+ main.js         # Core functionality and interactions
+ data-loader.js  # Dynamic content loading
+ performance.js  # Performance optimizations
+```
+
+### Content Management
+Content is managed through `assets/data/content.json` for easy updates without touching HTML.
+
+##  Key Features Explained
+
+### Theme System
+- Automatic system preference detection
+- Manual toggle with persistence
+- Smooth transitions between themes
+- CSS custom properties for easy customization
+
+### Animation System
+- Scroll-triggered animations using Intersection Observer
+- CSS animations with reduced motion support
+- Progressive enhancement approach
+
+### Performance Optimizations
+- Critical CSS inlined
+- Non-critical resources lazy loaded
+- Service worker for caching
+- Optimized images and assets
+
+##  Browser Support
+
+- Chrome 70+
+- Firefox 65+
+- Safari 12+
+- Edge 79+
+
+##  License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+##  Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Chinmoy-sh/Chinmoy-Kumar-Biswas.github.io/issues).
+
+##  Contact
+
+- **Portfolio**: https://chinmoy-sh.github.io/Chinmoy-Kumar-Biswas.github.io/
+- **GitHub**: https://github.com/Chinmoy-sh
+- **Email**: [Contact through portfolio](https://chinmoy-sh.github.io/Chinmoy-Kumar-Biswas.github.io/#contact)
+
+---
+
+ If you found this project helpful, please give it a star!

@@ -3,32 +3,22 @@
     "development"
   ],
   "hints": {
-    "axe/name-role-value": [
-      "default",
-      {
-        "button-name": "off",
-        "link-name": "off"
-      }
-    ],
-    "disown-opener": "off",
+    "apple-touch-icons": "off",
     "compat-api/css": [
       "default",
       {
         "ignore": [
-          "-webkit-overflow-scrolling",
-          "background-color: color-mix(in srgb, var(--skeleton-bg) 80%, var(--bg-card))",
-          "text-size-adjust"
+          "text-size-adjust",
+          "-moz-appearance"
         ]
       }
-    ],
-    "compat-api/html": [
-      "default",
-      {
-        "ignore": [
-          "meta[name=theme-color]"
-        ]
-      }
-    ],
-    "no-inline-styles": "off"
-  }
+    ]
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not and_ff <= 140",
+    "not firefox <= 140",
+    "not opera <= 117"
+  ]
 }

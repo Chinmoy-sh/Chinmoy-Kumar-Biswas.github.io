@@ -1,0 +1,690 @@
+{
+    "personal": {
+        "name": "Chinmoy Kumar Biswas",
+        "title": "Full Stack Developer",
+        "subtitle": "Crafting Digital Experiences",
+        "bio": "Passionate full-stack developer with expertise in modern web technologies. I love creating innovative solutions that bridge the gap between design and functionality.",
+        "location": "India",
+        "email": "your.email@example.com",
+        "phone": "+91 XXXXX XXXXX",
+        "image": "./images/chinmoy.png",
+        "resume": "./assets/resume.pdf"
+    },
+    "hero": {
+        "greeting": "Hello, I'm",
+        "name": "Chinmoy Kumar Biswas",
+        "titles": [
+            "Full Stack Developer",
+            "UI/UX Designer",
+            "Problem Solver",
+            "Code Enthusiast"
+        ],
+        "description": "I specialize in building exceptional digital experiences with modern technologies. From concept to deployment, I create web applications that combine beautiful design with robust functionality.",
+        "cta": {
+            "primary": "View My Work",
+            "secondary": "Get In Touch"
+        },
+        "stats": [
+            {
+                "number": "50+",
+                "label": "Projects Completed"
+            },
+            {
+                "number": "3+",
+                "label": "Years Experience"
+            },
+            {
+                "number": "100%",
+                "label": "Client Satisfaction"
+            }
+        ]
+    },
+    "about": {
+        "title": "About Me",
+        "subtitle": "Get to know me better",
+        "description": "I'm a passionate full-stack developer with a keen eye for design and a love for clean, efficient code. My journey in web development started 3 years ago, and since then I've been dedicated to creating digital experiences that make a difference.",
+        "image": "./images/pro3.jpg",
+        "highlights": [
+            {
+                "icon": "💡",
+                "text": "Creative Problem Solver"
+            },
+            {
+                "icon": "🚀",
+                "text": "Performance Focused"
+            },
+            {
+                "icon": "🎨",
+                "text": "Design Enthusiast"
+            },
+            {
+                "icon": "⚡",
+                "text": "Fast Learner"
+            }
+        ],
+        "details": [
+            "🎓 Computer Science Graduate",
+            "💼 3+ Years of Professional Experience",
+            "🌍 Available for Remote Work",
+            "📚 Continuous Learning Mindset"
+        ]
+    },
+    "skills": {
+        "title": "Skills & Expertise",
+        "subtitle": "What I bring to the table",
+        "description": "I work with modern technologies and tools to build scalable, performant applications. My skill set spans across front-end, back-end, and everything in between.",
+        "categories": [
+            {
+                "name": "Frontend Development",
+                "skills": [
+                    {
+                        "name": "React",
+                        "level": "expert"
+                    },
+                    {
+                        "name": "Next.js",
+                        "level": "advanced"
+                    },
+                    {
+                        "name": "TypeScript",
+                        "level": "advanced"
+                    },
+                    {
+                        "name": "JavaScript",
+                        "level": "expert"
+                    },
+                    {
+                        "name": "HTML5",
+                        "level": "expert"
+                    },
+                    {
+                        "name": "CSS3",
+                        "level": "expert"
+                    },
+                    {
+                        "name": "Tailwind CSS",
+                        "level": "advanced"
+                    },
+                    {
+                        "name": "SASS/SCSS",
+                        "level": "advanced"
+                    }
+                ]
+            },
+            {
+                "name": "Backend Development",
+                "skills": [
+                    {
+                        "name": "Node.js",
+                        "level": "advanced"
+                    },
+                    {
+                        "name": "Express.js",
+                        "level": "advanced"
+                    },
+                    {
+                        "name": "Python",
+                        "level": "intermediate"
+                    },
+                    {
+                        "name": "Django",
+                        "level": "intermediate"
+                    },
+                    {
+                        "name": "PHP",
+                        "level": "intermediate"
+                    },
+                    {
+                        "name": "REST APIs",
+                        "level": "advanced"
+                    },
+                    {
+                        "name": "GraphQL",
+                        "level": "intermediate"
+                    }
+                ]
+            },
+            {
+                "name": "Database & Tools",
+                "skills": [
+                    {
+                        "name": "MongoDB",
+                        "level": "advanced"
+                    },
+                    {
+                        "name": "PostgreSQL",
+                        "level": "intermediate"
+                    },
+                    {
+                        "name": "MySQL",
+                        "level": "intermediate"
+                    },
+                    {
+                        "name": "Git",
+                        "level": "expert"
+                    },
+                    {
+                        "name": "Docker",
+                        "level": "intermediate"
+                    },
+                    {
+                        "name": "AWS",
+                        "level": "intermediate"
+                    }
+                ]
+            },
+            {
+                "name": "Design & UI/UX",
+                "skills": [
+                    {
+                        "name": "Figma",
+                        "level": "advanced"
+                    },
+                    {
+                        "name": "Adobe XD",
+                        "level": "intermediate"
+                    },
+                    {
+                        "name": "Responsive Design",
+                        "level": "expert"
+                    },
+                    {
+                        "name": "User Experience",
+                        "level": "advanced"
+                    },
+                    {
+                        "name": "Prototyping",
+                        "level": "advanced"
+                    }
+                ]
+            }
+        ],
+        "tools": [
+            "VS Code",
+            "Postman",
+            "Chrome DevTools",
+            "Figma",
+            "Adobe Creative Suite",
+            "Webpack",
+            "Vite",
+            "NPM/Yarn",
+            "ESLint",
+            "Prettier",
+            "Jest"
+        ]
+    },
+    "projects": {
+        "title": "Featured Projects",
+        "subtitle": "Some of my recent work",
+        "description": "Here are some of the projects I've worked on recently. Each one represents a unique challenge and learning opportunity.",
+        "filters": [
+            {
+                "id": "all",
+                "name": "All Projects"
+            },
+            {
+                "id": "web",
+                "name": "Web Apps"
+            },
+            {
+                "id": "mobile",
+                "name": "Mobile"
+            },
+            {
+                "id": "design",
+                "name": "UI/UX"
+            }
+        ],
+        "items": [
+            {
+                "id": 1,
+                "title": "E-Commerce Platform",
+                "category": "web",
+                "description": "A full-featured e-commerce platform built with React and Node.js, featuring user authentication, payment integration, and admin dashboard.",
+                "image": "https://via.placeholder.com/400x300",
+                "technologies": [
+                    "React",
+                    "Node.js",
+                    "MongoDB",
+                    "Stripe",
+                    "JWT"
+                ],
+                "liveUrl": "#",
+                "githubUrl": "#",
+                "featured": true
+            },
+            {
+                "id": 2,
+                "title": "Task Management App",
+                "category": "web",
+                "description": "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+                "image": "https://via.placeholder.com/400x300",
+                "technologies": [
+                    "Vue.js",
+                    "Express",
+                    "Socket.io",
+                    "PostgreSQL"
+                ],
+                "liveUrl": "#",
+                "githubUrl": "#",
+                "featured": true
+            },
+            {
+                "id": 3,
+                "title": "Mobile Banking App",
+                "category": "mobile design",
+                "description": "UI/UX design for a modern mobile banking application with focus on security, usability, and accessibility.",
+                "image": "https://via.placeholder.com/400x300",
+                "technologies": [
+                    "Figma",
+                    "Prototyping",
+                    "User Research"
+                ],
+                "liveUrl": "#",
+                "githubUrl": "#",
+                "featured": true
+            },
+            {
+                "id": 4,
+                "title": "Restaurant Website",
+                "category": "web",
+                "description": "Responsive restaurant website with online ordering system, reservation management, and customer reviews.",
+                "image": "https://via.placeholder.com/400x300",
+                "technologies": [
+                    "Next.js",
+                    "Tailwind",
+                    "Strapi",
+                    "Stripe"
+                ],
+                "liveUrl": "#",
+                "githubUrl": "#",
+                "featured": false
+            },
+            {
+                "id": 5,
+                "title": "Weather Dashboard",
+                "category": "web",
+                "description": "Interactive weather dashboard with location-based forecasts, charts, and weather alerts using external APIs.",
+                "image": "https://via.placeholder.com/400x300",
+                "technologies": [
+                    "React",
+                    "Chart.js",
+                    "OpenWeather API",
+                    "CSS Grid"
+                ],
+                "liveUrl": "#",
+                "githubUrl": "#",
+                "featured": false
+            },
+            {
+                "id": 6,
+                "title": "Fitness Tracker App",
+                "category": "mobile design",
+                "description": "Mobile app design for fitness tracking with workout plans, progress monitoring, and social features.",
+                "image": "https://via.placeholder.com/400x300",
+                "technologies": [
+                    "Figma",
+                    "Principle",
+                    "User Testing"
+                ],
+                "liveUrl": "#",
+                "githubUrl": "#",
+                "featured": false
+            }
+        ]
+    },
+    "experience": {
+        "title": "Work Experience",
+        "subtitle": "My professional journey",
+        "description": "A timeline of my professional experience and key milestones in my development career.",
+        "items": [
+            {
+                "id": 1,
+                "title": "Senior Full Stack Developer",
+                "company": "Tech Solutions Inc.",
+                "location": "Remote",
+                "period": "Jan 2022 - Present",
+                "description": "Led development of multiple client projects, mentored junior developers, and implemented best practices for code quality and performance optimization.",
+                "achievements": [
+                    "Increased application performance by 40% through optimization",
+                    "Led a team of 3 developers on major client project",
+                    "Implemented CI/CD pipelines reducing deployment time by 60%",
+                    "Architected scalable microservices handling 10k+ daily users"
+                ],
+                "technologies": [
+                    "React",
+                    "Node.js",
+                    "AWS",
+                    "Docker",
+                    "MongoDB"
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Frontend Developer",
+                "company": "Digital Agency Co.",
+                "location": "Mumbai, India",
+                "period": "Jun 2021 - Dec 2021",
+                "description": "Developed responsive web applications and collaborated with design teams to create pixel-perfect user interfaces.",
+                "achievements": [
+                    "Built 15+ responsive websites with 100% client satisfaction",
+                    "Reduced page load times by 50% through optimization techniques",
+                    "Collaborated with UX team to improve conversion rates by 25%",
+                    "Implemented modern CSS Grid and Flexbox layouts"
+                ],
+                "technologies": [
+                    "JavaScript",
+                    "CSS3",
+                    "HTML5",
+                    "Bootstrap",
+                    "jQuery"
+                ]
+            },
+            {
+                "id": 3,
+                "title": "Web Developer Intern",
+                "company": "StartupXYZ",
+                "location": "Kolkata, India",
+                "period": "Jan 2021 - May 2021",
+                "description": "Assisted in developing web applications and gained hands-on experience with modern web technologies.",
+                "achievements": [
+                    "Developed 5+ landing pages for marketing campaigns",
+                    "Fixed 50+ bugs and improved code quality",
+                    "Learned modern JavaScript frameworks and tools",
+                    "Participated in agile development processes"
+                ],
+                "technologies": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "PHP",
+                    "MySQL"
+                ]
+            }
+        ]
+    },
+    "education": {
+        "title": "Education",
+        "items": [
+            {
+                "degree": "Bachelor of Computer Science",
+                "institution": "University of Technology",
+                "period": "2018 - 2022",
+                "grade": "8.5 CGPA",
+                "description": "Specialized in Software Engineering and Web Technologies"
+            }
+        ]
+    },
+    "certifications": {
+        "title": "Certifications",
+        "items": [
+            {
+                "name": "AWS Certified Developer",
+                "issuer": "Amazon Web Services",
+                "date": "2023",
+                "credentialId": "AWS-123456"
+            },
+            {
+                "name": "React Developer Certificate",
+                "issuer": "Meta",
+                "date": "2022",
+                "credentialId": "META-789012"
+            },
+            {
+                "name": "Google Analytics Certified",
+                "issuer": "Google",
+                "date": "2022",
+                "credentialId": "GOOGLE-345678"
+            }
+        ]
+    },
+    "testimonials": {
+        "title": "What Clients Say",
+        "subtitle": "Testimonials and recommendations",
+        "items": [
+            {
+                "id": 1,
+                "name": "John Smith",
+                "position": "CEO, Tech Startup",
+                "company": "InnovateNow",
+                "image": "https://via.placeholder.com/80x80",
+                "rating": 5,
+                "text": "Chinmoy delivered exceptional work on our web platform. His attention to detail and technical expertise exceeded our expectations. Highly recommended!"
+            },
+            {
+                "id": 2,
+                "name": "Sarah Johnson",
+                "position": "Product Manager",
+                "company": "Digital Solutions",
+                "image": "https://via.placeholder.com/80x80",
+                "rating": 5,
+                "text": "Working with Chinmoy was a pleasure. He understood our requirements perfectly and delivered a high-quality solution on time and within budget."
+            },
+            {
+                "id": 3,
+                "name": "Mike Chen",
+                "position": "CTO",
+                "company": "E-Commerce Plus",
+                "image": "https://via.placeholder.com/80x80",
+                "rating": 5,
+                "text": "Chinmoy's full-stack development skills are impressive. He built our e-commerce platform from scratch and it's been performing flawlessly."
+            }
+        ]
+    },
+    "community": {
+        "title": "Community & Contributions",
+        "subtitle": "Giving back to the developer community",
+        "description": "I believe in sharing knowledge and contributing to the open-source community.",
+        "contributions": [
+            {
+                "type": "Open Source",
+                "title": "React Component Library",
+                "description": "Contributed to popular React component library with 10k+ GitHub stars",
+                "url": "#",
+                "icon": "🚀"
+            },
+            {
+                "type": "Blog Writing",
+                "title": "Tech Blog Articles",
+                "description": "Published 15+ technical articles on Medium with 5k+ total views",
+                "url": "#",
+                "icon": "✍️"
+            },
+            {
+                "type": "Mentoring",
+                "title": "Developer Mentorship",
+                "description": "Mentored 20+ junior developers in web development fundamentals",
+                "url": "#",
+                "icon": "👨‍🏫"
+            },
+            {
+                "type": "Speaking",
+                "title": "Tech Meetups",
+                "description": "Spoke at 5+ local tech meetups about modern web development",
+                "url": "#",
+                "icon": "🎤"
+            }
+        ],
+        "stats": [
+            {
+                "number": "50+",
+                "label": "GitHub Repositories"
+            },
+            {
+                "number": "1000+",
+                "label": "GitHub Contributions"
+            },
+            {
+                "number": "15+",
+                "label": "Blog Articles"
+            },
+            {
+                "number": "20+",
+                "label": "Mentees Helped"
+            }
+        ]
+    },
+    "resources": {
+        "title": "Useful Resources",
+        "subtitle": "Tools and resources I recommend",
+        "description": "A curated list of tools, libraries, and resources that I find valuable in my development workflow.",
+        "categories": [
+            {
+                "name": "Development Tools",
+                "items": [
+                    {
+                        "name": "VS Code",
+                        "description": "My favorite code editor with great extensions",
+                        "url": "https://code.visualstudio.com",
+                        "type": "tool"
+                    },
+                    {
+                        "name": "Postman",
+                        "description": "Essential for API testing and development",
+                        "url": "https://postman.com",
+                        "type": "tool"
+                    },
+                    {
+                        "name": "Figma",
+                        "description": "Collaborative design and prototyping tool",
+                        "url": "https://figma.com",
+                        "type": "tool"
+                    }
+                ]
+            },
+            {
+                "name": "Learning Resources",
+                "items": [
+                    {
+                        "name": "MDN Web Docs",
+                        "description": "Comprehensive web development documentation",
+                        "url": "https://developer.mozilla.org",
+                        "type": "documentation"
+                    },
+                    {
+                        "name": "freeCodeCamp",
+                        "description": "Free coding courses and certifications",
+                        "url": "https://freecodecamp.org",
+                        "type": "course"
+                    },
+                    {
+                        "name": "JavaScript.info",
+                        "description": "Modern JavaScript tutorial and reference",
+                        "url": "https://javascript.info",
+                        "type": "tutorial"
+                    }
+                ]
+            },
+            {
+                "name": "Libraries & Frameworks",
+                "items": [
+                    {
+                        "name": "React",
+                        "description": "A JavaScript library for building user interfaces",
+                        "url": "https://reactjs.org",
+                        "type": "library"
+                    },
+                    {
+                        "name": "Next.js",
+                        "description": "The React framework for production",
+                        "url": "https://nextjs.org",
+                        "type": "framework"
+                    },
+                    {
+                        "name": "Tailwind CSS",
+                        "description": "A utility-first CSS framework",
+                        "url": "https://tailwindcss.com",
+                        "type": "framework"
+                    }
+                ]
+            }
+        ]
+    },
+    "contact": {
+        "title": "Let's Work Together",
+        "subtitle": "Ready to start your next project?",
+        "description": "I'm always interested in new opportunities and exciting projects. Whether you have a project in mind or just want to chat about tech, feel free to reach out!",
+        "methods": [
+            {
+                "type": "email",
+                "label": "Email",
+                "value": "your.email@example.com",
+                "icon": "📧",
+                "url": "mailto:your.email@example.com"
+            },
+            {
+                "type": "phone",
+                "label": "Phone",
+                "value": "+91 XXXXX XXXXX",
+                "icon": "📱",
+                "url": "tel:+91XXXXXXXXX"
+            },
+            {
+                "type": "location",
+                "label": "Location",
+                "value": "India",
+                "icon": "📍",
+                "url": "#"
+            }
+        ],
+        "social": [
+            {
+                "platform": "LinkedIn",
+                "url": "https://linkedin.com/in/your-profile",
+                "icon": "linkedin",
+                "handle": "@yourlinkedin"
+            },
+            {
+                "platform": "GitHub",
+                "url": "https://github.com/your-username",
+                "icon": "github",
+                "handle": "@yourgithub"
+            },
+            {
+                "platform": "Twitter",
+                "url": "https://twitter.com/your-handle",
+                "icon": "twitter",
+                "handle": "@yourtwitter"
+            },
+            {
+                "platform": "Instagram",
+                "url": "https://instagram.com/your-handle",
+                "icon": "instagram",
+                "handle": "@yourinstagram"
+            }
+        ],
+        "availability": {
+            "status": "Available",
+            "message": "Currently available for new projects",
+            "responseTime": "Usually responds within 24 hours"
+        }
+    },
+    "seo": {
+        "title": "Chinmoy Kumar Biswas - Full Stack Developer & UI/UX Designer",
+        "description": "Experienced Full Stack Developer specializing in React, Node.js, and modern web technologies. Creating exceptional digital experiences with clean code and beautiful design.",
+        "keywords": "full stack developer, react developer, node.js, web developer, ui ux designer, javascript, portfolio, india",
+        "author": "Chinmoy Kumar Biswas",
+        "image": "./images/chinmoy.png",
+        "url": "https://chinmoy-kumar-biswas.github.io"
+    },
+    "config": {
+        "animation": {
+            "enabled": true,
+            "duration": "0.8s",
+            "easing": "ease-out"
+        },
+        "theme": {
+            "default": "system",
+            "options": [
+                "light",
+                "dark",
+                "system"
+            ]
+        },
+        "contact": {
+            "formEndpoint": "",
+            "emailService": "emailjs",
+            "recaptcha": false
+        }
+    }
+}

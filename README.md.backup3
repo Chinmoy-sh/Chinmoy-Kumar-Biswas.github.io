@@ -1,0 +1,863 @@
+# Portfolio Website - Chinmoy Kumar Biswas# Portfolio Website - Chinmoy Kumar Biswas# CHINMOY KUMAR BISWAS — Portfolio
+
+## 🚀 Overview## 🚀 OverviewProfessional, data-driven portfolio with a modular CSS/JS architecture, advanced animations, and
+
+A modern, responsive portfolio website built with production-ready standards. Features a premium design with light/dark theme support, rich animations, and optimized performance.PWA support. Optimized for GitHub Pages and local development.
+
+🔗 Live Demo: <https://chinmoy-sh.github.io/Chinmoy-Kumar-Biswas.github.io/A> modern, responsive portfolio website built with production-ready standards. Features a premium design with light/dark theme support, rich animations, and optimized performance.
+
+## ✨ Features🔗 Live Demo: <https://chinmoy-sh.github.io/Chinmoy-Kumar-Biswas.github.io/>
+
+### 🎨 Design & UI## ✨ Features
+
+- **Premium Design**: Modern, clean aesthetic with glassmorphism effects
+
+- **Dual Themes**: Light and dark mode with system preference detectionBadges: HTML5 · CSS3 · JavaScript · PWA · A11y · Performance
+
+- **Responsive**: Mobile-first design that works on all devices
+
+- **Rich Animations**: Scroll-triggered animations, hover effects, and micro-interactions### 🎨 Design & UI
+
+- **Custom Cursor**: Enhanced cursor experience on desktop
+
+- **Premium Design**: Modern, clean aesthetic with glassmorphism effects—
+
+### 🏗️ Architecture
+
+- **Modular CSS**: Organized architecture with reset, variables, base, components, layouts, and animations- **Dual Themes**: Light and dark mode with system preference detection
+
+- **Dynamic Content**: JSON-driven content management system
+
+- **Semantic HTML**: Accessible, SEO-friendly markup- **Responsive**: Mobile-first design that works on all devices## Overview
+
+- **Progressive Enhancement**: Works without JavaScript, enhanced with it
+
+- **Rich Animations**: Scroll-triggered animations, hover effects, and micro-interactions
+
+### 🚀 Performance
+
+- **Lazy Loading**: Images and resources load on demand- **Custom Cursor**: Enhanced cursor experience on desktopThis repository hosts the production build of my portfolio. The site is structured around a single
+
+- **Service Worker**: Offline support and caching
+
+- **Core Web Vitals**: Optimized for LCP, FID, and CLS`index.html` with modular styles (`assets/css`) and feature-focused scripts (`assets/js`). Content
+
+- **Resource Optimization**: Preloading, prefetching, and efficient loading strategies
+
+### 🏗️ Architectureis sourced from `data/portfolio-data.json` and rendered dynamically by `assets/js/content-manager.js`
+
+### 🌐 Sections
+
+1. **Home**: Hero section with animated stats and call-to-action- **Modular CSS**: Organized architecture with reset, variables, base, components, layouts, and animations
+
+2. **About**: Personal introduction with highlights
+
+3. **Skills**: Technical expertise with interactive progress bars- **Dynamic Content**: JSON-driven content management systemHighlights
+
+4. **Projects**: Portfolio showcase with filtering capabilities
+
+5. **Experience**: Career timeline with detailed achievements- **Semantic HTML**: Accessible, SEO-friendly markup
+
+6. **Testimonials**: Client feedback and recommendations
+
+7. **Community**: Open-source contributions and involvement- **Progressive Enhancement**: Works without JavaScript, enhanced with it- Modular CSS with design tokens, components, layout, and animations
+
+8. **Resources**: Curated tools and learning materials
+
+9. **Contact**: Multiple contact methods and form- Data-driven content (JSON) for easy updates without editing HTML
+
+## 📁 Project Structure### 🚀 Performance- Smooth scrolling, section reveal animations, and particle background
+
+```- **Lazy Loading**: Images and resources load on demand- Light/dark theme with system detection and persistence
+
+portfolio/
+
+├── index.html                 # Main HTML file- **Service Worker**: Offline support and caching- PWA-ready with manifest and service worker
+
+├── service-worker.js          # Service worker for caching
+
+├── assets/- **Core Web Vitals**: Optimized for LCP, FID, and CLS
+
+│   ├── css/
+
+│   │   ├── reset.css         # CSS reset and normalization- **Resource Optimization**: Preloading, prefetching, and efficient loading strategies—
+
+│   │   ├── variables.css     # Design system tokens
+
+│   │   ├── base.css          # Typography and utilities### 🌐 Sections## Quick Start
+
+│   │   ├── components.css    # Reusable UI components
+
+│   │   ├── layouts.css       # Section-specific styling1. **Home**: Hero section with animated stats and call-to-action
+
+│   │   └── animations.css    # Animation effects
+
+│   ├── js/2. **About**: Personal introduction with highlightsPrerequisites
+
+│   │   ├── main.js          # Core functionality
+
+│   │   ├── data-loader.js   # Content management3. **Skills**: Technical expertise with interactive progress bars
+
+│   │   └── performance.js   # Performance optimizations
+
+│   └── data/4. **Projects**: Portfolio showcase with filtering capabilities- Any modern browser
+
+│       └── content.json     # Portfolio content data
+
+├── images/                   # Image assets5. **Experience**: Career timeline with detailed achievements- Local HTTP server (JSON must be fetched over HTTP, not file://)
+
+└── design/                  # Design files and assets
+
+```6. **Testimonials**: Client feedback and recommendations
+
+
+
+## 🛠️ Technologies Used7. **Community**: Open-source contributions and involvementSetup
+
+
+
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)8. **Resources**: Curated tools and learning materials
+
+- **Styling**: Custom CSS with CSS Grid and Flexbox
+
+- **Performance**: Service Worker, Lazy Loading, Web Vitals optimization9. **Contact**: Multiple contact methods and form```powershell
+
+- **Accessibility**: ARIA labels, semantic HTML, keyboard navigation
+
+- **SEO**: Meta tags, structured data, sitemap# Clone
+
+- **PWA**: Manifest, service worker, offline support
+
+## 📁 Project Structuregit clone <https://github.com/Chinmoy-sh/Chinmoy-Kumar-Biswas.github.io.git>
+
+## 🚀 Quick Start
+
+cd Chinmoy-Kumar-Biswas.github.io
+
+### Prerequisites
+
+- Any modern browser```
+
+- Local HTTP server (JSON must be fetched over HTTP, not file://)
+
+portfolio/# Serve (choose one)
+
+### Setup
+
+```bash├── index.html                 # Main HTML filepython -m http.server 5500
+
+# Clone
+
+git clone https://github.com/Chinmoy-sh/Chinmoy-Kumar-Biswas.github.io.git├── service-worker.js          # Service worker for caching# or
+
+cd Chinmoy-Kumar-Biswas.github.io
+
+├── assets/npx serve -l 5500 .
+
+# Serve (choose one)
+
+python -m http.server 5500│   ├── css/```
+
+# or
+
+npx serve -l 5500 .│   │   ├── reset.css         # CSS reset and normalization
+
+```
+
+│   │   ├── variables.css     # Design system tokensOpen <http://localhost:5500> and hard-refresh (Ctrl+F5) if you change scripts.
+
+Open <http://localhost:5500> and hard-refresh (Ctrl+F5) if you change scripts.
+
+│   │   ├── base.css          # Typography and utilities
+
+## 🎨 Customization
+
+│   │   ├── components.css    # Reusable UI components—
+
+### Content Updates
+
+Edit `assets/data/content.json` to update:│   │   ├── layouts.css       # Section-specific styling
+
+- Personal information
+
+- Skills and expertise│   │   └── animations.css    # Animation effects## Project Structure
+
+- Projects and portfolio items
+
+- Experience and achievements│   ├── js/
+
+- Testimonials and recommendations
+
+│   │   ├── main.js           # Core functionality```text
+
+### Theme Customization
+
+Modify `assets/css/variables.css` to customize:│   │   ├── data-loader.js    # Dynamic content loadingindex.html
+
+- Color schemes
+
+- Typography│   │   └── performance.js    # Performance optimizationsmanifest.json
+
+- Spacing and layout
+
+- Animation timings│   └── data/assets/
+
+### Adding New Sections│       └── content.json      # Content data  css/
+
+1. Add section HTML to `index.html`
+
+2. Add corresponding styles to `assets/css/layouts.css`├── images/    variables.css
+
+3. Update navigation in `assets/js/main.js`
+
+│   ├── chinmoy.png          # Profile image    base.css
+
+## 📊 Performance Metrics
+
+│   └── pro3.jpg             # About section image    components.css
+
+- **Lighthouse Score**: 95+ across all categories
+
+- **Core Web Vitals**: All green└── design/    animations.css
+
+- **Accessibility**: WCAG 2.1 AA compliant
+
+- **SEO**: Optimized meta tags and structured data    ├── home_page.jpeg       # Design mockup - home    layout.css
+
+## 🔧 Development    └── about_page.jpeg      # Design mockup - about  js/
+
+### CSS Architecture```    main.js
+
+```
+
+assets/css/    content-manager.js
+
+├── reset.css      # Normalize and reset styles
+
+├── variables.css  # Design system tokens## 🛠️ Technologies Used    scroll-system.js
+
+├── base.css       # Base typography and utilities
+
+├── components.css # Reusable UI components    particles.js
+
+├── layouts.css    # Section-specific layouts
+
+└── animations.css # Animation definitions### Frontend    theme-system.js
+
+```
+
+- **HTML5**: Semantic markup with accessibility features    mobile-navigation.js
+
+### JavaScript Modules
+
+```- **CSS3**: Modern CSS with custom properties, Grid, and Flexbox    form-validation.js
+
+assets/js/
+
+├── main.js         # Core functionality and interactions- **JavaScript ES6+**: Modern JavaScript with modules and async/await    performance-seo.js
+
+├── data-loader.js  # Dynamic content loading
+
+└── performance.js  # Performance optimizations- **Web APIs**: Intersection Observer, Service Worker, Performance API    accessibility.js
+
+```
+
+data/
+
+### Content Management
+
+Content is managed through `assets/data/content.json` for easy updates without touching HTML.### Design System  portfolio-data.json
+
+## 🌟 Key Features Explained- **Typography**: Inter (primary), JetBrains Mono (code)assets/images/
+
+### Theme System- **Color System**: HSL-based with alpha transparency  chinmoy.png
+
+- Automatic system preference detection
+
+- Manual toggle with persistence- **Spacing**: Consistent scale using custom properties  pro3.jpg
+
+- Smooth transitions between themes
+
+- CSS custom properties for easy customization- **Animations**: CSS-based with reduced motion support```
+
+### Animation System
+
+- Scroll-triggered animations using Intersection Observer
+
+- CSS animations with reduced motion support### Performance—
+
+- Progressive enhancement approach
+
+- **Core Web Vitals**: Optimized for Google's performance metrics
+
+### Performance Optimizations
+
+- Critical CSS inlined- **Lazy Loading**: Images and non-critical resources## Features
+
+- Non-critical resources lazy loaded
+
+- Service worker for caching- **Caching Strategy**: Service worker with cache-first approach
+
+- Optimized images and assets
+
+- **Resource Hints**: Preload, prefetch, and preconnect- Theming: `assets/js/theme-system.js` manages light/dark with smooth transitions
+
+## 🚦 Browser Support
+
+- Smooth scroll + effects: `assets/js/scroll-system.js` (exposed as `window.smoothScrollManager`)
+
+- Chrome 70+
+
+- Firefox 65+## 🚀 Getting Started- Content management: `assets/js/content-manager.js` renders JSON into sections
+
+- Safari 12+
+
+- Edge 79+- Animations: utilities and keyframes in `assets/css/animations.css`
+
+## 📝 License### Prerequisites- Particles: canvas background via `assets/js/particles.js`
+
+This project is open source and available under the [MIT License](LICENSE).- Modern web browser (Chrome, Firefox, Safari, Edge)- Forms: client-side validation in `assets/js/form-validation.js`
+
+## 🤝 Contributing- Local web server (optional, for development)- Performance/SEO: metrics and meta updates in `assets/js/performance-seo.js`
+
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Chinmoy-sh/Chinmoy-Kumar-Biswas.github.io/issues).
+
+## 📞 Contact### Local Development—
+
+- **Portfolio**: <https://chinmoy-sh.github.io/Chinmoy-Kumar-Biswas.github.io/>
+
+- **GitHub**: <https://github.com/Chinmoy-sh>
+
+- **Email**: [Contact through portfolio](https://chinmoy-sh.github.io/Chinmoy-Kumar-Biswas.github.io/#contact)1. **Clone the repository**## Data-Driven Content
+
+---   ```bash
+
+⭐ If you found this project helpful, please give it a star!   git clone <https://github.com/Chinmoy-Kumar-Biswas/Chinmoy-Kumar-Biswas.github.io.gitAll> editable content lives in `data/portfolio-data.json`.
+
+   cd Chinmoy-Kumar-Biswas.github.io
+
+   ```Key sections
+
+
+
+2. **Start a local server**- `personal`: name, title, description, social links
+
+   ```bash- `about`: intro and highlights
+
+   # Python 3- `skills`: technical categories and soft skills
+
+   python -m http.server 8000- `projects`: cards with thumbnails, tech, status, and links
+
+   - `experience`, `services`, `testimonials`, `contact`
+
+   # Node.js (with http-server)
+
+   npx http-serverImages and documents
+
+   
+
+   # PHP- Use relative paths like `./assets/images/...`.
+
+   php -S localhost:8000- This ensures local dev and GitHub Pages both work.
+
+   ```
+
+—
+
+3. **Open in browser**
+
+   ```## Cards & Components
+
+   http://localhost:8000
+
+   ```Skills
+
+
+
+### Customization- Rendered as `.skill-card` with `.skill-progress` and `.skill-progress-bar`
+
+- Progress bars animate from 0 to the level when revealed.
+
+#### Content Updates
+
+Edit `assets/data/content.json` to update:Projects
+
+- Personal information
+
+- Skills and experience- Rendered as `.project-card` with image, overlay actions, content, tags.
+
+- Projects and testimonials- Category filters use `.projects-filters` with `.filter-btn`.
+
+- Contact details
+
+Customizing
+
+#### Styling Changes
+
+- **Colors**: Update `assets/css/variables.css`- Update data in `portfolio-data.json`; classes and layout are handled for you.
+
+- **Typography**: Modify font families and scales- Styles live in `assets/css/components.css` and `assets/css/layout.css`.
+
+- **Layout**: Adjust breakpoints and spacing
+
+- **Animations**: Customize timing and effects—
+
+#### Adding Sections## Local Smoke Test
+
+1. Add HTML structure to `index.html`
+
+2. Create CSS in appropriate file1. Start a server (PowerShell)
+
+3. Add data to `content.json`
+
+4. Update `data-loader.js` to populate content```powershell
+
+python -m http.server 5500
+
+## 🎨 Design System# or
+
+npx serve -l 5500 .
+
+### Colors```
+
+- **Primary**: Blue gradient for CTAs and highlights
+
+- **Accent**: Purple for secondary elements Visit <http://localhost:5500>
+
+- **Neutral**: Grayscale for text and backgrounds
+
+- **Semantic**: Success, warning, error states- Check hero loads, particles animate, and theme toggle works
+
+- Verify skills/projects populate and filters toggle visibility
+
+### Typography- Confirm scroll reveals trigger and “Back to top” appears after scrolling
+
+- **Primary**: Inter (300-900 weights)
+
+- **Monospace**: JetBrains Mono for codeNote: Service worker registration runs only when `APP_CONFIG.environment === 'production'`.
+
+- **Scale**: Fluid typography with clamp()For local tests, SW may be inactive, which is expected.
+
+### Spacing—
+
+- **Base Unit**: 0.25rem (4px)
+
+- **Scale**: 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24## Deployment (GitHub Pages)
+
+- **Responsive**: Container max-widths and gutters
+
+- Ensure all asset paths in HTML/CSS/JS/JSON are relative (e.g., `./assets/...`).
+
+### Breakpoints- Push to `main`; Pages serves from the repository
+
+- **Mobile**: < 640px- If you use a project subpath, relative paths keep fetch and images working.
+
+- **Tablet**: 640px - 1023px
+
+- **Desktop**: 1024px - 1279px—
+
+- **Large**: 1280px+
+
+## Troubleshooting
+
+## 🔧 Advanced Features
+
+- Blank content / console error about JSON: run via HTTP server (not `file://`).
+
+### Theme System- Assets 404 on GitHub Pages: ensure paths are `./assets/...` not `/assets/...`
+
+- Automatic system preference detection- Filters not working: verify project `category` values and classes align.
+
+- Manual theme switching- Stale UI after edits: hard refresh (Ctrl+F5). If using a SW, clear site data.
+
+- Persistent user preference
+
+- Smooth transitions between themes—
+
+### Animation System## License & Credits
+
+- Intersection Observer for scroll animations
+
+- Staggered entrance effects- Open source under MIT (if LICENSE present).
+
+- Hover and focus states- Icons: Font Awesome. Fonts: Google Fonts. Images: project assets.
+
+- Reduced motion support
+
+Contact: <bangladeshchinmoy@gmail.com>
+
+### Performance MonitoringChinmoy-Kumar-Biswas.github.io/
+
+- Core Web Vitals tracking│
+
+- Resource loading metrics├── 📄 index.html                    # Main HTML document
+
+- Error boundary handling├── 📄 manifest.webmanifest          # PWA manifest
+
+- Memory optimization├── 📄 robots.txt                    # SEO crawler instructions
+
+├── 📄 sitemap.xml                   # Site structure for SEO
+
+### SEO & Accessibility├── 📄 sw.js                         # Service Worker
+
+- Semantic HTML structure├── 📄 favicon.svg                   # Scalable favicon
+
+- ARIA labels and roles├── 📄 critical.css                  # Above-the-fold styles
+
+- Skip navigation links└── 📄 PERFORMANCE_REPORT.md         # Performance metrics
+
+- Focus management│
+
+- Screen reader support├── 🖼️ images/                        # Media assets
+
+│   ├── chinmoy.png                  # Profile photo
+
+## 📱 Browser Support│   └── pro3.jpg                     # Project images
+
+│
+
+- **Chrome**: 90+├── 🎨 assets/                        # Organized assets
+
+- **Firefox**: 88+│   ├── css/                         # Modular stylesheets
+
+- **Safari**: 14+│   │   ├── main.css                 # Entry point + utilities
+
+- **Edge**: 90+│   │   ├── variables.css            # Design tokens
+
+│   │   ├── base.css                 # Global styles
+
+### Progressive Enhancement│   │   ├── layout.css               # Responsive layouts
+
+- Works without JavaScript│   │   ├── components.css           # UI components
+
+- Graceful fallbacks for modern features│   │   └── animations.css           # Animation definitions
+
+- Print-friendly styles│   │
+
+│   └── js/                          # JavaScript modules
+
+## 🚀 Deployment│       ├── app.js                   # Application controller
+
+│       │
+
+### GitHub Pages│       ├── utils/                   # Utility functions
+
+1. Push to `main` branch│       │   ├── utilities.js         # Core helpers
+
+2. Enable GitHub Pages in repository settings│       │   └── serviceWorker.js     # PWA management
+
+3. Select source as `main` branch│       │
+
+4. Access at `https://username.github.io`│       ├── components/              # Feature modules
+
+│       │   ├── navigation.js        # Navigation system
+
+### Other Platforms│       │   ├── modals.js           # Modal dialogs
+
+- **Netlify**: Drag and drop deployment│       │   ├── theme.js            # Theme management
+
+- **Vercel**: Git-based deployment│       │   ├── carousel.js         # Carousel widgets
+
+- **Static Hosting**: Any CDN or static host│       │   ├── forms.js            # Form handling
+
+│       │   └── threeJS.js          # 3D visualization
+
+## 🔍 Performance Metrics│       │
+
+│       └── animations/              # Animation controllers
+
+### Core Web Vitals Targets│           └── scrollAnimations.js   # Scroll-based effects
+
+- **LCP**: < 2.5s (Largest Contentful Paint)│
+
+- **FID**: < 100ms (First Input Delay)├── ⚙️ config/                        # Configuration
+
+- **CLS**: < 0.1 (Cumulative Layout Shift)│   └── config.js                    # Centralized settings
+
+│
+
+### Optimization Techniques└── 🗑️ Legacy Files (for reference)
+
+- Image lazy loading and optimization    ├── style.css                    # Original monolithic CSS
+
+- Critical CSS inlining    └── script.js                    # Original monolithic JS
+
+- Resource preloading and prefetching
+
+- Service worker caching```text
+
+- Bundle size optimization
+
+---
+
+## 🤝 Contributing
+
+## Theming System
+
+1. Fork the repository
+
+2. Create a feature branch### Advanced Theme Management
+
+3. Make your changes
+
+4. Test thoroughlyThe portfolio features a sophisticated theming system with:
+
+5. Submit a pull request
+
+- **System Integration**: Automatically detects user's OS preference
+
+## 📄 License- **Persistence**: Remembers user choice across sessions
+
+- **Smooth Transitions**: Animated theme switching
+
+This project is open source and available under the [MIT License](LICENSE).- **Browser Integration**: Updates browser UI theme color
+
+## 📞 Contact### Theme Structure
+
+- **Website**: [https://chinmoy-kumar-biswas.github.io](https://chinmoy-kumar-biswas.github.io)```css
+
+- **Email**: <your.email@example.com>/*Light Theme*/
+
+- **LinkedIn**: [Your LinkedIn Profile](https://linkedin.com/in/your-profile):root {
+
+- **GitHub**: [Your GitHub Profile](https://github.com/your-username)    --bg-primary: #ffffff;
+
+    --text-primary: #1f2937;
+
+---    --accent-primary: #3b82f6;
+
+}
+
+## 🙏 Acknowledgments
+
+/*Dark Theme*/
+
+- Design inspiration from modern portfolio trends[data-theme='dark'] {
+
+- Icons and images from respective sources    --bg-primary: #0f172a;
+
+- Community feedback and suggestions    --text-primary: #f8fafc;
+
+    --accent-primary: #60a5fa;
+
+**Built with ❤️ and modern web technologies**}
+
+```
+
+---
+
+## 3D Showcase
+
+### Three.js Integration
+
+Advanced 3D skills visualization featuring:
+
+- **Interactive Skills Sphere**: Drag to rotate, explore technologies
+- **WebGL Detection**: Automatic fallback for unsupported devices
+- **Performance Optimized**: Lazy loading and efficient rendering
+- **Accessibility Aware**: Respects reduced motion preferences
+
+### Skills Configuration
+
+Edit skills in `config/config.js`:
+
+```javascript
+skills: {
+    frontend: ['React', 'Vue.js', 'Angular'],
+    backend: ['Node.js', 'Python', 'PHP'],
+    database: ['MongoDB', 'PostgreSQL', 'Redis']
+}
+```
+
+---
+
+## Accessibility
+
+### WCAG 2.1 AA Compliance
+
+Comprehensive accessibility features include:
+
+- **Semantic HTML**: Proper heading hierarchy and landmark regions
+- **ARIA Support**: Screen reader optimized with descriptive labels
+- **Keyboard Navigation**: Full keyboard accessibility for all interactive elements
+- **Focus Management**: Visible focus indicators and logical tab order
+- **Color Contrast**: Meets or exceeds WCAG contrast requirements
+- **Motion Preferences**: Respects `prefers-reduced-motion` setting
+
+---
+
+## Performance
+
+### Optimization Techniques
+
+- **Code Splitting**: Modular architecture enables tree-shaking
+- **Lazy Loading**: Components initialize when needed
+- **Image Optimization**: WebP format with fallbacks
+- **Critical CSS**: Above-the-fold styling prioritized
+- **Service Worker**: Offline caching and background sync
+
+### Performance Metrics
+
+Target performance scores:
+
+- **Lighthouse Performance**: 95+
+- **Accessibility Score**: 100
+- **Best Practices**: 95+
+- **SEO Score**: 100
+
+---
+
+## SEO & PWA
+
+### Search Engine Optimization
+
+Comprehensive SEO implementation:
+
+- **Rich Metadata**: Complete Open Graph and Twitter Card support
+- **Structured Data**: JSON-LD schema for better search understanding
+- **Sitemap**: XML sitemap for search engine crawling
+- **Robots.txt**: Proper crawler instructions
+- **Performance**: Fast loading times improve search rankings
+
+### Progressive Web App Features
+
+- **Web Manifest**: Installable app experience
+- **Service Worker**: Offline functionality and caching
+- **App Icons**: Multiple icon sizes for different devices
+- **Splash Screens**: Custom loading screens
+- **Background Sync**: Updates when connection restored
+
+---
+
+## Testing
+
+### Testing Strategy
+
+- **Manual Testing**: Cross-browser compatibility verification
+- **Accessibility Testing**: WAVE and axe-core validation
+- **Performance Testing**: Lighthouse audits and Core Web Vitals
+- **Responsive Testing**: Multiple device and screen size validation
+
+### Browser Support
+
+- **Modern Browsers**: Chrome 80+, Firefox 75+, Safari 13+, Edge 80+
+- **Mobile Browsers**: iOS Safari 13+, Chrome Mobile 80+
+- **Graceful Degradation**: Progressive enhancement for older browsers
+
+---
+
+## Production Deployment
+
+### Essential Files
+
+The project includes all necessary production files for professional deployment:
+
+- **LICENSE**: MIT License for open-source compliance
+- **CHANGELOG.md**: Version history and feature documentation
+- **SECURITY.md**: Security policy and vulnerability reporting
+- **CONTRIBUTING.md**: Guidelines for contributors
+- **.gitignore**: Comprehensive file exclusion rules
+- **package.json**: Dependencies and build scripts
+
+### Configuration Files
+
+Professional development environment with industry-standard tools:
+
+- **eslint.config.js**: ES2024 code quality standards
+- **.prettierrc**: Code formatting configuration
+- **.stylelintrc**: CSS linting rules
+- **.htmlhintrc**: HTML validation settings
+- **.markdownlint.json**: Documentation formatting
+
+### Deployment Options
+
+#### GitHub Pages (Recommended)
+
+```powershell
+# Push to main branch
+git add .
+git commit -m "Deploy portfolio"
+git push origin main
+```
+
+#### Static Hosting
+
+Upload the entire directory to any static hosting service:
+
+- Netlify
+- Vercel
+- CloudFlare Pages
+- AWS S3
+
+#### Custom Domain Setup
+
+1. Add CNAME file with your domain
+2. Configure DNS records
+3. Enable HTTPS in hosting settings
+
+---
+
+### Common Issues
+
+#### Theme Not Switching
+
+```javascript
+// Clear theme storage and reload
+localStorage.removeItem('theme');
+location.reload();
+```
+
+#### 3D Visualization Not Loading
+
+- Check WebGL support: `about:gpu` in Chrome
+- Ensure Three.js CDN is accessible
+- Verify no console errors blocking execution
+
+#### Module Loading Errors
+
+- Serve from HTTP server (not file://)
+- Check browser supports ES6 modules
+- Verify all import paths are correct
+
+---
+
+## Contributing
+
+### Contributing Guidelines
+
+1. **Fork the Repository**
+2. **Create Feature Branch**: `git checkout -b feature/amazing-feature`
+3. **Follow Code Standards**: ESLint and Prettier configuration
+4. **Test Changes**: Verify functionality across browsers
+5. **Update Documentation**: Include relevant README updates
+6. **Submit Pull Request**: Describe changes and testing performed
+
+---
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+## Credits & Acknowledgments
+
+- **Design System**: Custom CSS architecture with modern best practices
+- **Icons**: Font Awesome and custom SVG icons
+- **3D Graphics**: Three.js for WebGL rendering
+- **Fonts**: Google Fonts (Inter, Poppins)
+- **Images**: Optimized with modern formats and responsive loading
+- **Performance**: Lighthouse and Core Web Vitals optimization
+
+**Special Thanks**: To the open-source community for the tools and libraries that make projects  
+like this possible.
+
+---
+
+## Contact & Support
+
+- **Email**: [bangladeshchinmoy@gmail.com](mailto:bangladeshchinmoy@gmail.com)
+- **Portfolio**: [Live Demo](https://chinmoy-sh.github.io/Chinmoy-Kumar-Biswas.github.io/)
+- **Issues**: [GitHub Issues](https://github.com/Chinmoy-sh/Chinmoy-Kumar-Biswas.github.io/issues)
+
+Built with ❤️ by **Chinmoy Kumar Biswas**
