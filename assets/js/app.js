@@ -66,11 +66,18 @@ class PortfolioApp {
             this.isInitialized = true;
             console.log('✅ Portfolio Application initialized successfully!');
 
+            // Hide loading spinner
+            this.hideLoadingSpinner();
+
             // Dispatch ready event
             this.dispatchReadyEvent();
 
         } catch (error) {
             console.error('❌ Failed to initialize Portfolio Application:', error);
+
+            // Hide spinner even on error
+            this.hideLoadingSpinner();
+
             this.handleInitializationError(error);
         }
     }
@@ -280,6 +287,19 @@ class PortfolioApp {
                 document.body.removeChild(errorMessage);
             }
         }, 10000);
+    }
+
+    /**
+     * Hide loading spinner
+     */
+    hideLoadingSpinner() {
+        const spinner = document.getElementById('loading-spinner');
+        if (spinner) {
+            spinner.style.opacity = '0';
+            setTimeout(() => {
+                spinner.style.display = 'none';
+            }, 500);
+        }
     }
 
     /**
