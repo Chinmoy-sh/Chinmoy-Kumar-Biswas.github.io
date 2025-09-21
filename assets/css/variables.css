@@ -1,3 +1,64 @@
+:root {
+    --bg: #0b0f14;
+    --bg-elev: #0f141b;
+    --text: #e6e9ee;
+    --muted: #9aa4b2;
+    --primary: #6aa7ff;
+    --primary-600: #4d90ff;
+    --border: #1b2330;
+    --card: #0f141b;
+    --success: #38d39f;
+    --danger: #ff6b6b;
+    --warning: #ffd166;
+    --shadow-color: 0, 0, 0;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: #f7f9fc;
+        --bg-elev: #ffffff;
+        --text: #0a0d12;
+        --muted: #516074;
+        --primary: #1a73e8;
+        --primary-600: #1558b3;
+        --border: #e6eef6;
+        --card: #ffffff;
+    }
+}
+
+:root[data-theme="light"] {
+    --bg: #f7f9fc;
+    --bg-elev: #ffffff;
+    --text: #0a0d12;
+    --muted: #516074;
+    --primary: #1a73e8;
+    --primary-600: #1558b3;
+    --border: #e6eef6;
+    --card: #ffffff;
+}
+
+:root[data-theme="dark"] {
+    --bg: #0b0f14;
+    --bg-elev: #0f141b;
+    --text: #e6e9ee;
+    --muted: #9aa4b2;
+    --primary: #6aa7ff;
+    --primary-600: #4d90ff;
+    --border: #1b2330;
+    --card: #0f141b;
+}
+
+:root {
+    --radius: 14px;
+    --radius-sm: 10px;
+    --radius-xs: 8px;
+    --container: 1120px;
+    --gap: 24px;
+    --gap-lg: 32px;
+    --gap-xl: 48px;
+    --z-header: 40;
+}
+
 /*
 ===============================================
 CSS CUSTOM PROPERTIES & DESIGN SYSTEM

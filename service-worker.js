@@ -12,23 +12,18 @@ const DYNAMIC_CACHE = 'dynamic-v2.0.0';
 
 // Assets to cache immediately
 const STATIC_ASSETS = [
-    '/',
-    '/index.html',
-    '/assets/css/variables.css',
-    '/assets/css/base.css',
-    '/assets/css/components.css',
-    '/assets/css/animations.css',
-    '/assets/css/layout.css',
-    '/assets/js/main.js',
-    '/assets/js/particles.js',
-    '/assets/js/scroll-system.js',
-    '/assets/js/theme-system.js',
-    '/assets/js/mobile-navigation.js',
-    '/assets/js/form-validation.js',
-    '/assets/js/content-manager.js',
-    '/data/portfolio-data.json',
-    '/assets/images/chinmoy.png',
-    '/manifest.json'
+    './',
+    './index.html',
+    './offline.html',
+    './assets/css/variables.css',
+    './assets/css/base.css',
+    './assets/css/components.css',
+    './assets/css/animations.css',
+    './assets/css/layout.css',
+    './assets/js/main.js',
+    './assets/data/portfolio.json',
+    './images/chinmoy.png',
+    './manifest.json'
 ];
 
 // External resources to cache dynamically
@@ -126,7 +121,7 @@ async function cacheFirst(request) {
         return networkResponse;
     } catch (error) {
         console.error('Cache first strategy failed:', error);
-        return await caches.match('/offline.html') || new Response('Offline');
+        return await caches.match('./offline.html') || new Response('Offline');
     }
 }
 
@@ -148,7 +143,7 @@ async function networkFirst(request) {
 
         // Return offline fallback for navigation requests
         if (request.mode === 'navigate') {
-            return await caches.match('/') || new Response('Offline');
+            return await caches.match('./') || new Response('Offline');
         }
 
         return new Response('Offline', { status: 503 });

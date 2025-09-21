@@ -1,3 +1,114 @@
+.site-header {
+    position: sticky;
+    top: 0;
+    inset-inline: 0;
+    z-index: var(--z-header);
+    background: rgba(0, 0, 0, 0.35);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 0;
+}
+
+.brand {
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.site-nav .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.site-nav .nav-links::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-link {
+    padding: 8px 10px;
+    border-radius: var(--radius-xs);
+    color: var(--muted);
+    border: 1px solid transparent;
+}
+
+.nav-link:hover {
+    color: var(--text);
+    border-color: var(--border);
+}
+
+.nav-link.is-active {
+    color: #fff;
+    background: rgba(106, 167, 255, 0.18);
+    border-color: rgba(106, 167, 255, 0.35);
+}
+
+.hero {
+    padding-top: 96px;
+}
+
+.hero-visual {
+    display: grid;
+    place-items: center;
+}
+
+.hero-photo {
+    width: min(320px, 100%);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 2px solid rgba(106, 167, 255, 0.4);
+    box-shadow: 0 16px 40px rgba(var(--shadow-color), 0.35);
+}
+
+.site-footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 0;
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.footer-inner p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.timeline {
+    display: grid;
+    gap: 18px;
+}
+
+.timeline::before {
+    content: "";
+    display: block;
+    height: 1px;
+    background: var(--border);
+}
+
+@media (max-width: 479px) {
+    .header-inner {
+        padding: 10px 0;
+    }
+}
+
+/* About section alignment */
+#about .grid-2 {
+    align-items: start;
+}
+
 /*
 ===============================================
 LAYOUT SYSTEM - PROFESSIONAL GRID & STRUCTURE
@@ -23,7 +134,7 @@ Version: 2.0.0
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
         radial-gradient(circle at 20% 20%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 80% 80%, rgba(255, 0, 110, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 50% 50%, rgba(131, 56, 236, 0.05) 0%, transparent 50%);
@@ -158,12 +269,29 @@ Version: 2.0.0
     gap: var(--space-8);
 }
 
-.grid-cols-1 { grid-template-columns: 1fr; }
-.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
-.grid-cols-5 { grid-template-columns: repeat(5, 1fr); }
-.grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+.grid-cols-1 {
+    grid-template-columns: 1fr;
+}
+
+.grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-cols-5 {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.grid-cols-6 {
+    grid-template-columns: repeat(6, 1fr);
+}
 
 .grid-auto-fit {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -173,10 +301,21 @@ Version: 2.0.0
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
-.grid-gap-sm { gap: var(--space-4); }
-.grid-gap-md { gap: var(--space-6); }
-.grid-gap-lg { gap: var(--space-8); }
-.grid-gap-xl { gap: var(--space-12); }
+.grid-gap-sm {
+    gap: var(--space-4);
+}
+
+.grid-gap-md {
+    gap: var(--space-6);
+}
+
+.grid-gap-lg {
+    gap: var(--space-8);
+}
+
+.grid-gap-xl {
+    gap: var(--space-12);
+}
 
 /* ===== FLEXBOX UTILITIES ===== */
 .flex {
@@ -566,6 +705,7 @@ Version: 2.0.0
 
 /* ===== RESPONSIVE BREAKPOINTS ===== */
 @media (max-width: 1200px) {
+
     .hero-content,
     .about-content,
     .contact-content {
@@ -573,24 +713,24 @@ Version: 2.0.0
         gap: var(--space-12);
         text-align: center;
     }
-    
+
     .hero-visual {
         order: -1;
     }
-    
+
     .timeline::before {
         left: 20px;
     }
-    
+
     .timeline-item {
         flex-direction: row !important;
         padding-left: var(--space-12);
     }
-    
+
     .timeline-content {
         width: 100%;
     }
-    
+
     .timeline-marker {
         left: 20px;
         transform: translate(-50%, -50%);
@@ -601,16 +741,16 @@ Version: 2.0.0
     .section {
         padding: var(--space-20) 0;
     }
-    
+
     .hero {
         padding: var(--space-20) 0 var(--space-16);
     }
-    
+
     .hero-image-container {
         width: 300px;
         height: 300px;
     }
-    
+
     .grid-cols-2,
     .grid-cols-3,
     .grid-cols-4,
@@ -618,20 +758,20 @@ Version: 2.0.0
     .grid-cols-6 {
         grid-template-columns: 1fr;
     }
-    
+
     .skills-grid,
     .projects-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .projects-filters {
         gap: var(--space-2);
     }
-    
+
     .about-stats {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .section-content {
         padding: 0 var(--space-6);
     }
@@ -642,27 +782,27 @@ Version: 2.0.0
         width: 250px;
         height: 250px;
     }
-    
+
     .floating-icon {
         display: none;
     }
-    
+
     .about-stats {
         grid-template-columns: 1fr;
     }
-    
+
     .timeline-item {
         padding-left: var(--space-8);
     }
-    
+
     .timeline::before {
         left: 15px;
     }
-    
+
     .timeline-marker {
         left: 15px;
     }
-    
+
     .section-content {
         padding: 0 var(--space-4);
     }
@@ -670,24 +810,36 @@ Version: 2.0.0
 
 /* ===== ANIMATIONS ===== */
 @keyframes backgroundFloat {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: rotate(0deg) scale(1);
     }
+
     33% {
         transform: rotate(120deg) scale(1.1);
     }
+
     66% {
         transform: rotate(240deg) scale(0.9);
     }
 }
 
 @keyframes bounce {
-    0%, 20%, 53%, 80%, 100% {
+
+    0%,
+    20%,
+    53%,
+    80%,
+    100% {
         transform: translateY(0px);
     }
-    40%, 43% {
+
+    40%,
+    43% {
         transform: translateY(-10px);
     }
+
     70% {
         transform: translateY(-5px);
     }

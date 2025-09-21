@@ -1,345 +1,270 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- SEO Meta Tags -->
-    <title>Chinmoy Kumar Biswas - Full-Stack Developer & Software Engineer</title>
-    <meta name="description"
-        content="Professional portfolio of Chinmoy Kumar Biswas - Expert Full-Stack Developer specializing in modern web technologies, mobile development, and scalable software solutions.">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chinmoy Kumar Biswas — Portfolio</title>
+    <meta name="description" content="Professional portfolio of Chinmoy Kumar Biswas — Full-Stack Developer." />
     <meta name="keywords"
-        content="Full Stack Developer, Software Engineer, Web Development, React, Node.js, Python, JavaScript, Portfolio">
-    <meta name="author" content="Chinmoy Kumar Biswas">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://chinmoy-kumar-biswas.github.io/">
+        content="Full Stack Developer, Software Engineer, Web Development, JavaScript, React, Node.js, Portfolio" />
+    <meta name="author" content="Chinmoy Kumar Biswas" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://chinmoy-kumar-biswas.github.io/" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chinmoy-kumar-biswas.github.io/">
-    <meta property="og:title" content="Chinmoy Kumar Biswas - Full-Stack Developer">
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://chinmoy-kumar-biswas.github.io/" />
+    <meta property="og:title" content="Chinmoy Kumar Biswas - Full-Stack Developer" />
     <meta property="og:description"
-        content="Professional portfolio showcasing cutting-edge web development projects and software engineering expertise.">
-    <meta property="og:image" content="https://chinmoy-kumar-biswas.github.io/assets/images/chinmoy.png">
-    <meta property="og:image:alt" content="Chinmoy Kumar Biswas - Professional Developer">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://chinmoy-kumar-biswas.github.io/">
-    <meta name="twitter:title" content="Chinmoy Kumar Biswas - Full-Stack Developer">
+        content="Professional portfolio showcasing cutting-edge web development projects and software engineering expertise." />
+    <meta property="og:image" content="https://chinmoy-kumar-biswas.github.io/images/chinmoy.png" />
+    <meta property="og:image:alt" content="Chinmoy Kumar Biswas - Professional Developer" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://chinmoy-kumar-biswas.github.io/" />
+    <meta name="twitter:title" content="Chinmoy Kumar Biswas - Full-Stack Developer" />
     <meta name="twitter:description"
-        content="Professional portfolio showcasing cutting-edge web development projects and software engineering expertise.">
-    <meta name="twitter:image" content="https://chinmoy-kumar-biswas.github.io/assets/images/chinmoy.png">
-
-    <!-- Security Headers -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+        content="Professional portfolio showcasing cutting-edge web development projects and software engineering expertise." />
+    <meta name="twitter:image" content="https://chinmoy-kumar-biswas.github.io/images/chinmoy.png" />
 
     <!-- Theme and PWA -->
-    <meta name="theme-color" content="#0f0f23">
-    <meta name="color-scheme" content="dark light">
-    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#0f0f23" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="manifest" href="./manifest.json" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
-    <link rel="apple-touch-icon" href="./assets/images/chinmoy.png">
+    <!-- Icons -->
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./images/chinmoy.png" />
 
-    <!-- External Resources -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="./images/chinmoy.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
 
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="./assets/css/variables.css">
-    <link rel="stylesheet" href="./assets/css/base.css">
-    <link rel="stylesheet" href="./assets/css/components.css">
-    <link rel="stylesheet" href="./assets/css/animations.css">
-    <link rel="stylesheet" href="./assets/css/layout.css">
-
-    <!-- Resource Hints -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
-    <!-- Critical CSS -->
-    <style>
-        /* Loading Spinner */
-        .loading-spinner {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #0f172a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid #6366f1;
-            border-top: 4px solid transparent;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Fallback styles */
-        body {
-            background-color: #1a1a1a !important;
-            color: white !important;
-            font-family: 'Inter', -apple-system, sans-serif !important;
-        }
-    </style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/variables.css" />
+    <link rel="stylesheet" href="./assets/css/base.css" />
+    <link rel="stylesheet" href="./assets/css/layout.css" />
+    <link rel="stylesheet" href="./assets/css/components.css" />
+    <link rel="stylesheet" href="./assets/css/animations.css" />
 </head>
 
 <body>
-    <!-- Loading Spinner -->
-    <div id="loading-spinner" class="loading-spinner">
-        <div class="spinner"></div>
-    </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <noscript>
+        <div class="container" style="padding:12px 0;color:#ffdddd;">
+            JavaScript is disabled. Some features may not work as expected.
+        </div>
+    </noscript>
 
-    <!-- Skip Link for Accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-content">
-            <div class="nav-brand">
-                <a href="#home" class="brand-link">
-                    <span class="brand-text">Chinmoy Kumar Biswas</span>
-                </a>
-            </div>
-
-            <!-- Desktop Navigation -->
-            <ul class="nav-links" id="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link" data-section="home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link" data-section="about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#skills" class="nav-link" data-section="skills">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link" data-section="projects">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#experience" class="nav-link" data-section="experience">Experience</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link" data-section="contact">Contact</a>
-                </li>
-            </ul>
-
-            <!-- Theme Toggle -->
-            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-                <i class="fas fa-moon"></i>
-            </button>
-
-            <!-- Mobile Menu Toggle -->
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="#home">CKB</a>
+            <nav class="site-nav" aria-label="Primary">
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#references" class="nav-link">References</a></li>
+                    <li><a href="#community" class="nav-link">Community</a></li>
+                    <li><a href="#resources" class="nav-link">Resources</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" class="btn-icon" aria-label="Toggle theme">
+                <span class="theme-icon" aria-hidden="true">🌗</span>
             </button>
         </div>
-    </nav>
+    </header>
 
-    <!-- Main Content -->
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-background"></div>
-            <canvas id="particles-canvas" class="particles-canvas"></canvas>
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <h1 class="hero-title">
-                            <span class="greeting animate-fade-in-left delay-1">Hi, I'm</span>
-                            <span class="name animate-fade-in-right delay-3" id="hero-name">Chinmoy Kumar Biswas</span>
-                        </h1>
-                        <p class="hero-subtitle animate-fade-in-up delay-4" id="hero-title">Full Stack Developer</p>
-                        <p class="hero-description animate-fade-in-up delay-5" id="hero-tagline">
-                            Transforming Ideas into Digital Reality
-                        </p>
-                        <div class="hero-actions animate-fade-in-up delay-6">
-                            <a href="#projects" class="btn btn-primary hover-scale">View My Work</a>
-                            <a href="#contact" class="btn btn-secondary hover-scale">Get In Touch</a>
-                        </div>
-                        <div class="hero-social animate-fade-in-up delay-7" id="hero-social">
-                            <!-- Social links will be populated dynamically -->
-                        </div>
-                    </div>
-                    <div class="hero-visual">
-                        <div class="hero-image-container animate-scale-in delay-2">
-                            <img src="./assets/images/chinmoy.png" alt="Chinmoy Kumar Biswas"
-                                class="hero-image hover-scale" loading="eager">
-                        </div>
-                        <div class="floating-elements">
-                            <!-- Floating decoration elements -->
-                        </div>
+    <main id="main">
+        <!-- Home -->
+        <section id="home" class="section hero">
+            <div class="hero-background" aria-hidden="true"></div>
+            <div class="container grid-2">
+                <div>
+                    <h1 class="headline reveal-up">Chinmoy Kumar Biswas</h1>
+                    <p class="subhead typing-effect reveal-up delay-1">Full-Stack Developer crafting fast, reliable, and
+                        delightful
+                        experiences.</p>
+                    <div class="actions reveal-up delay-2">
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="#contact" class="btn btn-outline">Contact</a>
                     </div>
                 </div>
+                <div class="hero-visual reveal-fade delay-2">
+                    <img src="./images/chinmoy.png" alt="Chinmoy Kumar Biswas" class="hero-photo" width="320"
+                        height="320" decoding="async" />
+                </div>
             </div>
-            <div class="scroll-indicator animate-bounce delay-8">
-                <div class="scroll-arrow"></div>
+            <div class="scroll-indicator">
+                <a class="scroll-arrow" href="#about" aria-label="Scroll to About">↓</a>
             </div>
         </section>
 
-        <!-- About Section -->
+        <!-- About -->
         <section id="about" class="section">
             <div class="container">
-                <div class="section-header scroll-reveal">
-                    <h2 class="section-title">About Me</h2>
-                    <p class="section-subtitle">Get to know me better</p>
-                </div>
-                <div class="about-content">
-                    <div class="about-text scroll-reveal-left">
-                        <div class="about-intro" id="about-intro">
-                            <!-- Will be populated dynamically -->
-                        </div>
-                        <div class="about-highlights" id="about-highlights">
-                            <!-- Will be populated dynamically -->
-                        </div>
+                <header class="section-header reveal-up">
+                    <h2>About</h2>
+                    <p>Driven by impact. Focused on quality.</p>
+                </header>
+                <div class="grid-2">
+                    <div class="card reveal-up">
+                        <h3>Summary</h3>
+                        <p>
+                            I build scalable web apps with clean architecture and a strong focus on performance,
+                            accessibility, and robust user experience.
+                        </p>
+                    </div>
+                    <div class="card reveal-up delay-1">
+                        <h3>Highlights</h3>
+                        <ul class="list">
+                            <li>Modern JS, TypeScript, Node.js</li>
+                            <li>UI engineering with semantic, accessible HTML/CSS</li>
+                            <li>System design and performance optimization</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
+        <!-- Skills -->
         <section id="skills" class="section">
             <div class="container">
-                <div class="section-header scroll-reveal">
-                    <h2 class="section-title">Skills & Technologies</h2>
-                    <p class="section-subtitle">Technologies I work with</p>
-                </div>
-                <div class="skills-grid scroll-reveal-scale" id="skills-grid">
-                    <!-- Skills will be populated dynamically -->
+                <header class="section-header reveal-up">
+                    <h2>Skills & Technologies</h2>
+                    <p>Versatile across the stack.</p>
+                </header>
+                <div class="grid-3" id="skills-grid">
+                    <!-- sample cards -->
+                    <article class="card skill-card reveal-up">
+                        <h3>Frontend</h3>
+                        <p>HTML, CSS, JS, React</p>
+                    </article>
+                    <article class="card skill-card reveal-up delay-1">
+                        <h3>Backend</h3>
+                        <p>Node.js, Express, REST</p>
+                    </article>
+                    <article class="card skill-card reveal-up delay-2">
+                        <h3>Tools</h3>
+                        <p>Git, CI/CD, Testing</p>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- Projects -->
         <section id="projects" class="section">
             <div class="container">
-                <div class="section-header scroll-reveal">
-                    <h2 class="section-title">Featured Projects</h2>
-                    <p class="section-subtitle">Some of my recent work</p>
-                </div>
-                <div class="projects-grid scroll-reveal-right" id="projects-grid">
-                    <!-- Projects will be populated dynamically -->
+                <header class="section-header reveal-up">
+                    <h2>Projects</h2>
+                    <p>Selected work demonstrating execution and polish.</p>
+                </header>
+                <div class="grid-3" id="projects-grid">
+                    <article class="card project-card reveal-fade">
+                        <div class="media">
+                            <img src="./images/pro3.jpg" alt="Project preview" loading="lazy" width="1280" height="800"
+                                decoding="async" />
+                        </div>
+                        <div class="card-body">
+                            <h3>Featured Project</h3>
+                            <p>Responsive, accessible, fast.</p>
+                        </div>
+                    </article>
+                    <!-- more project cards later via data -->
                 </div>
             </div>
         </section>
 
-        <!-- Experience Section -->
+        <!-- Experience -->
         <section id="experience" class="section">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Experience</h2>
-                    <p class="section-subtitle">My professional journey</p>
-                </div>
-                <div class="experience-timeline" id="experience-timeline">
-                    <!-- Experience will be populated dynamically -->
+                <header class="section-header reveal-up">
+                    <h2>Experience</h2>
+                    <p>Impact delivered across roles and teams.</p>
+                </header>
+                <div class="timeline" id="experience-timeline">
+                    <!-- timeline items -->
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- References -->
+        <section id="references" class="section">
+            <div class="container">
+                <header class="section-header reveal-up">
+                    <h2>References</h2>
+                    <p>What collaborators say.</p>
+                </header>
+                <div class="grid-3" id="references-grid"></div>
+            </div>
+        </section>
+
+        <!-- Community -->
+        <section id="community" class="section">
+            <div class="container">
+                <header class="section-header reveal-up">
+                    <h2>Community</h2>
+                    <p>Open-source and knowledge sharing.</p>
+                </header>
+                <div class="grid-3" id="community-grid"></div>
+            </div>
+        </section>
+
+        <!-- Resources -->
+        <section id="resources" class="section">
+            <div class="container">
+                <header class="section-header reveal-up">
+                    <h2>Resources</h2>
+                    <p>Guides, talks, and helpful links.</p>
+                </header>
+                <div class="grid-3" id="resources-grid"></div>
+            </div>
+        </section>
+
+        <!-- Contact -->
         <section id="contact" class="section">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Get In Touch</h2>
-                    <p class="section-subtitle">Let's work together</p>
-                </div>
-                <div class="contact-content">
-                    <div class="contact-info" id="contact-info">
-                        <!-- Contact info will be populated dynamically -->
+                <header class="section-header reveal-up">
+                    <h2>Contact</h2>
+                    <p>Let’s build something great.</p>
+                </header>
+                <form class="card form reveal-up" id="contact-form" novalidate>
+                    <div class="grid-2">
+                        <label class="form-field">
+                            <span>Name</span>
+                            <input type="text" name="name" required />
+                        </label>
+                        <label class="form-field">
+                            <span>Email</span>
+                            <input type="email" name="email" required />
+                        </label>
                     </div>
-                    <div class="contact-form">
-                        <form id="contact-form" class="form">
-                            <div class="form-group">
-                                <label for="name" class="form-label">Name</label>
-                                <input type="text" id="name" name="name" class="form-input" required>
-                                <span class="form-error" data-field="name"></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" id="email" name="email" class="form-input" required>
-                                <span class="form-error" data-field="email"></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject" class="form-label">Subject</label>
-                                <input type="text" id="subject" name="subject" class="form-input" required>
-                                <span class="form-error" data-field="subject"></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="message" class="form-label">Message</label>
-                                <textarea id="message" name="message" class="form-textarea" rows="5"
-                                    required></textarea>
-                                <span class="form-error" data-field="message"></span>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-full">Send Message</button>
-                        </form>
-                    </div>
-                </div>
+                    <label class="form-field">
+                        <span>Message</span>
+                        <textarea name="message" rows="5" required></textarea>
+                    </label>
+                    <button class="btn btn-primary" type="submit">Send</button>
+                </form>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p class="footer-text">© 2025 Chinmoy Kumar Biswas. All rights reserved.</p>
-                <div class="footer-social" id="footer-social">
-                    <!-- Social links will be populated dynamically -->
-                </div>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© <span id="year"></span> Chinmoy Kumar Biswas</p>
+            <div class="footer-links">
+                <a href="#home">Top</a>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript Files -->
-    <script src="./assets/js/particles.js"></script>
-    <script src="./assets/js/theme-system.js"></script>
-    <script src="./assets/js/scroll-system.js"></script>
-    <script src="./assets/js/mobile-navigation.js"></script>
-    <script src="./assets/js/form-validation.js"></script>
-    <script src="./assets/js/content-manager.js"></script>
-    <script src="./assets/js/accessibility.js"></script>
-    <script src="./assets/js/performance-seo.js"></script>
-    <script src="./assets/js/main.js"></script>
-
-    <!-- Service Worker Registration -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./service-worker.js')
-                    .then(registration => {
-                        console.log('SW registered: ', registration);
-                    })
-                    .catch(registrationError => {
-                        console.log('SW registration failed: ', registrationError);
-                    });
-            });
-        }
-    </script>
+    <script src="./assets/js/main.js" defer></script>
 </body>
 
 </html>

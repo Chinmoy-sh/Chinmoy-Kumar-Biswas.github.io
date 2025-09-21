@@ -1,3 +1,278 @@
+(function () {
+    const root = document.documentElement;
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const saved = localStorage.getItem('theme');
+    const theme = saved || (prefersDark ? 'dark' : 'light');
+    root.setAttribute('data-theme', theme);
+
+    const toggle = document.getElementById('theme-toggle');
+    if (toggle) {
+        toggle.addEventListener('click', () => {
+            const current = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', current);
+            localStorage.setItem('theme', current);
+        });
+    }
+
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // Active nav link on scroll
+    const sections = Array.from(document.querySelectorAll('main section[id]'));
+    const links = Array.from(document.querySelectorAll('.site-nav .nav-link'));
+    const linkMap = new Map(links.map(l => [l.getAttribute('href')?.slice(1), l]));
+
+    const activate = (id) => {
+        links.forEach(l => l.classList.remove('is-active'));
+        const link = linkMap.get(id);
+        if (link) link.classList.add('is-active');
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) activate(entry.target.id);
+        });
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0.01 });
+    sections.forEach(s => observer.observe(s));
+
+    // Reveal animations
+    const revealables = document.querySelectorAll('.reveal-up, .reveal-fade, .scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale');
+    const revealObs = new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('is-visible');
+                e.target.classList.add('revealed');
+                obs.unobserve(e.target);
+            }
+        })
+    }, { threshold: 0.1, rootMargin: '0px 0px -10% 0px' });
+    revealables.forEach(el => revealObs.observe(el));
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('.site-nav a[href^="#"]').forEach(a => {
+        a.addEventListener('click', (e) => {
+            const id = a.getAttribute('href');
+            if (!id) return;
+            const target = document.querySelector(id);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                history.replaceState(null, '', id);
+            }
+        });
+    });
+
+    // Basic form handler (no backend)
+    const form = document.getElementById('contact-form');
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const data = new FormData(form);
+            const values = Object.fromEntries(data.entries());
+            if (!values.name || !values.email || !values.message) {
+                alert('Please fill out all fields.');
+                return;
+            }
+            alert('Thanks! Your message has been captured locally.');
+            form.reset();
+        });
+    }
+})();
+
+// Lightweight feature modules used by App
+window.themeManager = {
+    cycleTheme() {
+        const root = document.documentElement;
+        const current = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', current);
+        localStorage.setItem('theme', current);
+    }
+};
+
+window.mobileNav = (function () {
+    let open = false;
+    const nav = document.querySelector('.site-nav');
+    return {
+        isMenuOpen: () => open,
+        openMenu: () => { open = true; nav?.classList.add('open'); },
+        closeMenu: () => { open = false; nav?.classList.remove('open'); }
+    };
+})();
+
+window.smoothScrollManager = {
+    scrollTo(hash) {
+        const target = document.querySelector(hash);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+};
+
+window.formValidator = {
+    validate(form) {
+        return form.checkValidity();
+    }
+};
+
+// Simple particles on hero background
+window.particleSystem = (function () {
+    let rafId = null;
+    let running = false;
+    const container = document.querySelector('.hero-background');
+    const particles = [];
+    function createParticle() {
+        const el = document.createElement('span');
+        el.className = 'particle';
+        const size = Math.random() * 4 + 2;
+        el.style.width = `${size}px`;
+        el.style.height = `${size}px`;
+        el.style.left = `${Math.random() * 100}%`;
+        el.style.top = `${100 + Math.random() * 20}%`;
+        el.style.opacity = '0.6';
+        container?.appendChild(el);
+        const speed = Math.random() * 0.5 + 0.2;
+        return { el, y: parseFloat(el.style.top), speed };
+    }
+    function step() {
+        particles.forEach(p => {
+            p.y -= p.speed;
+            if (p.y < -5) p.y = 105;
+            p.el.style.top = `${p.y}%`;
+        });
+        if (running) rafId = requestAnimationFrame(step);
+    }
+    function init() {
+        if (!container) return;
+        for (let i = 0; i < 24; i++) particles.push(createParticle());
+        running = true; step();
+    }
+    function pause() { running = false; if (rafId) cancelAnimationFrame(rafId); }
+    function resume() { if (!running) { running = true; step(); } }
+    init();
+    return { pause, resume };
+})();
+// Data-driven rendering
+async function loadPortfolioData() {
+    try {
+        const res = await fetch('./assets/data/portfolio.json', { cache: 'no-cache' });
+        if (!res.ok) throw new Error('Failed to load data');
+        const data = await res.json();
+        renderHero(data.hero);
+        renderAbout(data.about);
+        renderSkills(data.skills);
+        renderProjects(data.projects);
+        renderExperience(data.experience);
+        renderReferences(data.references);
+        renderCommunity(data.community);
+        renderResources(data.resources);
+        if (typeof window.refreshReveals === 'function') {
+            window.refreshReveals();
+        }
+    } catch (e) {
+        console.warn('Data load skipped:', e.message);
+    }
+}
+
+function renderHero(hero) {
+    if (!hero) return;
+    const h1 = document.querySelector('#home .headline');
+    const subtitle = document.querySelector('#home .subhead');
+    if (h1) h1.textContent = hero.name || h1.textContent;
+    if (subtitle) subtitle.textContent = hero.tagline || subtitle.textContent;
+}
+
+function renderAbout(about) {
+    if (!about) return;
+    const intro = document.querySelector('#about .card p');
+    const highlights = document.querySelector('#about .card + .card .list');
+    if (intro) intro.textContent = about.intro;
+    if (highlights && Array.isArray(about.highlights)) {
+        highlights.innerHTML = about.highlights.map(h => `<li>${h}</li>`).join('');
+    }
+}
+
+function renderSkills(skills) {
+    const grid = document.getElementById('skills-grid');
+    if (!grid || !Array.isArray(skills)) return;
+    grid.innerHTML = skills.map((s, idx) => `
+        <article class="card skill-card reveal-up delay-${(idx % 3) + 1}">
+            <h3>${s.category}</h3>
+            <p>${(s.items || []).join(', ')}</p>
+        </article>
+    `).join('');
+}
+
+function renderProjects(projects) {
+    const grid = document.getElementById('projects-grid');
+    if (!grid || !Array.isArray(projects)) return;
+    const fallbackImg = './images/pro3.jpg';
+    grid.innerHTML = projects.map((p, idx) => {
+        const img = p.image && p.image.length > 0 ? p.image : fallbackImg;
+        const tags = Array.isArray(p.tags) ? `<p class="badge">${p.tags.join(' · ')}</p>` : '';
+        const links = p.links ? `<div class="actions"><a class="btn btn-sm btn-primary" href="${p.links.demo || '#'}" target="_blank" rel="noopener">Demo</a><a class="btn btn-sm btn-outline" href="${p.links.code || '#'}" target="_blank" rel="noopener">Code</a></div>` : '';
+        return `
+                <article class="card project-card reveal-fade delay-${(idx % 3) + 1}">
+            <div class="media">
+              <img src="${img}" alt="${p.title}" loading="lazy" width="640" height="400" decoding="async" />
+            </div>
+            <div class="card-body">
+              <h3>${p.title}</h3>
+              <p>${p.description || ''}</p>
+              ${tags}
+              ${links}
+            </div>
+        </article>`;
+    }).join('');
+}
+
+function renderExperience(experience) {
+    const wrap = document.getElementById('experience-timeline');
+    if (!wrap || !Array.isArray(experience)) return;
+    wrap.innerHTML = experience.map((e, idx) => `
+        <div class="card scroll-reveal ${idx % 2 ? 'scroll-reveal-left' : 'scroll-reveal-right'}">
+          <strong>${e.role}</strong> — ${e.company} <span class="badge">${e.period}</span>
+          <p>${e.summary || ''}</p>
+        </div>
+    `).join('');
+}
+
+function renderReferences(refs) {
+    const grid = document.getElementById('references-grid');
+    if (!grid || !Array.isArray(refs)) return;
+    grid.innerHTML = refs.map((r, idx) => `
+        <article class="card reveal-up delay-${(idx % 3) + 1}">
+            <p>“${r.quote}”</p>
+            <p class="badge">${r.name} — ${r.role}</p>
+        </article>
+    `).join('');
+}
+
+function renderCommunity(items) {
+    const grid = document.getElementById('community-grid');
+    if (!grid || !Array.isArray(items)) return;
+    grid.innerHTML = items.map((i, idx) => `
+        <article class="card hover-lift reveal-up delay-${(idx % 3) + 1}">
+            <h3>${i.platform}</h3>
+            <a href="${i.url}" target="_blank" rel="noopener">${i.handle}</a>
+        </article>
+    `).join('');
+}
+
+function renderResources(items) {
+    const grid = document.getElementById('resources-grid');
+    if (!grid || !Array.isArray(items)) return;
+    grid.innerHTML = items.map((i, idx) => `
+        <article class="card reveal-fade delay-${(idx % 3) + 1}">
+            <span class="badge">${i.type}</span>
+            <a href="${i.url}" target="_blank" rel="noopener">${i.title}</a>
+        </article>
+    `).join('');
+}
+
+// Kick off data rendering after DOM ready baseline
+if (document.readyState !== 'loading') {
+    loadPortfolioData();
+} else {
+    document.addEventListener('DOMContentLoaded', loadPortfolioData);
+}
 /**
  * ===============================================
  * MAIN APPLICATION SCRIPT
@@ -229,7 +504,7 @@ class LoadingManager {
 class SectionObserver {
     constructor() {
         this.sections = document.querySelectorAll('section[id]');
-        this.navLinks = document.querySelectorAll('nav a[href^="#"]');
+        this.navLinks = document.querySelectorAll('.site-nav a[href^="#"]');
         this.currentSection = null;
 
         this.init();
@@ -294,9 +569,9 @@ class SectionObserver {
 
         // Update navigation
         this.navLinks.forEach(link => {
-            link.classList.remove('active');
+            link.classList.remove('is-active');
             if (link.getAttribute('href') === `#${sectionId}`) {
-                link.classList.add('active');
+                link.classList.add('is-active');
             }
         });
 
