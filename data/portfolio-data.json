@@ -1,0 +1,757 @@
+{
+    "personal": {
+        "name": "Chinmoy Kumar Biswas",
+        "title": "Full Stack Developer",
+        "tagline": "Transforming Ideas into Digital Reality",
+        "description": "Passionate full-stack developer with expertise in modern web technologies. I create scalable, user-focused solutions that bridge the gap between innovative design and robust functionality.",
+        "location": "India",
+        "email": "chinmoy@example.com",
+        "phone": "+91 XXXXX XXXXX",
+        "website": "https://chinmoy-kumar-biswas.github.io",
+        "resumeLink": "./assets/documents/Chinmoy_Kumar_Biswas_Resume.pdf",
+        "profileImage": "./assets/images/chinmoy.png",
+        "socialMedia": {
+            "github": {
+                "url": "https://github.com/Chinmoy-Kumar-Biswas",
+                "icon": "fab fa-github",
+                "label": "GitHub Profile"
+            },
+            "linkedin": {
+                "url": "https://linkedin.com/in/chinmoy-kumar-biswas",
+                "icon": "fab fa-linkedin-in",
+                "label": "LinkedIn Profile"
+            },
+            "twitter": {
+                "url": "https://twitter.com/chinmoybiswas",
+                "icon": "fab fa-twitter",
+                "label": "Twitter Profile"
+            },
+            "instagram": {
+                "url": "https://instagram.com/chinmoybiswas",
+                "icon": "fab fa-instagram",
+                "label": "Instagram Profile"
+            }
+        }
+    },
+    "about": {
+        "introduction": "I'm a passionate full-stack developer with over 3 years of experience in creating dynamic, user-centric web applications. My journey in technology began with a curiosity for problem-solving and has evolved into a comprehensive skill set spanning front-end innovation and back-end architecture.",
+        "highlights": [
+            "🚀 Expert in React.js, Node.js, and modern JavaScript frameworks",
+            "💡 Passionate about clean code, best practices, and scalable architecture",
+            "🎨 Strong eye for design with expertise in responsive web development",
+            "📱 Experience with mobile-first development and progressive web apps",
+            "🔧 DevOps knowledge with CI/CD, Docker, and cloud deployment",
+            "🌟 Committed to continuous learning and staying updated with latest tech trends"
+        ],
+        "personalInterests": [
+            "Open source contribution",
+            "Tech blogging and knowledge sharing",
+            "Photography and digital art",
+            "Gaming and interactive media",
+            "Traveling and exploring new cultures"
+        ],
+        "philosophy": "I believe in writing code that not only works but tells a story. Every project is an opportunity to create something meaningful that positively impacts users' lives.",
+        "funFacts": [
+            "Written over 100,000 lines of code",
+            "Contributed to 15+ open source projects",
+            "Built applications used by 10,000+ users",
+            "Coffee consumption: ~4 cups per day ☕"
+        ]
+    },
+    "skills": {
+        "technical": [
+            {
+                "category": "Frontend Development",
+                "skills": [
+                    {
+                        "name": "HTML5",
+                        "level": 95,
+                        "icon": "fab fa-html5",
+                        "color": "#e34c26"
+                    },
+                    {
+                        "name": "CSS3",
+                        "level": 90,
+                        "icon": "fab fa-css3-alt",
+                        "color": "#1572b6"
+                    },
+                    {
+                        "name": "JavaScript",
+                        "level": 88,
+                        "icon": "fab fa-js-square",
+                        "color": "#f7df1e"
+                    },
+                    {
+                        "name": "React.js",
+                        "level": 85,
+                        "icon": "fab fa-react",
+                        "color": "#61dafb"
+                    },
+                    {
+                        "name": "Vue.js",
+                        "level": 75,
+                        "icon": "fab fa-vuejs",
+                        "color": "#4fc08d"
+                    },
+                    {
+                        "name": "TypeScript",
+                        "level": 80,
+                        "icon": "fab fa-js-square",
+                        "color": "#3178c6"
+                    },
+                    {
+                        "name": "Sass/SCSS",
+                        "level": 85,
+                        "icon": "fab fa-sass",
+                        "color": "#cc6699"
+                    }
+                ]
+            },
+            {
+                "category": "Backend Development",
+                "skills": [
+                    {
+                        "name": "Node.js",
+                        "level": 83,
+                        "icon": "fab fa-node-js",
+                        "color": "#339933"
+                    },
+                    {
+                        "name": "Python",
+                        "level": 78,
+                        "icon": "fab fa-python",
+                        "color": "#3776ab"
+                    },
+                    {
+                        "name": "Express.js",
+                        "level": 80,
+                        "icon": "fas fa-server",
+                        "color": "#000000"
+                    },
+                    {
+                        "name": "Django",
+                        "level": 72,
+                        "icon": "fas fa-server",
+                        "color": "#092e20"
+                    },
+                    {
+                        "name": "REST APIs",
+                        "level": 85,
+                        "icon": "fas fa-plug",
+                        "color": "#ff6b6b"
+                    },
+                    {
+                        "name": "GraphQL",
+                        "level": 70,
+                        "icon": "fas fa-project-diagram",
+                        "color": "#e10098"
+                    }
+                ]
+            },
+            {
+                "category": "Database & Cloud",
+                "skills": [
+                    {
+                        "name": "MongoDB",
+                        "level": 78,
+                        "icon": "fas fa-leaf",
+                        "color": "#47a248"
+                    },
+                    {
+                        "name": "PostgreSQL",
+                        "level": 75,
+                        "icon": "fas fa-database",
+                        "color": "#336791"
+                    },
+                    {
+                        "name": "MySQL",
+                        "level": 80,
+                        "icon": "fas fa-database",
+                        "color": "#4479a1"
+                    },
+                    {
+                        "name": "AWS",
+                        "level": 70,
+                        "icon": "fab fa-aws",
+                        "color": "#ff9900"
+                    },
+                    {
+                        "name": "Firebase",
+                        "level": 73,
+                        "icon": "fas fa-fire",
+                        "color": "#ffca28"
+                    },
+                    {
+                        "name": "Docker",
+                        "level": 68,
+                        "icon": "fab fa-docker",
+                        "color": "#2496ed"
+                    }
+                ]
+            },
+            {
+                "category": "Tools & Workflow",
+                "skills": [
+                    {
+                        "name": "Git",
+                        "level": 85,
+                        "icon": "fab fa-git-alt",
+                        "color": "#f05032"
+                    },
+                    {
+                        "name": "VS Code",
+                        "level": 90,
+                        "icon": "fas fa-code",
+                        "color": "#007acc"
+                    },
+                    {
+                        "name": "Webpack",
+                        "level": 72,
+                        "icon": "fas fa-cube",
+                        "color": "#8dd6f9"
+                    },
+                    {
+                        "name": "npm/yarn",
+                        "level": 80,
+                        "icon": "fab fa-npm",
+                        "color": "#cb3837"
+                    },
+                    {
+                        "name": "Jest",
+                        "level": 75,
+                        "icon": "fas fa-vial",
+                        "color": "#c21325"
+                    },
+                    {
+                        "name": "Figma",
+                        "level": 70,
+                        "icon": "fab fa-figma",
+                        "color": "#f24e1e"
+                    }
+                ]
+            }
+        ],
+        "soft": [
+            {
+                "name": "Problem Solving",
+                "level": 90
+            },
+            {
+                "name": "Team Collaboration",
+                "level": 85
+            },
+            {
+                "name": "Communication",
+                "level": 82
+            },
+            {
+                "name": "Leadership",
+                "level": 78
+            },
+            {
+                "name": "Adaptability",
+                "level": 88
+            },
+            {
+                "name": "Time Management",
+                "level": 80
+            }
+        ],
+        "certifications": [
+            {
+                "name": "AWS Certified Developer",
+                "issuer": "Amazon Web Services",
+                "date": "2023",
+                "link": "#"
+            },
+            {
+                "name": "React Developer Certificate",
+                "issuer": "Meta",
+                "date": "2023",
+                "link": "#"
+            },
+            {
+                "name": "JavaScript Algorithms and Data Structures",
+                "issuer": "freeCodeCamp",
+                "date": "2022",
+                "link": "#"
+            }
+        ]
+    },
+    "experience": [
+        {
+            "id": 1,
+            "company": "TechCorp Solutions",
+            "position": "Senior Full Stack Developer",
+            "type": "Full-time",
+            "location": "Remote",
+            "startDate": "2022-03",
+            "endDate": "Present",
+            "duration": "2+ years",
+            "description": "Leading development of enterprise web applications serving 50,000+ users. Architected scalable microservices and implemented CI/CD pipelines that reduced deployment time by 60%.",
+            "achievements": [
+                "Led a team of 5 developers in rebuilding legacy system with React and Node.js",
+                "Implemented automated testing that increased code coverage from 40% to 90%",
+                "Optimized application performance, reducing load times by 45%",
+                "Mentored junior developers and established coding standards"
+            ],
+            "technologies": [
+                "React",
+                "Node.js",
+                "TypeScript",
+                "AWS",
+                "MongoDB",
+                "Docker"
+            ],
+            "logo": "./assets/images/companies/techcorp.jpg"
+        },
+        {
+            "id": 2,
+            "company": "Digital Innovations Ltd",
+            "position": "Full Stack Developer",
+            "type": "Full-time",
+            "location": "Hybrid",
+            "startDate": "2021-01",
+            "endDate": "2022-02",
+            "duration": "1 year 2 months",
+            "description": "Developed responsive web applications and RESTful APIs. Collaborated with design teams to create pixel-perfect user interfaces and seamless user experiences.",
+            "achievements": [
+                "Built 8 production applications from concept to deployment",
+                "Integrated payment gateways processing $100K+ monthly transactions",
+                "Improved application security by implementing OAuth 2.0 and JWT",
+                "Reduced API response time by 35% through database optimization"
+            ],
+            "technologies": [
+                "Vue.js",
+                "Express.js",
+                "PostgreSQL",
+                "Stripe API",
+                "Jest"
+            ],
+            "logo": "./assets/images/companies/digital-innovations.jpg"
+        },
+        {
+            "id": 3,
+            "company": "StartupHub",
+            "position": "Junior Web Developer",
+            "type": "Full-time",
+            "location": "On-site",
+            "startDate": "2020-06",
+            "endDate": "2020-12",
+            "duration": "7 months",
+            "description": "Developed and maintained multiple client websites. Gained experience in various technologies while working in a fast-paced startup environment.",
+            "achievements": [
+                "Delivered 15+ client projects on time and within budget",
+                "Learned and implemented responsive design principles",
+                "Collaborated with clients to gather requirements and provide solutions",
+                "Established version control workflows using Git"
+            ],
+            "technologies": [
+                "HTML5",
+                "CSS3",
+                "JavaScript",
+                "PHP",
+                "WordPress",
+                "MySQL"
+            ],
+            "logo": "./assets/images/companies/startuphub.jpg"
+        }
+    ],
+    "education": [
+        {
+            "degree": "Bachelor of Technology in Computer Science",
+            "institution": "ABC Institute of Technology",
+            "location": "India",
+            "startDate": "2016",
+            "endDate": "2020",
+            "gpa": "8.5/10",
+            "description": "Specialized in software engineering and web technologies. Graduated with honors and received the Dean's List recognition for academic excellence.",
+            "achievements": [
+                "President of Programming Club",
+                "Winner of Inter-college Coding Competition 2019",
+                "Published research paper on Web Performance Optimization"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "id": 1,
+            "title": "E-Commerce Platform",
+            "category": "Full Stack",
+            "type": "Web Application",
+            "status": "Live",
+            "featured": true,
+            "description": "A comprehensive e-commerce platform with advanced features including real-time inventory, payment processing, and admin dashboard.",
+            "longDescription": "Built a complete e-commerce solution from the ground up using React.js and Node.js. Features include user authentication, product catalog with advanced filtering, shopping cart with persistent sessions, secure payment integration with Stripe, order management system, and comprehensive admin panel for inventory and sales management.",
+            "technologies": [
+                "React",
+                "Node.js",
+                "MongoDB",
+                "Stripe",
+                "Redux",
+                "Express",
+                "JWT"
+            ],
+            "features": [
+                "Real-time inventory management",
+                "Secure payment processing",
+                "Advanced search and filtering",
+                "Responsive design for all devices",
+                "Admin dashboard with analytics",
+                "Email notifications system"
+            ],
+            "images": [
+                "./assets/images/projects/ecommerce-1.jpg",
+                "./assets/images/projects/ecommerce-2.jpg",
+                "./assets/images/projects/ecommerce-3.jpg"
+            ],
+            "thumbnail": "./assets/images/projects/ecommerce-thumb.jpg",
+            "liveUrl": "https://ecommerce-demo.chinmoy.dev",
+            "githubUrl": "https://github.com/Chinmoy-Kumar-Biswas/ecommerce-platform",
+            "startDate": "2023-06",
+            "endDate": "2023-09",
+            "duration": "3 months"
+        },
+        {
+            "id": 2,
+            "title": "Task Management App",
+            "category": "Frontend",
+            "type": "Web Application",
+            "status": "Live",
+            "featured": true,
+            "description": "A modern task management application with drag-and-drop functionality, team collaboration features, and real-time updates.",
+            "longDescription": "Developed a sophisticated task management application inspired by tools like Trello and Asana. The app features intuitive drag-and-drop interfaces, real-time collaboration, project boards, time tracking, and comprehensive reporting. Built with React and integrated with Firebase for real-time data synchronization.",
+            "technologies": [
+                "React",
+                "Firebase",
+                "Material-UI",
+                "Socket.io",
+                "Chart.js"
+            ],
+            "features": [
+                "Drag-and-drop task boards",
+                "Real-time collaboration",
+                "Time tracking and reporting",
+                "Team member management",
+                "File attachments and comments",
+                "Mobile-responsive design"
+            ],
+            "images": [
+                "./assets/images/projects/taskmanager-1.jpg",
+                "./assets/images/projects/taskmanager-2.jpg"
+            ],
+            "thumbnail": "./assets/images/projects/taskmanager-thumb.jpg",
+            "liveUrl": "https://taskmanager.chinmoy.dev",
+            "githubUrl": "https://github.com/Chinmoy-Kumar-Biswas/task-manager",
+            "startDate": "2023-03",
+            "endDate": "2023-05",
+            "duration": "2 months"
+        },
+        {
+            "id": 3,
+            "title": "Weather Dashboard",
+            "category": "Frontend",
+            "type": "Web Application",
+            "status": "Live",
+            "featured": false,
+            "description": "A beautiful weather dashboard with forecasts, interactive maps, and location-based weather alerts.",
+            "longDescription": "Created a comprehensive weather dashboard that provides current conditions, 7-day forecasts, interactive weather maps, and location-based alerts. The application features a clean, modern interface with smooth animations and supports multiple locations. Integrated with OpenWeatherMap API for accurate weather data.",
+            "technologies": [
+                "JavaScript",
+                "HTML5",
+                "CSS3",
+                "OpenWeatherMap API",
+                "Chart.js"
+            ],
+            "features": [
+                "Current weather conditions",
+                "7-day weather forecast",
+                "Interactive weather maps",
+                "Location-based alerts",
+                "Multiple location support",
+                "Responsive design"
+            ],
+            "images": [
+                "./assets/images/projects/weather-1.jpg"
+            ],
+            "thumbnail": "./assets/images/projects/weather-thumb.jpg",
+            "liveUrl": "https://weather.chinmoy.dev",
+            "githubUrl": "https://github.com/Chinmoy-Kumar-Biswas/weather-dashboard",
+            "startDate": "2023-01",
+            "endDate": "2023-02",
+            "duration": "1 month"
+        },
+        {
+            "id": 4,
+            "title": "Blog CMS",
+            "category": "Full Stack",
+            "type": "Web Application",
+            "status": "Development",
+            "featured": false,
+            "description": "A content management system for bloggers with markdown support, SEO optimization, and analytics integration.",
+            "longDescription": "Building a modern content management system specifically designed for bloggers and content creators. Features include a rich markdown editor, SEO optimization tools, analytics integration, comment system, and social media sharing. The system is built with a focus on performance and user experience.",
+            "technologies": [
+                "Next.js",
+                "Prisma",
+                "PostgreSQL",
+                "Tailwind CSS",
+                "MDX"
+            ],
+            "features": [
+                "Rich markdown editor",
+                "SEO optimization tools",
+                "Analytics dashboard",
+                "Comment system",
+                "Social media integration",
+                "Performance optimization"
+            ],
+            "images": [
+                "./assets/images/projects/blog-1.jpg"
+            ],
+            "thumbnail": "./assets/images/projects/blog-thumb.jpg",
+            "liveUrl": null,
+            "githubUrl": "https://github.com/Chinmoy-Kumar-Biswas/blog-cms",
+            "startDate": "2023-10",
+            "endDate": null,
+            "duration": "In Progress"
+        }
+    ],
+    "services": [
+        {
+            "id": 1,
+            "title": "Web Development",
+            "icon": "fas fa-code",
+            "description": "Custom web applications built with modern technologies and best practices.",
+            "features": [
+                "Responsive web design",
+                "Progressive Web Apps (PWA)",
+                "E-commerce solutions",
+                "Performance optimization",
+                "Cross-browser compatibility",
+                "SEO-friendly development"
+            ],
+            "technologies": [
+                "React",
+                "Vue.js",
+                "Node.js",
+                "TypeScript",
+                "Next.js"
+            ],
+            "startingPrice": "$2,000"
+        },
+        {
+            "id": 2,
+            "title": "API Development",
+            "icon": "fas fa-server",
+            "description": "Robust and scalable APIs for web and mobile applications.",
+            "features": [
+                "RESTful API design",
+                "GraphQL implementation",
+                "Database optimization",
+                "Authentication & authorization",
+                "API documentation",
+                "Rate limiting & security"
+            ],
+            "technologies": [
+                "Express.js",
+                "GraphQL",
+                "MongoDB",
+                "PostgreSQL",
+                "JWT"
+            ],
+            "startingPrice": "$1,500"
+        },
+        {
+            "id": 3,
+            "title": "Mobile Development",
+            "icon": "fas fa-mobile-alt",
+            "description": "Cross-platform mobile applications with native performance.",
+            "features": [
+                "Cross-platform development",
+                "Native performance",
+                "Offline functionality",
+                "Push notifications",
+                "App store deployment",
+                "Maintenance & updates"
+            ],
+            "technologies": [
+                "React Native",
+                "Flutter",
+                "Firebase",
+                "Native APIs"
+            ],
+            "startingPrice": "$3,000"
+        },
+        {
+            "id": 4,
+            "title": "Consulting",
+            "icon": "fas fa-lightbulb",
+            "description": "Technical consulting and architecture planning for your projects.",
+            "features": [
+                "Technology stack selection",
+                "Architecture planning",
+                "Code review & auditing",
+                "Performance optimization",
+                "Team training",
+                "Best practices implementation"
+            ],
+            "technologies": [
+                "Various",
+                "Project-specific"
+            ],
+            "startingPrice": "$100/hour"
+        }
+    ],
+    "testimonials": [
+        {
+            "id": 1,
+            "name": "Sarah Johnson",
+            "position": "Product Manager",
+            "company": "TechCorp Solutions",
+            "image": "./assets/images/testimonials/sarah.jpg",
+            "rating": 5,
+            "text": "Chinmoy is an exceptional developer who consistently delivers high-quality work. His attention to detail and problem-solving skills made our project a huge success.",
+            "projectType": "E-commerce Platform"
+        },
+        {
+            "id": 2,
+            "name": "Michael Chen",
+            "position": "CTO",
+            "company": "Digital Innovations Ltd",
+            "image": "./assets/images/testimonials/michael.jpg",
+            "rating": 5,
+            "text": "Working with Chinmoy was a pleasure. He understood our requirements perfectly and delivered a solution that exceeded our expectations. Highly recommended!",
+            "projectType": "Task Management System"
+        },
+        {
+            "id": 3,
+            "name": "Emma Davis",
+            "position": "Startup Founder",
+            "company": "GreenTech Startup",
+            "image": "./assets/images/testimonials/emma.jpg",
+            "rating": 5,
+            "text": "Chinmoy helped us build our MVP from scratch. His expertise in full-stack development and his proactive communication made the entire process smooth and efficient.",
+            "projectType": "Web Application"
+        }
+    ],
+    "contact": {
+        "availability": "Available for new projects",
+        "responseTime": "Within 24 hours",
+        "preferredContact": "email",
+        "timezone": "IST (UTC+5:30)",
+        "workingHours": "9:00 AM - 6:00 PM IST",
+        "languages": [
+            "English",
+            "Hindi",
+            "Bengali"
+        ],
+        "formFields": [
+            {
+                "name": "name",
+                "type": "text",
+                "label": "Full Name",
+                "placeholder": "Your full name",
+                "required": true,
+                "validation": "name"
+            },
+            {
+                "name": "email",
+                "type": "email",
+                "label": "Email Address",
+                "placeholder": "your.email@example.com",
+                "required": true,
+                "validation": "email"
+            },
+            {
+                "name": "phone",
+                "type": "tel",
+                "label": "Phone Number",
+                "placeholder": "+1 (555) 123-4567",
+                "required": false,
+                "validation": "phone"
+            },
+            {
+                "name": "subject",
+                "type": "text",
+                "label": "Subject",
+                "placeholder": "Project inquiry, collaboration, etc.",
+                "required": true,
+                "validation": "required"
+            },
+            {
+                "name": "budget",
+                "type": "select",
+                "label": "Project Budget",
+                "required": false,
+                "options": [
+                    {
+                        "value": "",
+                        "text": "Select budget range"
+                    },
+                    {
+                        "value": "under-1k",
+                        "text": "Under $1,000"
+                    },
+                    {
+                        "value": "1k-5k",
+                        "text": "$1,000 - $5,000"
+                    },
+                    {
+                        "value": "5k-10k",
+                        "text": "$5,000 - $10,000"
+                    },
+                    {
+                        "value": "10k-plus",
+                        "text": "$10,000+"
+                    },
+                    {
+                        "value": "discuss",
+                        "text": "Let's discuss"
+                    }
+                ]
+            },
+            {
+                "name": "timeline",
+                "type": "select",
+                "label": "Timeline",
+                "required": false,
+                "options": [
+                    {
+                        "value": "",
+                        "text": "Select timeline"
+                    },
+                    {
+                        "value": "asap",
+                        "text": "ASAP"
+                    },
+                    {
+                        "value": "1-month",
+                        "text": "Within 1 month"
+                    },
+                    {
+                        "value": "2-3-months",
+                        "text": "2-3 months"
+                    },
+                    {
+                        "value": "flexible",
+                        "text": "Flexible"
+                    }
+                ]
+            },
+            {
+                "name": "message",
+                "type": "textarea",
+                "label": "Message",
+                "placeholder": "Tell me about your project, requirements, and any specific details...",
+                "required": true,
+                "validation": "required",
+                "rows": 5
+            }
+        ]
+    },
+    "meta": {
+        "lastUpdated": "2024-01-15",
+        "version": "2.0.0",
+        "status": "active"
+    }
+}
