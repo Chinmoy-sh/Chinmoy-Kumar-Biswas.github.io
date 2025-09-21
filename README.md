@@ -1,403 +1,179 @@
 # CHINMOY KUMAR BISWAS — Portfolio
 
-Production-ready modular portfolio showcasing modern web development practices with
-enterprise-level architecture, accessibility, and performance optimization.
+Professional, data-driven portfolio with a modular CSS/JS architecture, advanced animations, and
+PWA support. Optimized for GitHub Pages and local development.
 
-🔗 **Live Demo**: [chinmoy-sh.github.io/Chinmoy-Kumar-Biswas.github.io](https://chinmoy-sh.github.io/Chinmoy-Kumar-Biswas.github.io/)
+🔗 Live Demo: https://chinmoy-sh.github.io/Chinmoy-Kumar-Biswas.github.io/
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=333)
-![ES6 Modules](https://img.shields.io/badge/ES6_Modules-4FC08D?logo=javascript&logoColor=white)
-![Three.js](https://img.shields.io/badge/Three.js-000000?logo=three.js&logoColor=white)
-![PWA](https://img.shields.io/badge/PWA-5A0FC8?logo=pwa&logoColor=white)
-![Accessibility](https://img.shields.io/badge/A11y-WCAG_2.1-34D399?logo=accessibility&logoColor=white)
-![Performance](https://img.shields.io/badge/Performance-95+-00C853?logo=lighthouse&logoColor=white)
-![Build Status](https://img.shields.io/badge/Build-Passing-22c55e?logo=github-actions&logoColor=white)
+Badges: HTML5 · CSS3 · JavaScript · PWA · A11y · Performance
 
-![Portfolio Preview](images/chinmoy.png)
-
-[🚀 Quick Start](#quick-start) · [🏗️ Architecture](#architecture) · [✨ Features](#features) ·  
-[🎛️ Configuration](#configuration) · [🛠️ Development](#development)
-
----
+—
 
 ## Overview
 
-This portfolio represents a **complete architectural transformation** from monolithic to modular
-design, implementing enterprise-grade patterns and modern web standards. Built with performance,
-maintainability, and accessibility as core principles.
+This repository hosts the production build of my portfolio. The site is structured around a single
+`index.html` with modular styles (`assets/css`) and feature-focused scripts (`assets/js`). Content
+is sourced from `data/portfolio-data.json` and rendered dynamically by `assets/js/content-manager.js`.
 
-### Key Highlights
+Highlights
 
-- 🏗️ **Modular Architecture**: ES6 modules with clear separation of concerns
-- ⚡ **Performance Optimized**: Lazy loading, code splitting, and optimized assets
-- ♿ **Accessibility First**: WCAG 2.1 AA compliance with comprehensive ARIA support
-- 🎨 **Design System**: Consistent theming with CSS custom properties
-- 📱 **Progressive Web App**: Service worker, offline support, and app-like experience
-- 🔒 **Production Ready**: Error handling, monitoring, and comprehensive configuration
+- Modular CSS with design tokens, components, layout, and animations
+- Data-driven content (JSON) for easy updates without editing HTML
+- Smooth scrolling, section reveal animations, and particle background
+- Light/dark theme with system detection and persistence
+- PWA-ready with manifest and service worker
 
----
-
-## Features
-
-### Core Functionality
-
-- 🎨 **Advanced Design System**: Modular CSS architecture with design tokens and utility classes
-- 🌓 **Dynamic Theming**: Light/dark mode with system preference detection and persistence
-- 🧭 **Smart Navigation**: Smooth scroll, scroll-spy, mobile-responsive menu with animations
-- 🧩 **Project Showcase**: Filterable portfolio with detailed modals and rich media support
-- 💬 **Interactive Testimonials**: Auto-playing carousel with touch/swipe support
-- 📝 **Content Management**: Blog and notes sections with markdown-like formatting
-
-### Advanced Features
-
-- 📊 **3D Skills Visualization**: Three.js powered interactive skills showcase with WebGL fallback
-- 🎪 **Animation System**: Intersection Observer based scroll animations with reduced motion support
-- 📱 **PWA Capabilities**: Install prompts, offline functionality, and native app experience
-- 🔍 **SEO Optimized**: Rich metadata, Open Graph, Twitter Cards, and structured data
-- 📧 **Smart Forms**: Real-time validation, sanitization, and accessibility features
-
-### Developer Experience
-
-- 🛠️ **Modular Components**: Self-contained, reusable modules with clear APIs
-- ⚙️ **Centralized Configuration**: Single source of truth for all application settings
-- 🐛 **Debug Tools**: Comprehensive error handling and development utilities
-- 📊 **Performance Monitoring**: Built-in analytics and performance tracking
-- 🧪 **Testing Ready**: Structured for unit and integration testing
-
----
+—
 
 ## Quick Start
 
-### Prerequisites
+Prerequisites
 
-- Modern web browser with ES6 module support
-- Local development server (recommended)
+- Any modern browser
+- Local HTTP server (JSON must be fetched over HTTP, not file://)
 
-### Installation
+Setup
 
-```bash
-# Clone the repository
+```powershell
+# Clone
 git clone https://github.com/Chinmoy-sh/Chinmoy-Kumar-Biswas.github.io.git
 cd Chinmoy-Kumar-Biswas.github.io
-```
 
-### Development Server
-
-Use a local HTTP server for correct ES6 module loading.
-
-#### Option 1: Python (recommended)
-
-```powershell
-# Windows PowerShell
+# Serve (choose one)
 python -m http.server 5500
-# Open http://localhost:5500
-```
-
-#### Option 2: Node.js
-
-```powershell
-# Install and run with npx
+# or
 npx serve -l 5500 .
-# Open http://localhost:5500
 ```
 
-#### Option 3: VS Code Live Server
+Open http://localhost:5500 and hard-refresh (Ctrl+F5) if you change scripts.
 
-1. Install Live Server extension
-2. Right-click `index.html` → "Open with Live Server"
-
-### Quick Customization
-
-1. **Update Profile**: Edit personal information in `config/config.js`
-2. **Replace Images**: Update `images/` folder with your photos
-3. **Modify Content**: Edit sections in `index.html`
-4. **Configure Features**: Adjust settings in `config/config.js`
-
----
-
-## Architecture
-
-### Modular Design Philosophy
-
-This portfolio implements a **component-based architecture** inspired by modern frameworks, providing:
-
-- **Separation of Concerns**: Each module handles a specific functionality
-- **Maintainability**: Easy to update, debug, and extend individual features
-- **Scalability**: Add new components without affecting existing code
-- **Testability**: Isolated modules are easier to test and validate
-- **Performance**: Tree-shaking and code splitting capabilities
-
-### Module Structure
-
-```text
-assets/
-├── css/                     # Modular CSS Architecture
-│   ├── main.css            # Entry point & utility classes
-│   ├── variables.css       # Design tokens & custom properties
-│   ├── base.css           # Reset, typography, global styles
-│   ├── layout.css         # Grid, flexbox, responsive layouts
-│   ├── components.css     # UI components & interactive elements
-│   └── animations.css     # Keyframes, transitions, effects
-│
-├── js/                     # JavaScript ES6 Modules
-│   ├── app.js             # Main application controller
-│   ├── performance.js     # Performance monitoring & optimization
-│   ├── asset-optimizer.js # Asset compression & optimization
-│   ├── cache-config.js    # Advanced caching strategies
-│   │
-│   ├── utils/             # Utility Functions
-│   │   ├── utilities.js   # Core helpers, debounce, validation
-│   │   ├── serviceWorker.js # PWA functionality
-│   │   └── security.js    # Input sanitization & security
-│   │
-│   ├── components/        # Feature Components
-│   │   ├── navigation.js  # Menu, scroll-spy, smooth scroll
-│   │   ├── modals.js      # Project details, LLM features
-│   │   ├── theme.js       # Light/dark mode management
-│   │   ├── carousel.js    # Testimonials, image galleries
-│   │   ├── forms.js       # Contact forms, validation
-│   │   └── threeJS.js     # 3D visualization system
-│   │
-│   └── animations/        # Animation Controllers
-│       └── scrollAnimations.js # Intersection observers, effects
-│
-config/
-└── config.js              # Centralized configuration
-
-tests/                      # Comprehensive Testing Framework
-├── package.json           # Testing dependencies & scripts
-├── test-runner.js         # Master test orchestrator
-├── setup-framework.js     # Framework initialization
-├── README.md              # Testing documentation
-├── config/                # Test configurations
-│   ├── jest.config.js     # Unit testing config
-│   ├── playwright.config.js # E2E testing config
-│   ├── pa11y.json        # Accessibility testing
-│   └── lighthouse.json   # Performance testing
-├── unit/                  # Unit tests
-├── e2e/                   # End-to-end tests
-├── cross-browser/         # Cross-browser compatibility
-├── security/              # Security audit scripts
-├── setup/                 # Test setup utilities
-└── reports/               # Generated test reports
-```
-
----
-
-## Configuration
-
-### Centralized Configuration System
-
-All application settings are managed through `config/config.js`, providing a single source of truth for:
-
-#### Application Metadata
-
-```javascript
-app: {
-    name: 'Chinmoy Kumar Biswas Portfolio',
-    version: '2.0.0',
-    author: 'Chinmoy Kumar Biswas',
-    email: 'bangladeshchinmoy@gmail.com'
-}
-```
-
-#### Performance Settings
-
-```javascript
-performance: {
-    animations: {
-        enabled: true,
-        respectReducedMotion: true,
-        intersectionThreshold: 0.1
-    },
-    particles: {
-        maxParticles: { mobile: 12, desktop: 22 },
-        colors: ['rgba(99, 102, 241,', 'rgba(251, 191, 36,']
-    }
-}
-```
-
-#### Theme Configuration
-
-```javascript
-theme: {
-    default: 'system',
-    persistence: true,
-    transitions: { duration: '0.3s', easing: 'ease-in-out' }
-}
-```
-
-#### Feature Flags
-
-```javascript
-features: {
-    enableThreeJS: true,
-    enableParticles: true,
-    enableServiceWorker: true,
-    enableAnalytics: false,
-    debugMode: false
-}
-```
-
----
-
-## Security & Performance
-
-### 🔐 Security Features
-
-- **Content Security Policy**: Comprehensive CSP headers protection
-- **Input Sanitization**: XSS prevention and data validation
-- **Rate Limiting**: Protection against abuse and spam
-- **Security Headers**: X-Frame-Options, X-Content-Type-Options
-- **HTTPS Ready**: SSL/TLS encryption support
-- **Security Monitoring**: Real-time threat detection
-
-### 🚀 Performance Optimizations
-
-- **Critical CSS Extraction**: Above-the-fold content prioritization
-- **Service Worker v2.0.0**: Advanced asset caching strategies
-- **Asset Optimization**: WebP format support, lazy loading
-- **Core Web Vitals**: Comprehensive performance monitoring
-- **CDN Ready**: Optimized for content delivery networks
-- **Progressive Loading**: Modular JavaScript architecture
-
-### 🧪 Testing Framework
-
-Comprehensive testing infrastructure for production quality assurance:
-
-#### Available Test Suites
-
-```powershell
-# Navigate to tests directory
-cd tests
-
-# Install testing dependencies
-npm install
-
-# Run all tests
-npm run test:all
-
-# Individual test suites
-npm run test:unit        # Jest unit tests
-npm run test:e2e         # Playwright E2E tests
-npm run test:a11y        # Accessibility compliance
-npm run test:perf        # Performance benchmarks
-npm run test:security    # Security audit
-npm run test:cross       # Cross-browser compatibility
-```
-
-#### Test Coverage
-
-- **Unit Tests**: Component logic, utilities, configurations
-- **E2E Tests**: User workflows, form submissions, navigation
-- **Accessibility**: WCAG compliance, screen reader compatibility
-- **Performance**: Core Web Vitals, loading times, optimization
-- **Security**: XSS protection, input validation, CSP compliance
-- **Cross-Browser**: Chrome, Firefox, Safari, Edge compatibility
-
----
-
-## Development
-
-### Development Workflow
-
-#### Environment Setup
-
-```powershell
-# Clone and setup
-git clone https://github.com/Chinmoy-sh/Chinmoy-Kumar-Biswas.github.io.git
-cd Chinmoy-Kumar-Biswas.github.io
-
-# Start development server
-python -m http.server 5500
-```
-
-#### Making Changes
-
-**CSS Modifications:**
-
-- Edit modular CSS files in `assets/css/`
-- Changes automatically reflect via `main.css` imports
-- Use CSS custom properties for consistent theming
-
-**JavaScript Features:**
-
-- Create new components in `assets/js/components/`
-- Add utilities to `assets/js/utils/`
-- Import and initialize in `assets/js/app.js`
-
-**Configuration Updates:**
-
-- Modify settings in `config/config.js`
-- Changes automatically apply to all modules
-
-#### Adding New Components
-
-##### Step 1: Create Module
-
-```javascript
-// assets/js/components/newFeature.js
-export function initializeNewFeature(config) {
-    // Component logic
-    return {
-        init: () => { /* initialization */ },
-        destroy: () => { /* cleanup */ }
-    };
-}
-```
-
-##### Step 2: Import in App
-
-```javascript
-// assets/js/app.js
-import { initializeNewFeature } from './components/newFeature.js';
-
-// Add to component initialization
-await initializeNewFeature(this.config);
-```
-
-##### Step 3: Add Configuration
-
-```javascript
-// config/config.js
-export const CONFIG = {
-    // Add feature settings
-    newFeature: {
-        enabled: true,
-        options: { /* feature options */ }
-    }
-};
-```
-
-### Code Standards
-
-#### JavaScript
-
-- Use ES6+ features and modules
-- Follow JSDoc documentation standards
-- Implement error handling and fallbacks
-- Use async/await for asynchronous operations
-
-#### CSS
-
-- Follow BEM naming methodology
-- Use CSS custom properties for theming
-- Implement mobile-first responsive design
-- Optimize for performance and accessibility
-
-#### HTML
-
-- Semantic markup with proper ARIA labels
-- Progressive enhancement principles
-- Optimized meta tags and structured data
-
----
+—
 
 ## Project Structure
 
 ```text
+index.html
+manifest.json
+assets/
+  css/
+    variables.css
+    base.css
+    components.css
+    animations.css
+    layout.css
+  js/
+    main.js
+    content-manager.js
+    scroll-system.js
+    particles.js
+    theme-system.js
+    mobile-navigation.js
+    form-validation.js
+    performance-seo.js
+    accessibility.js
+data/
+  portfolio-data.json
+assets/images/
+  chinmoy.png
+  pro3.jpg
+```
+
+—
+
+## Features
+
+- Theming: `assets/js/theme-system.js` manages light/dark with smooth transitions
+- Smooth scroll + effects: `assets/js/scroll-system.js` (exposed as `window.smoothScrollManager`)
+- Content management: `assets/js/content-manager.js` renders JSON into sections
+- Animations: utilities and keyframes in `assets/css/animations.css`
+- Particles: canvas background via `assets/js/particles.js`
+- Forms: client-side validation in `assets/js/form-validation.js`
+- Performance/SEO: metrics and meta updates in `assets/js/performance-seo.js`
+
+—
+
+## Data-Driven Content
+
+All editable content lives in `data/portfolio-data.json`.
+
+Key sections
+
+- `personal`: name, title, description, social links
+- `about`: intro and highlights
+- `skills`: technical categories and soft skills
+- `projects`: cards with thumbnails, tech, status, and links
+- `experience`, `services`, `testimonials`, `contact`
+
+Images and documents
+
+- Use relative paths like `./assets/images/...`.
+- This ensures local dev and GitHub Pages both work.
+
+—
+
+## Cards & Components
+
+Skills
+
+- Rendered as `.skill-card` with `.skill-progress` and `.skill-progress-bar`.
+- Progress bars animate from 0 to the level when revealed.
+
+Projects
+
+- Rendered as `.project-card` with image, overlay actions, content, tags.
+- Category filters use `.projects-filters` with `.filter-btn`.
+
+Customizing
+
+- Update data in `portfolio-data.json`; classes and layout are handled for you.
+- Styles live in `assets/css/components.css` and `assets/css/layout.css`.
+
+—
+
+## Local Smoke Test
+
+1. Start a server (PowerShell)
+
+```powershell
+python -m http.server 5500
+# or
+npx serve -l 5500 .
+```
+
+ Visit http://localhost:5500
+
+- Check hero loads, particles animate, and theme toggle works
+- Verify skills/projects populate and filters toggle visibility
+- Confirm scroll reveals trigger and “Back to top” appears after scrolling
+
+Note: Service worker registration runs only when `APP_CONFIG.environment === 'production'`.
+For local tests, SW may be inactive, which is expected.
+
+—
+
+## Deployment (GitHub Pages)
+
+- Ensure all asset paths in HTML/CSS/JS/JSON are relative (e.g., `./assets/...`).
+- Push to `main`; Pages serves from the repository.
+- If you use a project subpath, relative paths keep fetch and images working.
+
+—
+
+## Troubleshooting
+
+- Blank content / console error about JSON: run via HTTP server (not `file://`).
+- Assets 404 on GitHub Pages: ensure paths are `./assets/...` not `/assets/...`.
+- Filters not working: verify project `category` values and classes align.
+- Stale UI after edits: hard refresh (Ctrl+F5). If using a SW, clear site data.
+
+—
+
+## License & Credits
+
+- Open source under MIT (if LICENSE present).
+- Icons: Font Awesome. Fonts: Google Fonts. Images: project assets.
+
+Contact: bangladeshchinmoy@gmail.com
 Chinmoy-Kumar-Biswas.github.io/
 │
 ├── 📄 index.html                    # Main HTML document
@@ -446,7 +222,8 @@ Chinmoy-Kumar-Biswas.github.io/
 └── 🗑️ Legacy Files (for reference)
     ├── style.css                    # Original monolithic CSS
     └── script.js                    # Original monolithic JS
-```
+
+```text
 
 ---
 
@@ -631,8 +408,6 @@ Upload the entire directory to any static hosting service:
 3. Enable HTTPS in hosting settings
 
 ---
-
-## Troubleshooting
 
 ### Common Issues
 
